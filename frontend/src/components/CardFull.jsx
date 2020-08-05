@@ -40,7 +40,7 @@ export default function CardFull() {
   // const x = useSelector( state => state.x)
 
   return (
-    <article>
+    <article className="card">
       <h3>Необходимо донастроить (либо, настроить заново функционал интернет-магазина)</h3>
       <span>12 000 ₽</span>
       <p>{shortDescription}</p>
