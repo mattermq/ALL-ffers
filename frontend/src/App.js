@@ -14,10 +14,13 @@ function App() {
   return (
     <Provider store={store}>
       <div className="app_wrapper">
-        <div className="header">ХЕДЕР <Header /> </div>
+        <div className="header"> <Header /> </div>
      {/* <div className="firstPage"> <FirstPage /> </div> */}
+      <div className="wrap_main">
         <div className="main"> <Main /> </div>
-        <div className="footer">ФУТЕР <Footer /> </div>
+      </div>
+
+        <div className="footer"> <Footer /> </div>
       </div>
     </Provider>
   );
