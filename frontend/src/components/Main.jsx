@@ -1,4 +1,5 @@
 import React from 'react';
+import CardShort from './CardShort';
 import Feed from './Feed'
 
 function Main() {

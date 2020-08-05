@@ -22,9 +22,20 @@ body, html {
 
 
 .header {
-  border: 1px solid grey;
   height: 100px;
   width: 100%;
+  /* background-color: #4776b9; */
+  background: linear-gradient(90deg, rgba(20,65,130,1) 16%, rgba(71,118,185,1) 89%);
+  display: flex;
+  justify-content: center;
+
+}
+
+.headerBlock {
+  width: 80%;
+  height: 100%;
+  border: 1px solid grey;
+
 }
 
 .main {
@@ -49,7 +60,7 @@ body, html {
 }
 
 .footer {
-  border: 1px solid grey;
+  background: linear-gradient(261deg, rgba(20,65,130,1) 16%, rgba(71,118,185,1) 89%);
   height: 100px;
   width: 100%;
 }
