@@ -1,13 +1,15 @@
 import React from 'react';
 import CardShort from './CardShort';
+import Feed from './Feed'
 
-function Main(){
+function Main() {
 
-  return(
+  return (
     <>
-      <div className="main_cardBlock">БЛОК С КАРТОЧКАМИ  < CardShort/></div>
+      <Feed className="main_cardBlock" />
       <div className="main_filterBlock">БЛОК С ФИЛЬТРАМИ </div>
     </>
-  )}
+  )
+}
 
 export default Main;
