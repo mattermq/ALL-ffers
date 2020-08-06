@@ -34,24 +34,63 @@ body, html {
 .headerBlock {
   width: 80%;
   height: 100%;
-  border: 1px solid grey;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
 
+.wrap_login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 13%;
+}
+
+.wrap_main {
+  display: flex;
+  justify-content: center;
 }
 
 .main {
-  border: 1px solid grey;
   height: 100%;
-  width: 100%;
+  width: 80%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
 
 }
 
 .main_cardBlock {
-  border: 1px solid grey;
-  width: 70%;
+  width: 85%;
   height: 100%;
+}
+
+.card {
+  border: 1px solid grey;
+  margin: 3% 0;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.wrap_cardMainText {
+  display: flex;
+  justify-content: space-between;
+  background-color: #88afdd;
+  color: #040615;
+  padding: 1% 2%;
+}
+
+.cardMainText, .priceCard {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.cardText {
+  padding: 1% 2%;
+}
+
+.imgHeartCard {
+  height: 11px;
 }
 
 .main_filterBlock {

@@ -6,7 +6,7 @@ function Main() {
 
   return (
     <>
-      <Feed className="main_cardBlock" />
+      <div className="main_cardBlock"> <Feed /> </div>
       <div className="main_filterBlock">БЛОК С ФИЛЬТРАМИ </div>
     </>
   )

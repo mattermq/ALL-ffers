@@ -41,11 +41,13 @@ export default function CardFull() {
 
   return (
     <article className="card">
-      <h3>Необходимо донастроить (либо, настроить заново функционал интернет-магазина)</h3>
-      <span>12 000 ₽</span>
-      <p>{shortDescription}</p>
-      <span>3 августа, 20:05</span>
-      <button><img src={heartWhite} alt="favourite" /></button>
+      <div className="wrap_cardMainText">
+        <div className="cardMainText">Необходимо донастроить (либо, настроить заново функционал интернет-магазина)</div>
+        <div className="priceCard">12 000 ₽</div>
+      </div>
+      <div className="cardText">{shortDescription}</div>
+      <div>3 августа, 20:05</div>
+      <button><img className="imgHeartCard" src={heartWhite} alt="favourite" /></button>
       <button className="tag">tag1</button>
       <button className="tag">tag2</button>
       <button className="tag">tag3</button>
