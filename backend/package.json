@@ -21,7 +21,6 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "passport-session": "^1.0.2",
-    "puppeteer": "^5.2.1",
     "tress": "^1.1.4"
   },
   "devDependencies": {

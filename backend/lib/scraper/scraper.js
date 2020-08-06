@@ -17,33 +17,47 @@ const queue = tress((url, callback) => {
       $('.content-list__item').each((i, el) => {
         const $element = $(el);
 
-        const title = $element.find('article div header div.task__title a').text();
-        const relLink = $element.find('article div header div.task__title a').attr('href');
-        const publishTime = $element.find('article div header div.task__params span.params__published-at').text();
-        const moneyAmmount = $element.find('article aside div span').text();
+        const relPath = $element.find('article div header div.task__title a').attr('href');
+        const linkToOffer = `https://freelance.habr.com${relPath}`;
 
-        const offer = {
-          title,
-          link: `https://freelance.habr.com${relLink}`,
-          publishTime,
-          moneyAmmount,
-        };
-
-        results.push(offer);
+        queue.push(linkToOffer);
       });
+
+      const title = $('body > div.layout > main > section > div > div > div > div.task.task_detail > h2').text();
+      const description = $('body > div.layout > main > section > div > div > div > div.task.task_detail > div.task__description').text();
+      const budget = $('body > div.layout > main > section > div > div > div > div.task.task_detail > div.task__finance > span').text();
+      const publishedAt = $('body > div.layout > main > section > div > div > div > div.task.task_detail > div.task__meta').text();
+
+      const tags = [];
+      $('body > div.layout > main > section > div > div > div > div.task.task_detail > div.task__tags > ul li.tags__item').each((i, el) => {
+        const $element = $(el);
+
+        const tag = $element.find('a').text();
+
+        tags.push(tag);
+      });
+
+      const offer = {
+        title,
+        description,
+        budget,
+        publishedAt,
+        url,
+      };
+
+      results.push(offer);
 
       const nextPagePath = $('#pagination > div > a.next_page').attr('href');
 
-      // if (nextPagePath) {
-      //   const nextPageUrl = `https://freelance.habr.com${nextPagePath}`;
+      if (nextPagePath) {
+        const nextPageUrl = `https://freelance.habr.com${nextPagePath}`;
 
-      //   queue.push(nextPageUrl);
-      // }
+        queue.push(nextPageUrl);
+      }
 
       callback();
     })
     .catch((err) => console.log('Error!', err));
-
 }, 10);
 
 // эта функция выполнится, когда в очереди закончатся ссылки
@@ -53,4 +67,4 @@ queue.drain = () => {
 };
 
 // добавляем в очередь ссылку на первую страницу списка
-queue.push('https://freelance.habr.com/tasks/316084');
+queue.push(habrUrl);
