@@ -15,16 +15,15 @@ body, html {
 .app_wrapper {
   height: 100%;
   width: 100%;
-  display: flex;
+/*   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-between; */
 }
 
 
 .header {
   height: 100px;
   width: 100%;
-  /* background-color: #4776b9; */
   background: linear-gradient(90deg, rgba(20,65,130,1) 16%, rgba(71,118,185,1) 89%);
   display: flex;
   justify-content: center;
@@ -127,17 +126,18 @@ body, html {
 
 .btnHeartCard {
   margin-right: 2%;
+  
  
 }
 
 .imgHeartCard {
-  height: 11px;
+  height: 13px;
+  
 }
 
 .main_filterBlock {
-  /* border: 1px solid grey; */
   border-radius: 4px;
-  height: 40%;
+  height: 82%;
   width: 15.5%;
   margin: 2% 0;
   background-color: #ecebf0;
@@ -147,7 +147,7 @@ body, html {
   margin-left: 65%;  
 }
 
-.blockIN_main_cardBlock {
+.blockIN_main_filterBlock {
   height: 100%;
   width: 100%;
   display: flex;
@@ -169,4 +169,10 @@ body, html {
   background: linear-gradient(261deg, rgba(20,65,130,1) 16%, rgba(71,118,185,1) 89%);
   height: 100px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  
 }

@@ -8,7 +8,7 @@ function Main() {
     <>
       <div className="main_cardBlock"> <Feed /> </div>
       <div className="main_filterBlock">
-        <div className="blockIN_main_cardBlock">
+        <div className="blockIN_main_filterBlock">
           <div className="filter"> фильтр </div>
           <div className="filter"> фильтр </div>
           <div className="filter"> фильтр </div>
