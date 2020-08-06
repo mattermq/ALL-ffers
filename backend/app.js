@@ -7,7 +7,6 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGO_CONNECT, { useNewUrlParser: true });
 
-
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
