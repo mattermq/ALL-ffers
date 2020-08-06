@@ -1,6 +1,6 @@
 import React from 'react';
-import heartWhite from '../img/heart_white.png'
-import heartBlack from '../img/heart_black.png'
+import heartWhite from '../img/heart_white.png';
+import heartBlack from '../img/heart_black.png';
 
 const fullDescription = `Требуется помощь программиста!
     Готов внести предоплату за ревизию и оценку объема работ.
@@ -27,17 +27,17 @@ const fullDescription = `Требуется помощь программист�
     Для помощи в настройке есть контакты программиста со стороны фулфилмента.
 
     Возможно, потербуется дополнительная поддержка сайта.
-По оплате договоримся.`
+По оплате договоримся.`;
 
 const shortDescription = fullDescription
   .split('')
   .splice(0, 150)
   .join('')
-  .concat('...')
+  .concat('...');
 
 export default function CardFull() {
 
-  // const x = useSelector( state => state.x)
+  // const x = useSelector( state => state.x);
 
   return (
     <article>
