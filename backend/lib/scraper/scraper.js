@@ -25,7 +25,7 @@ const queue = tress((url, callback) => {
 
       const title = $('body > div.layout > main > section > div > div > div > div.task.task_detail > h2').text();
       const description = $('body > div.layout > main > section > div > div > div > div.task.task_detail > div.task__description').text();
-      const cashOffer = $('body > div.layout > main > section > div > div > div > div.task.task_detail > div.task__finance > span').text();
+      const budget = $('body > div.layout > main > section > div > div > div > div.task.task_detail > div.task__finance > span').text();
       const publishedAt = $('body > div.layout > main > section > div > div > div > div.task.task_detail > div.task__meta').text();
 
       const tags = [];
@@ -40,7 +40,7 @@ const queue = tress((url, callback) => {
       const offer = {
         title,
         description,
-        cashOffer,
+        budget,
         publishedAt,
         url,
       };
