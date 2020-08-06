@@ -46,11 +46,16 @@ export default function CardFull() {
         <div className="priceCard">12 000 ₽</div>
       </div>
       <div className="cardText">{shortDescription}</div>
-      <div>3 августа, 20:05</div>
-      <button><img className="imgHeartCard" src={heartWhite} alt="favourite" /></button>
-      <button className="tag">tag1</button>
-      <button className="tag">tag2</button>
-      <button className="tag">tag3</button>
+      <div className="dateTime">3 августа, 20:05</div>
+      <div className="wrapHeartAndTags">
+        <div className="wrapTags">
+          <button className="tag">tag1</button>
+          <button className="tag">tag2</button>
+          <button className="tag">tag3</button>
+        </div>
+        <button className="btnHeartCard"><img className="imgHeartCard" src={heartWhite} alt="favourite" /></button>
+
+      </div>
     </article>
   )
 }

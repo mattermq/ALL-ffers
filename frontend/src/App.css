@@ -62,7 +62,7 @@ body, html {
 }
 
 .main_cardBlock {
-  width: 85%;
+  width: 75%;
   height: 100%;
 }
 
@@ -70,6 +70,19 @@ body, html {
   border: 1px solid grey;
   margin: 3% 0;
   box-shadow: 0 1px 5px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  border-radius: 4px;
+  background-color: #ecebf0;
+}
+
+.card:hover {
+  box-shadow:
+    1px 1px #4776b9,
+    2px 2px #4776b9,
+    3px 3px #4776b9;
+    
+   
+  -webkit-transform: translateX(-3px);
+  transform: translateX(-3px);
 }
 
 .wrap_cardMainText {
@@ -87,6 +100,34 @@ body, html {
 
 .cardText {
   padding: 1% 2%;
+  font-size: 1.2rem;
+  
+}
+
+.dateTime {
+  padding: 1% 2%;
+}
+
+.wrapHeartAndTags {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1%;
+}
+
+.wrapTags {
+  margin-left: 2%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tag {
+  margin-right: 5%;
+}
+
+.btnHeartCard {
+  margin-right: 2%;
+ 
 }
 
 .imgHeartCard {
@@ -94,8 +135,34 @@ body, html {
 }
 
 .main_filterBlock {
-  border: 1px solid grey;
+  /* border: 1px solid grey; */
+  border-radius: 4px;
+  height: 40%;
+  width: 15.5%;
+  margin: 2% 0;
+  background-color: #ecebf0;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  display: inline-block;
+  position: fixed;
+  margin-left: 65%;  
+}
+
+.blockIN_main_cardBlock {
   height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.filter {
+  margin: 3% 0;
+  border: 1px solid grey;
+  padding: 2% 8%;
+  background: linear-gradient(184deg, rgba(20,65,130,1) 5%, rgba(136,175,221,1) 83%);
+  
+  color: white;
 }
 
 .footer {

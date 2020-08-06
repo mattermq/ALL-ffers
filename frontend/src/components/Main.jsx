@@ -7,7 +7,14 @@ function Main() {
   return (
     <>
       <div className="main_cardBlock"> <Feed /> </div>
-      <div className="main_filterBlock">БЛОК С ФИЛЬТРАМИ </div>
+      <div className="main_filterBlock">
+        <div className="blockIN_main_cardBlock">
+          <div className="filter"> фильтр </div>
+          <div className="filter"> фильтр </div>
+          <div className="filter"> фильтр </div>
+          <div className="filter"> фильтр </div>
+        </div>
+      </div>
     </>
   )
 }
