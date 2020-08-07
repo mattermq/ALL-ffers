@@ -1,8 +1,7 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import store from './app/store.js'
-import './App.css';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux'
 import { BrowserRouter as Router, Switch, Link, Route } from 'react-router-dom';
+import './App.css';
 
 import Header from './components/Header';
 import Main from './components/Main';
@@ -10,63 +9,66 @@ import Footer from './components/Footer';
 import FirstPage from './components/FirstPage';
 import Signup from './components/Signup.jsx';
 import Login from './components/Login.jsx';
-
-console.log(store.getState())
+import { fetchOffersThunk } from './store/slice'
 
 function App() {
+
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchOffersThunk())
+  }, [])
+
+
   return (
-    <Provider store={store}>
-      <Router>
-        {/* <div className="firstPage"> <FirstPage /> </div> */}
+    <Router>
+      {/* <div className="firstPage"> <FirstPage /> </div> */}
 
-        <Switch>
+      <Switch>
 
-          <Route exact path="/">
-            <div className="header"> <Header /> </div>
-            <div className="app_wrapper">
-              <div className="wrap_main">
-                <div className="main"> <Main /> </div>
-              </div>
+        <Route exact path="/">
+          <div className="header"> <Header /> </div>
+          <div className="app_wrapper">
+            <div className="wrap_main">
+              <div className="main"> <Main /> </div>
             </div>
-            <div className="footer"> <Footer /> </div>
-          </Route>
+          </div>
+          <div className="footer"> <Footer /> </div>
+        </Route>
 
-          <Route exact path="/main">
-            <div className="header"> <Header /> </div>
-            <div className="app_wrapper">
-              <div className="wrap_main">
-                <div className="main"> <Main /> </div>
-              </div>
+        <Route exact path="/main">
+          <div className="header"> <Header /> </div>
+          <div className="app_wrapper">
+            <div className="wrap_main">
+              <div className="main"> <Main /> </div>
             </div>
-            <div className="footer"> <Footer /> </div>
-          </Route>
+          </div>
+          <div className="footer"> <Footer /> </div>
+        </Route>
 
 
-          <Route exact path="/signup">
-            <div className="header"> <Header /> </div>
-            <div className="app_wrapper">
-              <div className="wrap_main">
-                <div className="main"> <Signup /></div>
-              </div>
+        <Route exact path="/signup">
+          <div className="header"> <Header /> </div>
+          <div className="app_wrapper">
+            <div className="wrap_main">
+              <div className="main"> <Signup /></div>
             </div>
-            <div className="footer"> <Footer /> </div>
-          </Route>
+          </div>
+          <div className="footer"> <Footer /> </div>
+        </Route>
 
-          <Route exact path="/login">
-            <div className="header"> <Header /> </div>
-            <div className="app_wrapper">
-              <div className="wrap_main">
-                <div className="main"><Login /></div>
-              </div>
+        <Route exact path="/login">
+          <div className="header"> <Header /> </div>
+          <div className="app_wrapper">
+            <div className="wrap_main">
+              <div className="main"><Login /></div>
             </div>
-            <div className="footer"> <Footer /> </div>
-          </Route>
+          </div>
+          <div className="footer"> <Footer /> </div>
+        </Route>
 
-        </Switch>
+      </Switch>
 
-      </Router>
-
-    </Provider>
+    </Router>
   );
 }
 

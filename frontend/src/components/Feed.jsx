@@ -4,12 +4,12 @@ import CardShort from './CardShort';
 import { useSelector } from 'react-redux';
 
 function Feed() {
-  const jobs = useSelector((state) => state.counter.jobs)
-  console.log(jobs)
-  if (jobs)
+  const offersAll = useSelector((state) => state.slice.offers)
+  const offers = offersAll.slice(0, 30)
+  if (offers)
     return (
       <>
-        {jobs.length > 0 && jobs.map(job => <CardFull key={job._id} job={job} />)}
+        {offers.length > 0 && offers.map(offer => <CardFull key={offer._id} offer={offer} />)}
       </>
     )
   else return null
