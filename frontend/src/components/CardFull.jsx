@@ -51,7 +51,7 @@ export default function CardFull(props) {
       <div className="dateTime">{publishedAt}</div>
       <div className="wrapHeartAndTags">
         <div className="wrapTags">
-          {tags.map(tag => <button className="tag">{tag}</button>)}
+          {tags.map((tag, index) => <button key={index} className="tag">{tag}</button>)}
 
           {/* <button className="tag">tag2</button>
           <button className="tag">tag3</button> */}
