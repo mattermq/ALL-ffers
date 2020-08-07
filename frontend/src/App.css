@@ -23,6 +23,10 @@ body, html {
   justify-content: space-between; */
 }
 
+a {
+  text-decoration: none;
+}
+
 .header {
   height: 70px;
   width: 100%;
@@ -40,11 +44,17 @@ body, html {
   color: white;
 }
 
+.headerBlock a:visited, a:active, a:link  {
+  color: #f1f1f1; 
+}
+
 .wrap_login {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 13%;
+}
+
+.login {
+  margin-right: 6%;
 }
 
 .firstPage {
