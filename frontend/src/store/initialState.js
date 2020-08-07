@@ -1,5 +1,26 @@
+// const state = {
+//   isLoading: false,
+//   offers: [{
+//   }],
+//   user: {
+//     isAuth: false,
+//     firstName: undefined,
+//     lastName: undefined,
+//     favourites: [],
+//   },
+//   view: {}
+// }
+
 const initialState = {
-  jobs: [{
+  isLoading: false,
+  user: {
+    isAuth: false,
+    firstName: undefined,
+    lastName: undefined,
+    favourites: [],
+  },
+  view: {},
+  offers: [{
     _id: '123',
     title: 'Необходимо донастроить (либо, настроить заново функционал интернет-магазина)',
     description: `Требуется помощь программиста!
