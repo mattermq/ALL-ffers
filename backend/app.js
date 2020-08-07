@@ -21,6 +21,9 @@ const saltRounds = 10;
 const myPlaintextPassword = 's0/\/\P4$$w0rD';
 const someOtherPlaintextPassword = 'not_bacon';
 
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+
 const app = express();
 
 app.use(logger('dev'));
@@ -41,55 +44,51 @@ const corsOptions = {
 app.use(cors(corsOptions))
 
 app.post('/signup', async (req, res, next) => {
-  const { name, email, password } = req.body
+  const { firstName, lastName, email, password } = req.body
   const candidate = await User.findOne({ email })
-  if (!name || !email || !password) {
+  const passHash = await bcrypt.hash(password, 10)
+  if (!firstName || !lastName || !email || !password) {
     res.status(400)
     return res.json({ message: 'Fill out all fields!' })
   } else if (candidate) {
     res.status(400)
     return res.json({ message: 'User with this email already exists!' })
   }
-  bcrypt.hash(myPlaintextPassword, saltRounds, function (err, hash) {
-    if (err) return next(err)
-    else {
-      const newUser = new User({
-        name,
-        email,
-        password: hash,
-      })
-      newUser.save();
-      console.log('User Registration successful');
-      req.login(newUser, function (err) {
-        if (err) { return next(err) }
-        console.log(req.session)
-        return res.json(newUser)
-      })
-    }
+  const newUser = new User({
+    firstName,
+    lastName,
+    email,
+    password: passHash,
+  })
+  newUser.save();
+  console.log('User Registration successful');
+  req.login(newUser, function (err) {
+    if (err) { return next(err) }
+    return res.json({ firstName, lastName, _id: newUser._id, favourites: [] })
   })
 })
+
 
 app.post('/login', async (req, res, next) => {
   const { email, password } = req.body
   const user = await User.findOne({ email })
   const match = await bcrypt.compare(password, user.password);
   if (!email || !password) {
-    return res.json({ message: 'Fill out all fields!' })
     res.status(400)
+    return res.json({ message: 'Fill out all fields!' })
   }
   else if (!user) {
     res.status(404)
     return res.json({ message: 'No user with this email. Please sign up.' })
   }
-  else if (!match)
+  else if (!match) {
+    res.status(400)
     return res.json({ message: 'Wrong password!' })
-  else {
+  } else {
     req.login(user, function (err) {
       if (err) { return next(err) }
-      // console.log('LOGIN req.user', req.user)
-      // console.log('LOGIN req.session', req.session)
-      // console.log('LOGIN req.session.passport.user', req.session.passport.user)
-      return res.json({ username: user.name, _id: user._id })
+      const { firstName, lastName, _id, favourites } = user
+      return res.json({ firstName, lastName, _id, favourites })
     })
   }
 })
