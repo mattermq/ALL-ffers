@@ -59,9 +59,9 @@ function App() {
         <Route exact path="/login">
           <div className="app_wrapper">
             <div className="header"> <Header /> </div>
-              <div className="wrap_main">
-                <div className="main"> <Login /> </div>
-              </div>
+              
+                <div className="main_login"> <Login /> </div>
+             
             <div className="footer"> <Footer /> </div>
           </div>
         </Route>
