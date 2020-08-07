@@ -23,6 +23,9 @@ body, html {
   justify-content: space-between; */
 }
 
+a {
+  text-decoration: none;
+}
 
 .header {
   height: 70px;
@@ -30,7 +33,6 @@ body, html {
   background: linear-gradient(90deg, rgba(20,65,130,1) 16%, rgba(71,118,185,1) 89%);
   display: flex;
   justify-content: center;
-
 }
 
 .headerBlock {
@@ -42,11 +44,35 @@ body, html {
   color: white;
 }
 
+.headerBlock a:visited, a:active, a:link  {
+  color: #f1f1f1; 
+}
+
 .wrap_login {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 13%;
+}
+
+.login {
+  margin-right: 6%;
+}
+
+.firstPage {
+  display: flex;
+  justify-content: center;
+  height: 86%;
+  background-image: url(./img/jesus-kiteque-wn-KYaHwcis-unsplash.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+ 
+}
+
+.mainFirstPage {
+  height: 100%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
 }
 
 .wrap_main {
@@ -66,6 +92,7 @@ body, html {
   margin-top: 2%;
   color: #040615;
   font-weight: bold;
+  letter-spacing: 0.2rem;
 }
 
 .mainTextSmall {
@@ -73,6 +100,7 @@ body, html {
   margin-top: 0.5%;
   color: #040615;
   font-weight: bold;
+  letter-spacing: 0.2rem;
 }
 
 
@@ -88,10 +116,8 @@ body, html {
 }
 
 .card {
-  border: 1px solid grey;
   margin: 3% 0;
   box-shadow: 0 1px 5px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  border-radius: 4px;
   background-color: #ecebf0;
 }
 
@@ -101,7 +127,6 @@ body, html {
     2px 2px #4776b9,
     3px 3px #4776b9;
     
-   
   -webkit-transform: translateX(-3px);
   transform: translateX(-3px);
 }
@@ -116,13 +141,10 @@ body, html {
 
 .cardMainText, .priceCard {
   font-weight: bold;
-  
 }
 
 .cardText {
   padding: 1% 2%;
-  
-  
 }
 
 .dateTime {
@@ -138,25 +160,37 @@ body, html {
 
 .wrapTags {
   margin-left: 2%;
+  margin-bottom: 2%;
   display: flex;
   justify-content: space-between;
 }
 
 .tag {
   margin-right: 5%;
+  cursor: pointer;
+}
+
+.wrap_openAndHeart {
+  display: flex;
+  justify-content: space-between;
+  width: 14%;
+  margin-right: 2%;
+}
+
+.btnOpenCard {
+  font-size: 0.8rem;
+  border: none;
+  cursor: pointer;
 }
 
 .btnHeartCard {
-  margin-right: 2%;
-  
- 
+  border: none;
+  cursor: pointer;
 }
 
 .imgHeartCard {
-  height: 13px;
-  
+  height: 20px;
 }
-
 
 .main_filterBlock_Search {
   border-radius: 4px;
@@ -185,11 +219,33 @@ body, html {
   padding: 2% 30%;
 }
 
-.main_filterBlock {
+.main_filterBlock_Tags {
   border-radius: 4px;
-  height: 42%;
+  height: 13%;
   width: 15.5%;
   margin: 8% 0;
+  background-color: #ecebf0;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  display: inline-block;
+  position: fixed;
+  margin-left: 65%;  
+}
+
+.blockIN_main_filterBlock_Tags {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.main_filterBlock {
+  border-radius: 4px;
+  height: 36%;
+  width: 15.5%;
+  margin: 16.5% 0;
   background-color: #ecebf0;
   box-shadow: 0 1px 5px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   display: inline-block;
@@ -224,5 +280,6 @@ body, html {
   justify-content: center;
   align-items: center;
   color: white;
-  
 }
+
+

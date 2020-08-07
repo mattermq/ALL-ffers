@@ -26,44 +26,44 @@ function App() {
       <Switch>
 
         <Route exact path="/">
-          <div className="header"> <Header /> </div>
           <div className="app_wrapper">
-            <div className="wrap_main">
-              <div className="main"> <Main /> </div>
-            </div>
+            <div className="header"> <Header /> </div>
+              <div className="wrap_main">
+                <div className="main"> <Main /> </div>
+              </div>
+            <div className="footer"> <Footer /> </div>
           </div>
-          <div className="footer"> <Footer /> </div>
         </Route>
 
         <Route exact path="/main">
-          <div className="header"> <Header /> </div>
           <div className="app_wrapper">
-            <div className="wrap_main">
-              <div className="main"> <Main /> </div>
-            </div>
+            <div className="header"> <Header /> </div>
+              <div className="wrap_main">
+                <div className="main"> <Main /> </div>
+              </div>
+            <div className="footer"> <Footer /> </div>
           </div>
-          <div className="footer"> <Footer /> </div>
         </Route>
 
 
         <Route exact path="/signup">
-          <div className="header"> <Header /> </div>
           <div className="app_wrapper">
-            <div className="wrap_main">
-              <div className="main"> <Signup /></div>
-            </div>
+            <div className="header"> <Header /> </div>
+              <div className="wrap_main">
+                <div className="main"> <Signup /> </div>
+              </div>
+            <div className="footer"> <Footer /> </div>
           </div>
-          <div className="footer"> <Footer /> </div>
         </Route>
 
         <Route exact path="/login">
-          <div className="header"> <Header /> </div>
           <div className="app_wrapper">
-            <div className="wrap_main">
-              <div className="main"><Login /></div>
-            </div>
+            <div className="header"> <Header /> </div>
+              <div className="wrap_main">
+                <div className="main"> <Login /> </div>
+              </div>
+            <div className="footer"> <Footer /> </div>
           </div>
-          <div className="footer"> <Footer /> </div>
         </Route>
 
       </Switch>

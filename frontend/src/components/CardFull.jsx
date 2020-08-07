@@ -56,8 +56,10 @@ export default function CardFull(props) {
           {/* <button className="tag">tag2</button>
           <button className="tag">tag3</button> */}
         </div>
-        <button className="btnHeartCard"><img className="imgHeartCard" src={heartWhite} alt="favourite" /></button>
-
+        <div className="wrap_openAndHeart">
+          <button className="btnOpenCard">развернуть</button>
+          <button className="btnHeartCard"><img className="imgHeartCard" src={heartWhite} alt="favourite" /></button>
+        </div>
       </div>
     </article>
   )
