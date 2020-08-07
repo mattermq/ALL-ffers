@@ -15,6 +15,11 @@ function Main() {
             <div className="search"> поиск </div>
           </div>
         </div>
+        <div className="main_filterBlock_Tags">
+          <div className="blockIN_main_filterBlock_Tags">
+            <div className="filterTags"> Поле с тегами</div>
+          </div>
+        </div>
         <div className="main_filterBlock">
           <div className="blockIN_main_filterBlock">
             <div className="filter"> фильтр </div>
