@@ -5,10 +5,11 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
 const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGO_CONNECT, { useNewUrlParser: true });
 
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const scrapeRouter = require('./routes/scrape.js');
+const offersRouter = require('./routes/offers.js');
+
+mongoose.connect(process.env.MONGO_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const app = express();
 
@@ -18,7 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/scrape', scrapeRouter);
+app.use('/offers', offersRouter);
 
 app.listen(process.env.PORT || 3003);
