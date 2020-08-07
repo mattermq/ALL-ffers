@@ -30,7 +30,7 @@ import heartBlack from '../img/heart_black.png';
 // По оплате договоримся.`;
 
 export default function CardFull(props) {
-  let { title, description, budget, publishedAt, url } = props.offer
+  let { title, description, budget, publishedAt, tags, url } = props.offer
 
   const shortDescription = description
     .split('')
@@ -38,8 +38,8 @@ export default function CardFull(props) {
     .join('')
     .concat('...');
 
-  if (publishedAt)
-    publishedAt = publishedAt.slice(0, publishedAt.indexOf('•'))
+  // if (publishedAt)
+  //   publishedAt = publishedAt.slice(0, publishedAt.indexOf('•') - 1)
 
   return (
     <article className="card">
@@ -51,9 +51,10 @@ export default function CardFull(props) {
       <div className="dateTime">{publishedAt}</div>
       <div className="wrapHeartAndTags">
         <div className="wrapTags">
-          <button className="tag">tag1</button>
-          <button className="tag">tag2</button>
-          <button className="tag">tag3</button>
+          {tags.map(tag => <button className="tag">{tag}</button>)}
+
+          {/* <button className="tag">tag2</button>
+          <button className="tag">tag3</button> */}
         </div>
         <button className="btnHeartCard"><img className="imgHeartCard" src={heartWhite} alt="favourite" /></button>
 
