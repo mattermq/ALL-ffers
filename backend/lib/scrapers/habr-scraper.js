@@ -1,7 +1,6 @@
 const fetch = require('node-fetch');
 const cheerio = require('cheerio');
 const tress = require('tress');
-const fs = require('fs');
 const mongoose = require('mongoose');
 
 const Offer = require('../../models/offer.js');
@@ -31,6 +30,7 @@ function scrapeHabr() {
         const description = $('body > div.layout > main > section > div > div > div > div.task.task_detail > div.task__description').text();
         const budget = $('body > div.layout > main > section > div > div > div > div.task.task_detail > div.task__finance > span').text();
         const publishedAt = $('body > div.layout > main > section > div > div > div > div.task.task_detail > div.task__meta').text();
+        const isArchived = !($('body > div.layout > div > div > div > div').text() === '');
 
         const tags = [];
         $('body > div.layout > main > section > div > div > div > div.task.task_detail > div.task__tags > ul li.tags__item').each((i, el) => {
@@ -42,11 +42,13 @@ function scrapeHabr() {
         });
 
         const offer = {
-          title: title.replace(/(\r|\n)/gm, ''),
-          description: description.replace(/(\r|\n)/gm, ''),
+          title: title.replace(/(\r|\n)/gm, ' ').split(' ').filter((el) => el !== '').join(' '),
+          description: description.replace(/(\r|\n)/gm, ' ').split(' ').filter((el) => el !== '').join(' '),
           budget: budget.replace(/(\r|\n)/gm, ''),
           publishedAt: publishedAt.replace(/(\r|\n)/gm, ''),
+          tags,
           url,
+          isArchived,
         };
 
         results.push(offer);
@@ -56,11 +58,7 @@ function scrapeHabr() {
         if (nextPagePath) {
           const nextPageUrl = `https://freelance.habr.com${nextPagePath}`;
 
-          if (nextPageUrl === 'https://freelance.habr.com/tasks?_=1596719064746&categories=development_all_inclusive%2Cdevelopment_backend%2Cdevelopment_frontend%2Cdevelopment_prototyping%2Cdevelopment_ios%2Cdevelopment_android%2Cdevelopment_desktop%2Cdevelopment_bots%2Cdevelopment_games%2Cdevelopment_1c_dev%2Cdevelopment_scripts%2Cdevelopment_voice_interfaces%2Cdevelopment_other&page=15') {
-            console.log('15 page!');
-          } else {
-            queue.push(nextPageUrl);
-          }
+          queue.push(nextPageUrl);
         }
 
         callback();
@@ -70,21 +68,31 @@ function scrapeHabr() {
 
   // эта функция выполнится, когда в очереди закончатся ссылки
   queue.drain = () => {
-    console.log(results);
-    results.forEach((el) => {
-      const newOffer = new Offer({
-        title: el.title,
-        description: el.description,
-        budget: el.budget,
-        publishedAt: el.publishedAt,
-        url: el.url,
-      });
+    const offers = results.filter((el) => el.title !== '' && el.title !== 'Архив' && !el.isArchived);
 
-      try {
-        newOffer.save();
-        console.log(`${el.title} Saved!`);
-      } catch (err) {
-        console.log('Save Error!', err);
+    offers.forEach(async (el) => {
+      const offerInDb = await Offer.findOne({ url: el.url });
+
+      if (!offerInDb) {
+        const newOffer = new Offer({
+          title: el.title,
+          description: el.description,
+          haveProjectBudget: el.budget.match(/\d/gi) !== null && el.budget.includes('проект'),
+          haveHourlyRate: el.budget.match(/\d/gi) !== null && el.budget.includes('час'),
+          budget: el.budget.match(/\d/gi) !== null ? el.budget.match(/\d/gi).join('') : 'Цена договорная',
+          publishedAt: el.publishedAt.slice(0, el.publishedAt.indexOf('•') - 1),
+          tags: el.tags,
+          url: el.url,
+        });
+
+        try {
+          newOffer.save();
+          console.log(`SAVED: ${el}`);
+        } catch (err) {
+          console.log('Save Error!', err);
+        }
+      } else {
+        console.log('OFFER ALREADY IN DB: ', offerInDb);
       }
     });
   };

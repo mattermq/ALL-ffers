@@ -9,6 +9,12 @@ const offerSchema = new Schema({
   description: {
     type: String,
   },
+  haveProjectBudget: {
+    type: Boolean,
+  },
+  haveHourlyRate: {
+    type: Boolean,
+  },
   budget: {
     type: String,
   },
@@ -20,6 +26,10 @@ const offerSchema = new Schema({
   },
   url: {
     type: String,
+  },
+  isVisible: {
+    type: Boolean,
+    default: true,
   },
 });
 
