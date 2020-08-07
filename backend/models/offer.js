@@ -9,10 +9,10 @@ const offerSchema = new Schema({
   description: {
     type: String,
   },
-  haveProjectBudget: {
+  hasProjectBudget: {
     type: Boolean,
   },
-  haveHourlyRate: {
+  hasHourlyRate: {
     type: Boolean,
   },
   budget: {
@@ -21,10 +21,16 @@ const offerSchema = new Schema({
   publishedAt: {
     type: String,
   },
+  publishedAtTS: {
+    type: String,
+  },
   tags: {
     type: Array,
   },
   url: {
+    type: String,
+  },
+  from: {
     type: String,
   },
   isVisible: {
