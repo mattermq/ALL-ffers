@@ -15,21 +15,23 @@ export const slice = createSlice({
       // immutable state based off those changes
       state.value += 1;
     },
-    decrement: state => {
-      state.value -= 1;
+
+
+    toggleFilterBudgetAC: state => {
+      state.view.filterBudget = !state.view.filterBudget;
     },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
+
+    changeSortOptionAC: (state, action) => {
+      state.view.sortOption = action.payload;
     },
 
     addOffers: (state, action) => {
-      console.log('ACTION', action)
       state.offers = action.payload;
     },
 
   },
 });
-export const { increment, decrement, addOffers } = slice.actions;
+export const { increment, decrement, addOffers, toggleFilterBudgetAC, changeSortOptionAC } = slice.actions;
 
 // The function below is called a thunk and allows us to perform async logic. It
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This

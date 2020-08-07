@@ -4,8 +4,30 @@ import CardShort from './CardShort';
 import { useSelector } from 'react-redux';
 
 function Feed() {
+  const filterBudget = useSelector(state => state.slice.view.filterBudget)
+  const sortOption = useSelector(state => state.slice.view.sortOption)
+
   const offersAll = useSelector((state) => state.slice.offers)
-  const offers = offersAll.slice(0, 30)
+  let offers = offersAll.slice()
+
+  if (filterBudget)
+    offers = offers.filter(offer => (offer.hasProjectBudget) || (offer.hasHourlyRate))
+
+  if (sortOption === 'hasProjectBudget') {
+    offers = offers
+      .filter(offer => offer.hasProjectBudget === true)
+      .sort((a, b) => Number(b.budget) - Number(a.budget))
+  } else if (sortOption === 'hasHourlyRate') {
+    offers = offers
+      .filter(offer => offer.hasHourlyRate === true)
+      .sort((a, b) => Number(b.budget) - Number(a.budget))
+  } else if (sortOption === 'publishedAtTS') {
+    offers = offers
+      .sort((a, b) => b.publishedAtTS - a.publishedAtTS)
+  }
+
+  offers = offers.slice(0, 30)
+
   if (offers)
     return (
       <>
