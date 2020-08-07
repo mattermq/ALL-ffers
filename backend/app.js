@@ -5,21 +5,21 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-
-const scrapeRouter = require('./routes/scrape.js');
-const offersRouter = require('./routes/offers.js');
-
-mongoose.connect(process.env.MONGO_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true });
-
 const session = require('express-session');
 const passport = require('passport');
+const bcrypt = require('bcrypt');
 const passportSession = require('passport-session');
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('./models/user');
-const bcrypt = require('bcrypt');
+
 const saltRounds = 10;
 const myPlaintextPassword = 's0/\/\P4$$w0rD';
 const someOtherPlaintextPassword = 'not_bacon';
+
+mongoose.connect(process.env.MONGO_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true });
+
+const scrapeRouter = require('./routes/scrape.js');
+const offersRouter = require('./routes/offers.js');
 
 const app = express();
 
