@@ -15,6 +15,9 @@ const offerSchema = new Schema({
   publishedAt: {
     type: String,
   },
+  tags: {
+    type: Array,
+  },
   url: {
     type: String,
   },

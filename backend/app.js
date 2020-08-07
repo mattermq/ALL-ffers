@@ -6,7 +6,10 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGO_CONNECT, { useNewUrlParser: true });
+const scrapeRouter = require('./routes/scrape.js');
+const offersRouter = require('./routes/offers.js');
+
+mongoose.connect(process.env.MONGO_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const session = require('express-session');
 const passport = require('passport');
@@ -17,11 +20,6 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const myPlaintextPassword = 's0/\/\P4$$w0rD';
 const someOtherPlaintextPassword = 'not_bacon';
-
-
-// const indexRouter = require('./routes/index');
-// const usersRouter = require('./routes/users');
-
 
 const app = express();
 
@@ -41,7 +39,6 @@ const corsOptions = {
   credentials: true
 };
 app.use(cors(corsOptions))
-
 
 app.post('/signup', async (req, res, next) => {
   const { name, email, password } = req.body
@@ -100,7 +97,7 @@ app.post('/login', async (req, res, next) => {
 passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((user, done) => done(null, user));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/scrape', scrapeRouter);
+app.use('/offers', offersRouter);
 
 app.listen(process.env.PORT || 3003);
