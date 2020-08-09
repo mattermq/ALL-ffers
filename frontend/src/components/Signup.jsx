@@ -34,23 +34,23 @@ export default function Signup() {
   }
 
   return (
-    <form onSubmit={submitHandler}>
+    <form className="form_signup" onSubmit={submitHandler}>
 
-      <label htmlFor="firstName">Имя</label>
-      <input type="text" name="firstName" required onChange={changeHandler} value={state.firstName} />
+      <label className="formLable" htmlFor="firstName">Имя</label>
+      <input className="formInput" type="text" name="firstName" required onChange={changeHandler} value={state.firstName} />
 
-      <label htmlFor="lastName">Фамилия</label>
-      <input type="text" name="lastName" required onChange={changeHandler} value={state.lastName} />
+      <label className="formLable" htmlFor="lastName">Фамилия</label>
+      <input className="formInput" type="text" name="lastName" required onChange={changeHandler} value={state.lastName} />
 
-      <label htmlFor="email">Емайл</label>
-      <input type="email" name="email" required onChange={changeHandler} value={state.email} />
+      <label className="formLable" htmlFor="email">Емайл</label>
+      <input className="formInput" type="email" name="email" required onChange={changeHandler} value={state.email} />
 
-      <label htmlFor="password">Пароль</label>
-      <input type="password" name="password" required onChange={changeHandler} value={state.password} />
-      <label htmlFor="password2">Повторите пароль</label>
+      <label className="formLable" htmlFor="password">Пароль</label>
+      <input className="formInput" type="password" name="password" required onChange={changeHandler} value={state.password} />
+      <label className="formLable" htmlFor="password2">Повторите пароль</label>
 
-      <input type="password" name="password2" required onChange={changeHandler} value={state.password2} />
-      <button type="submit">Зарегистрироваться</button>
+      <input className="formInput" type="password" name="password2" required onChange={changeHandler} value={state.password2} />
+      <button className="formBtn" type="submit">Зарегистрироваться</button>
     </form>
   )
 }

@@ -21,16 +21,12 @@ function App() {
 
   return (
     <Router>
-      {/* <div className="firstPage"> <FirstPage /> </div> */}
-
       <Switch>
 
         <Route exact path="/">
           <div className="app_wrapper">
             <div className="header"> <Header /> </div>
-              <div className="wrap_main">
-                <div className="main"> <Main /> </div>
-              </div>
+            <div className="firstPage"> <FirstPage /> </div>
             <div className="footer"> <Footer /> </div>
           </div>
         </Route>
@@ -49,9 +45,9 @@ function App() {
         <Route exact path="/signup">
           <div className="app_wrapper">
             <div className="header"> <Header /> </div>
-              <div className="wrap_main">
-                <div className="main"> <Signup /> </div>
-              </div>
+              
+                <div className="main_signup"> <Signup /> </div>
+              
             <div className="footer"> <Footer /> </div>
           </div>
         </Route>

@@ -32,14 +32,11 @@ export default function Login() {
   return (
     
       <form className="form" onSubmit={submitHandler}>
-
-        <label htmlFor="email">Емайл</label>
-        <input type="email" name="email" required onChange={changeHandler} value={state.email} />
-
-        <label className="formPassword" htmlFor="password">Пароль</label>
-        <input type="password" name="password" required onChange={changeHandler} value={state.password} />
-
-        <button className="formBtn" type="submit">Зарегистрироваться</button>
+        <label className="formLable" htmlFor="email">Емайл</label>
+        <input className="formInput" type="email" name="email" required onChange={changeHandler} value={state.email} />
+        <label className="formLable" htmlFor="password">Пароль</label>
+        <input className="formInput" type="password" name="password" required onChange={changeHandler} value={state.password} />
+        <button className="formBtn" type="submit">Войти</button>
       </form>
   
   )
