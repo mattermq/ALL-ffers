@@ -1,37 +1,41 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleFilterBudgetAC } from '../store/slice'
+import { toggleFilterBudgetAC, toggleFilterFavouritesAC } from '../store/slice'
 
 export default function FilterBlock() {
 
   const dispatch = useDispatch()
-  const filterBudget = useSelector(state => state.slice.view.filterBudget)
-
-  // const [filterBudget, setFilterBudget] = useState(false)
-
-  // const budgetFilterHandler = (e) => {
-  //   toggleBudgetFilterAC()
-  // }
-
-  // const handleInputChange = (event) => {
-  //   const target = event.target;
-  //   const value = target.name === 'isGoing' ? target.checked : target.value;
-  //   const name = target.name;
-  // }
-
+  const { filterBudget, filterFavourites } = useSelector(state => state.slice.view)
+  const isAuth = useSelector(state => state.slice.user.isAuth)
 
   return (
-    <form>
-      <label>
-        С бюджетом:
+    <>
+      {isAuth &&
+        <form>
           <input
+            name="filterFavourites"
+            type="checkbox"
+            checked={filterFavourites}
+            onChange={() => dispatch(toggleFilterFavouritesAC())} />
+          <label>
+            Избранные:
+        </label>
+          <br />
+        </form>}
+
+      <form>
+        <input
           name="filterBudget"
           type="checkbox"
           checked={filterBudget}
           onChange={() => dispatch(toggleFilterBudgetAC())} />
-      </label>
-      <br />
-    </form>
+        <label>
+          С бюджетом:
+        </label>
+
+        <br />
+      </form>
+    </>
   );
 }
 
