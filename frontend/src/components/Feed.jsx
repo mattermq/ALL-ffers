@@ -10,6 +10,7 @@ function Feed() {
     return (
       <>
         {offers.length > 0 && offers.map(offer => <CardFull key={offer._id} offer={offer} />)}
+       {/*  {offers.length > 0 && offers.map(offer => <CardShort key={offer._id} offer={offer} />)} */}
       </>
     )
   else return null

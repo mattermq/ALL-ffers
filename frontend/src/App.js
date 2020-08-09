@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import FirstPage from './components/FirstPage';
 import Signup from './components/Signup.jsx';
 import Login from './components/Login.jsx';
+import CardShort from './components/CardShort';
 import { fetchOffersThunk } from './store/slice'
 
 function App() {
@@ -63,6 +64,12 @@ function App() {
         </Route>
 
       </Switch>
+
+      <Route exact path="/testCardShort"> {/* тестовое отображение - ПО ЗАВЕРШЕНИЮ УБРАТЬ */}
+          <div className="app_wrapper">
+                <div className="cardShort"> <CardShort /> </div>
+          </div>
+        </Route>
 
     </Router>
   );

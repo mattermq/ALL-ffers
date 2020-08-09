@@ -18,9 +18,9 @@ body, html {
 .app_wrapper {
   height: 100%;
   width: 100%;
-/*   display: flex;
+  display: flex;
   flex-direction: column;
-  justify-content: space-between; */
+  justify-content: space-between;
 }
 
 a {
@@ -210,7 +210,7 @@ a {
 }
 
 .card {
-  margin: 3% 0;
+  margin: 1.5% 0;
   box-shadow: 0 1px 5px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   background-color: #ecebf0;
   border-radius: 4px;
@@ -306,6 +306,7 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
 }
 
 .search {
@@ -355,6 +356,7 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 100px;
 }
 
 .filter {
