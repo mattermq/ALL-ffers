@@ -12,19 +12,25 @@
 // }
 
 const initialState = {
-  isLoading: false,
   user: {
     isAuth: false,
+    _id: undefined,
     firstName: undefined,
     lastName: undefined,
     favourites: [],
   },
   view: {
+    isLoading: false,
+    componentsSize: 1,
     filterBudget: false,
+    filterFavourites: false,
     filterSearch: '',
     sortOption: '',
+    currentPage: 1,
+    postsPerPage: 10,
   },
   offers: [],
+  tags: []
 };
 
 

@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&family=Roboto+Condensed:ital,wght@1,300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&family=Roboto+Condensed:ital,wght@1,300&display=swap");
 
-body, html {
+body,
+html {
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 #root {
@@ -18,7 +19,7 @@ body, html {
 .app_wrapper {
   height: 100%;
   width: 100%;
-/*   display: flex;
+  /*   display: flex;
   flex-direction: column;
   justify-content: space-between; */
 }
@@ -30,7 +31,11 @@ a {
 .header {
   height: 70px;
   width: 100%;
-  background: linear-gradient(90deg, rgba(20,65,130,1) 16%, rgba(71,118,185,1) 89%);
+  background: linear-gradient(
+    90deg,
+    rgba(20, 65, 130, 1) 16%,
+    rgba(71, 118, 185, 1) 89%
+  );
   display: flex;
   justify-content: center;
 }
@@ -44,8 +49,10 @@ a {
   color: white;
 }
 
-.headerBlock a:visited, a:active, a:link  {
-  color: #f1f1f1; 
+.headerBlock a:visited,
+a:active,
+a:link {
+  color: #f1f1f1;
 }
 
 .wrap_login {
@@ -65,7 +72,6 @@ a {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
- 
 }
 
 .mainFirstPage {
@@ -107,8 +113,9 @@ a {
   background-color: #ecebf0;
 }
 
-.formPassword, .formBtn {
-  margin-top: 4%
+.formPassword,
+.formBtn {
+  margin-top: 4%;
 }
 
 .mainText {
@@ -127,7 +134,6 @@ a {
   letter-spacing: 0.2rem;
 }
 
-
 .wrap_cardBlock_and_filterBlock {
   display: flex;
   flex-direction: row;
@@ -141,16 +147,17 @@ a {
 
 .card {
   margin: 3% 0;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   background-color: #ecebf0;
 }
 
+.card_extended {
+  height: 300px;
+}
+
 .card:hover {
-  box-shadow:
-    1px 1px #4776b9,
-    2px 2px #4776b9,
-    3px 3px #4776b9;
-    
+  box-shadow: 1px 1px #4776b9, 2px 2px #4776b9, 3px 3px #4776b9;
+
   -webkit-transform: translateX(-3px);
   transform: translateX(-3px);
 }
@@ -163,7 +170,8 @@ a {
   padding: 1% 2%;
 }
 
-.cardMainText, .priceCard {
+.cardMainText,
+.priceCard {
   font-weight: bold;
 }
 
@@ -222,10 +230,10 @@ a {
   width: 15.5%;
   margin: 2% 0;
   background-color: #ecebf0;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   display: inline-block;
   position: fixed;
-  margin-left: 65%;  
+  margin-left: 65%;
 }
 
 .blockIN_main_filterBlock_Search {
@@ -249,10 +257,10 @@ a {
   width: 15.5%;
   margin: 8% 0;
   background-color: #ecebf0;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   display: inline-block;
   position: fixed;
-  margin-left: 65%;  
+  margin-left: 65%;
 }
 
 .blockIN_main_filterBlock_Tags {
@@ -264,17 +272,16 @@ a {
   align-items: center;
 }
 
-
 .main_filterBlock {
   border-radius: 4px;
   height: 36%;
   width: 15.5%;
   margin: 16.5% 0;
   background-color: #ecebf0;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   display: inline-block;
   position: fixed;
-  margin-left: 65%;  
+  margin-left: 65%;
 }
 
 .blockIN_main_filterBlock {
@@ -290,13 +297,21 @@ a {
   margin: 3% 0;
   border: 1px solid grey;
   padding: 2% 8%;
-  background: linear-gradient(184deg, rgba(20,65,130,1) 5%, rgba(136,175,221,1) 83%);
-  
+  background: linear-gradient(
+    184deg,
+    rgba(20, 65, 130, 1) 5%,
+    rgba(136, 175, 221, 1) 83%
+  );
+
   color: white;
 }
 
 .footer {
-  background: linear-gradient(261deg, rgba(20,65,130,1) 16%, rgba(71,118,185,1) 89%);
+  background: linear-gradient(
+    261deg,
+    rgba(20, 65, 130, 1) 16%,
+    rgba(71, 118, 185, 1) 89%
+  );
   height: 70px;
   width: 100%;
   display: flex;
@@ -305,5 +320,3 @@ a {
   align-items: center;
   color: white;
 }
-
-

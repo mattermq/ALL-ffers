@@ -20,6 +20,8 @@ mongoose.connect(process.env.MONGO_CONNECT, { useNewUrlParser: true, useUnifiedT
 
 const scrapeRouter = require('./routes/scrape.js');
 const offersRouter = require('./routes/offers.js');
+const usersRouter = require('./routes/users.js');
+
 
 const app = express();
 
@@ -95,5 +97,7 @@ passport.deserializeUser((user, done) => done(null, user));
 
 app.use('/scrape', scrapeRouter);
 app.use('/offers', offersRouter);
+app.use('/users', usersRouter);
+
 
 app.listen(process.env.PORT || 3003);
