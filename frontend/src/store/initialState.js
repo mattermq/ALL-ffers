@@ -21,10 +21,12 @@ const initialState = {
   },
   view: {
     isLoading: false,
-    componentsSize: 1,
+    componentsSize: 2,
     filterBudget: false,
     filterFavourites: false,
     filterSearch: '',
+    filterTagsSearch: '',
+    filterTags: [],
     sortOption: '',
     currentPage: 1,
     postsPerPage: 10,

@@ -58,6 +58,19 @@ export const slice = createSlice({
       state.view.filterSearch = action.payload;
     },
 
+    filterTagsSearchHandlerAC: (state, action) => {
+      state.view.filterTagsSearch = action.payload;
+    },
+
+    addTagAC: (state, action) => {
+      if (!state.view.filterTags.includes(action.payload))
+        state.view.filterTags.push(action.payload)
+    },
+
+    removeTagAC: (state, action) => {
+      state.view.filterTags = state.view.filterTags.filter(tag => tag !== action.payload)
+    },
+
     changeSortOptionAC: (state, action) => {
       state.view.sortOption = action.payload;
     },
@@ -67,7 +80,12 @@ export const slice = createSlice({
     },
 
     addOffers: (state, action) => {
-      state.offers = action.payload.map(offer => { return { ...offer, isFavourite: false, hasExpandedSize: false } })
+      const tags = []
+      state.offers = action.payload.map(offer => {
+        offer.tags.forEach(tag => tags.push(tag))
+        return { ...offer, isFavourite: false, hasExpandedSize: false }
+      })
+      state.tags = [...new Set(tags)]
     },
 
     toggleFavouriteAC: (state, action) => {
@@ -94,6 +112,9 @@ export const {
   toggleFilterBudgetAC,
   toggleFilterFavouritesAC,
   filterSearchHandlerAC,
+  filterTagsSearchHandlerAC,
+  addTagAC,
+  removeTagAC,
   changeSortOptionAC,
   setCurrentPageAC,
   toggleFavouriteAC,
