@@ -16,7 +16,7 @@ const saltRounds = 10;
 const myPlaintextPassword = 's0/\/\P4$$w0rD';
 const someOtherPlaintextPassword = 'not_bacon';
 
-mongoose.connect(process.env.MONGO_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGO_CONNECT, { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true });
 
 const scrapeRouter = require('./routes/scrape.js');
 const offersRouter = require('./routes/offers.js');
