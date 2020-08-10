@@ -5,7 +5,7 @@ const tress = require('tress');
 const Offer = require('../../models/offer.js');
 
 function scrapeWeblancer() {
-  const weblancerUrl = 'https://www.weblancer.net/jobs/veb-programmirovanie-31/?page=21';
+  const weblancerUrl = 'https://www.weblancer.net/jobs/veb-programmirovanie-31/';
   const results = [];
 
   const queue = tress((url, callback) => {
@@ -21,9 +21,12 @@ function scrapeWeblancer() {
             const $element = $(el);
 
             const relPath = $element.find('div.col-sm-10 div.title a').attr('href');
-            const linkToOffer = `https://www.weblancer.net${relPath}`;
 
-            queue.push(linkToOffer);
+            if (relPath) {
+              const linkToOffer = `https://www.weblancer.net${relPath}`;
+
+              queue.push(linkToOffer);
+            }
           });
         }
 
@@ -54,7 +57,7 @@ function scrapeWeblancer() {
 
         callback();
       })
-      .catch((err) => console.log('Error!', err));
+      .catch((err) => console.log('Error! From Queue!', err));
   }, 10);
 
   // эта функция выполнится, когда в очереди закончатся ссылки
