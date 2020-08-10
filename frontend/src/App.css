@@ -112,16 +112,17 @@ a:link {
   cursor: pointer;
   border-radius: 6px;
   color: white;
-  transition: .2s linear;
-  background:#4776b9;
-};
+  transition: 0.2s linear;
+  background: #4776b9;
+}
 
-.firstPage_btn span {background: white}
-.firstPage_btn span:hover { 
+.firstPage_btn span {
+  background: white;
+}
+.firstPage_btn span:hover {
   box-shadow: 200px 0 0 0 #144182 inset;
 }
 /* ------------конец  кнопка на FirstPAge----------------- */
-
 
 .wrap_main {
   display: flex;
@@ -135,7 +136,8 @@ a:link {
   flex-direction: column;
 }
 
-.main_login, .main_signup {
+.main_login,
+.main_signup {
   height: 86%;
   width: 100%;
   display: flex;
@@ -144,7 +146,8 @@ a:link {
   justify-content: center;
 }
 
-.form, .form_signup  {
+.form,
+.form_signup {
   border-radius: 4px;
   width: 20%;
   height: 30%;
@@ -153,7 +156,7 @@ a:link {
   align-items: center;
   justify-content: center;
   background-color: #ecebf0;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   color: #040615;
 }
 
@@ -169,22 +172,21 @@ a:link {
   height: 10%;
   width: 60%;
   margin: 2%;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .formBtn {
-  margin-top:5%;
+  margin-top: 5%;
   border: none;
   padding: 2% 4%;
   cursor: pointer;
   border-radius: 4px;
   color: white;
-  background:#4776b9;
+  background: #4776b9;
 }
 
 .formBtn:hover {
-  background:#144182;
+  background: #144182;
 }
 
 .mainText {
@@ -216,7 +218,7 @@ a:link {
 
 .card {
   margin: 1.5% 0;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   background-color: #ecebf0;
   border-radius: 4px;
 }
@@ -226,10 +228,7 @@ a:link {
 }
 
 .card:hover {
-  box-shadow:
-    1px 1px #4776b9,
-    2px 2px #4776b9,
-    3px 3px white;
+  box-shadow: 1px 1px #4776b9, 2px 2px #4776b9, 3px 3px white;
   -webkit-transform: translateX(-3px);
   transform: translateX(-3px);
 }
@@ -315,7 +314,6 @@ a:link {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
 }
 
 .search {

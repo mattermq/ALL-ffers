@@ -17,6 +17,14 @@ const userSchema = new mongoose.Schema({
     ref: 'Offer',
     default: []
   },
+  startedProjects: {
+    type: [Object],
+    default: []
+  },
+  finishedProjects: {
+    type: [Object],
+    default: []
+  },
 })
 
 module.exports = mongoose.model('User', userSchema);
