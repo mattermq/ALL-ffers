@@ -22,6 +22,7 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  
 }
 
 a {
@@ -116,9 +117,7 @@ a:link {
   background: #4776b9;
 }
 
-.firstPage_btn span {
-  background: white;
-}
+
 .firstPage_btn span:hover {
   box-shadow: 200px 0 0 0 #144182 inset;
 }
@@ -391,4 +390,43 @@ a:link {
   justify-content: center;
   align-items: center;
   color: white;
+}
+
+
+.wrap_profile {
+  height: 86%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: 2% 10%;
+}
+
+.prof_blockCards {
+  width: 65%;
+  height: 80%;
+}
+
+.prof_blockStat {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid grey;
+  width: 30%;
+}
+
+.blockCards_tabs {
+  display: flex;
+  flex-direction: row;
+  
+  align-items: center;
+}
+
+.tab {
+  border: 1px solid grey;
+  padding: 25px;
+}
+
+.tab:active {
+  background-color: deeppink;
 }
