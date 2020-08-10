@@ -85,7 +85,7 @@ app.post('/login', async (req, res, next) => {
   } else {
     req.login(user, function (err) {
       if (err) { return next(err) }
-      const { firstName, lastName, _id, favourites } = user
+      const { firstName, lastName, _id, favourites, startedProjects, finishedProjects } = user
       return res.json({ firstName, lastName, _id, favourites })
     })
   }
@@ -97,6 +97,5 @@ passport.deserializeUser((user, done) => done(null, user));
 app.use('/scrape', scrapeRouter);
 app.use('/offers', offersRouter);
 app.use('/users', usersRouter);
-
 
 app.listen(process.env.PORT || 3003);

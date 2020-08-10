@@ -17,6 +17,20 @@ const userSchema = new mongoose.Schema({
     ref: 'Offer',
     default: []
   },
+  startedProjects: {
+    type: {
+      type: [mongoose.Schema.Types.ObjectId],
+      ref: 'Project',
+      default: []
+    },
+  },
+  finishedProjects: {
+    type: {
+      type: [mongoose.Schema.Types.ObjectId],
+      ref: 'Project',
+      default: []
+    },
+  },
 })
 
 module.exports = mongoose.model('User', userSchema);

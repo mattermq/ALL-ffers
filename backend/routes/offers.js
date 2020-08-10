@@ -3,7 +3,7 @@ const Offer = require('../models/offer.js');
 
 const router = express.Router();
 
-router.get('/habr', async (req, res) => {
+router.get('/', async (req, res) => {
   const offers = await Offer.find();
 
   res.json({ offers });

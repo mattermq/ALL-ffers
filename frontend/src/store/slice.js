@@ -79,6 +79,10 @@ export const slice = createSlice({
       state.view.currentPage = action.payload
     },
 
+    setNumberOfOffersAC: (state, action) => {
+      state.view.numberOfOffers = action.payload
+    },
+
     addOffers: (state, action) => {
       const tags = []
       state.offers = action.payload.map(offer => {
@@ -117,6 +121,7 @@ export const {
   removeTagAC,
   changeSortOptionAC,
   setCurrentPageAC,
+  setNumberOfOffersAC,
   toggleFavouriteAC,
 
 } = slice.actions;
@@ -126,7 +131,7 @@ export const {
 // will call the thunk with the `dispatch` function as the first argument. Async
 // code can then be executed and other actions can be dispatched
 export const fetchOffersThunk = () => async dispatch => {
-  const response = await axiosQ('http://localhost:3003/offers/habr');
+  const response = await axiosQ('http://localhost:3003/offers');
   dispatch(addOffers(response.data.offers));
 };
 

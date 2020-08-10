@@ -1,10 +1,10 @@
 import React from 'react';
-import Feed from './Feed';
-import ViewOptionsBar from './ViewOptionsBar';
-import SortBlock from './SortBlock';
-import SearchBlock from './SearchBlock';
-import FilterBlock from './FilterBlock';
-import TagsBlock from './TagsBlock';
+import Feed from '../Feed';
+import ViewOptionsBar from '../ViewOptionsBar';
+import SortBlock from '../SortBlock';
+import SearchBlock from '../SearchBlock';
+import FilterBlock from '../FilterBlock';
+import TagsBlock from '../TagsBlock';
 
 function Main() {
 

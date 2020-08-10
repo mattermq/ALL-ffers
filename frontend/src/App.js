@@ -4,15 +4,15 @@ import { BrowserRouter as Router, Switch, Link, Route } from 'react-router-dom';
 import './App.css';
 import './components/Tag.css';
 
-
-import Header from './components/Header';
-import Main from './components/Main';
-import Footer from './components/Footer';
-import FirstPage from './components/FirstPage';
-import Signup from './components/Signup.jsx';
-import Login from './components/Login.jsx';
+import Header from './components/Layout/Header';
+import Main from './components/Pages/Main';
+import Footer from './components/Layout/Footer';
+import FirstPage from './components/Pages/FirstPage';
+import Signup from './components/Pages/Signup.jsx';
+import Login from './components/Pages/Login.jsx';
 import CardShort from './components/CardShort';
 import { fetchOffersThunk } from './store/slice'
+import Profile from './components/Pages/Profile/Profile';
 
 function App() {
 
@@ -48,7 +48,7 @@ function App() {
         <Route exact path="/signup">
           <div className="app_wrapper">
             <div className="header"> <Header /> </div>
-                <div className="main_signup"> <Signup /> </div>
+            <div className="main_signup"> <Signup /> </div>
             <div className="footer"> <Footer /> </div>
           </div>
         </Route>
@@ -63,13 +63,21 @@ function App() {
           </div>
         </Route>
 
+        <Route exact path="/profile">
+          <div className="app_wrapper">
+            <div className="header"> <Header /> </div>
+            <div> <Profile /> </div>
+            <div className="footer"> <Footer /> </div>
+          </div>
+        </Route>
+
       </Switch>
 
       <Route exact path="/testCardShort"> {/* тестовое отображение - ПО ЗАВЕРШЕНИЮ УБРАТЬ */}
-          <div className="app_wrapper">
-                <div className="cardShort"> <CardShort /> </div>
-          </div>
-        </Route>
+        <div className="app_wrapper">
+          <div className="cardShort"> <CardShort /> </div>
+        </div>
+      </Route>
 
     </Router>
   );

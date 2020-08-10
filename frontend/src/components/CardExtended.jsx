@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toggleFavouriteAC, updateUserOnServerThunk, closeExpandedAC } from '../store/slice';
 import heartWhite from '../img/heart_white.png';
 import heartBlack from '../img/heart_black.png';
+import Tag from './Tag';
 
 export default function CardExtended(props) {
   const dispatch = useDispatch()
@@ -29,11 +30,12 @@ export default function CardExtended(props) {
       <div className="dateTime">{publishedAt}</div>
       <div className="wrapHeartAndTags">
         <div className="wrapTags">
-          {tags.map((tag, index) => <button key={index} className="tag">{tag}</button>)}
+          {tags.map((tag, index) => <Tag key={index} className="tag" tag={tag}></Tag>)}
         </div>
 
         <div className="wrap_openAndHeart">
           <button onClick={closeExpanded} className="btnOpenCard">свернуть</button>
+          <a href={url} target="_blank"><button>Перейти к обьявлению</button></a>
           {
             isAuth && <button onClick={toggleFauvourite} className="btnHeartCard">
               <img className="imgHeartCard" src={isFavourite ? heartBlack : heartWhite} alt="favourite" />
