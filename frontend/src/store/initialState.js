@@ -28,8 +28,11 @@ const initialState = {
     filterTagsSearch: '',
     filterTags: [],
     sortOption: '',
+    numberOfOffers: 0,
     currentPage: 1,
     postsPerPage: 10,
+    profileCurrentPage: 1,
+    profilePostsPerPage: 10,
   },
   offers: [],
   tags: []

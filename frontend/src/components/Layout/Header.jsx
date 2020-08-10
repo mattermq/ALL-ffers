@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NavLink, Route, Switch } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Modal from './Modal';
-import Login from './Login';
+import Login from '../Pages/Login';
 
 function Header() {
   const isAuth = useSelector(state => state.slice.user.isAuth)

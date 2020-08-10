@@ -85,7 +85,7 @@ app.post('/login', async (req, res, next) => {
   } else {
     req.login(user, function (err) {
       if (err) { return next(err) }
-      const { firstName, lastName, _id, favourites } = user
+      const { firstName, lastName, _id, favourites, startedProjects, finishedProjects } = user
       return res.json({ firstName, lastName, _id, favourites })
     })
   }

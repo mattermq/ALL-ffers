@@ -79,6 +79,10 @@ export const slice = createSlice({
       state.view.currentPage = action.payload
     },
 
+    setNumberOfOffersAC: (state, action) => {
+      state.view.numberOfOffers = action.payload
+    },
+
     addOffers: (state, action) => {
       const tags = []
       state.offers = action.payload.map(offer => {
@@ -117,6 +121,7 @@ export const {
   removeTagAC,
   changeSortOptionAC,
   setCurrentPageAC,
+  setNumberOfOffersAC,
   toggleFavouriteAC,
 
 } = slice.actions;
