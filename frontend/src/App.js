@@ -66,7 +66,7 @@ function App() {
         <Route exact path="/profile">
           <div className="app_wrapper">
             <div className="header"> <Header /> </div>
-            <div> <Profile /> </div>
+            <Profile />
             <div className="footer"> <Footer /> </div>
           </div>
         </Route>
