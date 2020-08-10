@@ -6,9 +6,19 @@ import Pagination from './Pagination'
 import { useSelector } from 'react-redux';
 
 function Feed() {
-  const { componentsSize, filterSearch, filterFavourites, filterBudget, sortOption, currentPage, postsPerPage } = useSelector(state => state.slice.view)
+  const {
+    componentsSize,
+    filterSearch,
+    filterTags,
+    filterFavourites,
+    filterBudget,
+    sortOption,
+    currentPage,
+    postsPerPage
+  } = useSelector(state => state.slice.view)
   const isAuth = useSelector((state) => state.slice.user.isAuth)
   const offersAll = useSelector((state) => state.slice.offers)
+  const allTags = useSelector((state) => state.slice.tags)
   let offers = offersAll.slice()
 
   // filtering by favourites only
@@ -22,6 +32,10 @@ function Feed() {
   // filtering by budget
   if (filterBudget)
     offers = offers.filter(offer => (offer.hasProjectBudget) || (offer.hasHourlyRate))
+
+  // filtering by tags
+  if (filterTags.length > 0)
+    offers = offers.filter(offer => offer.tags.some(tag => filterTags.includes(tag)))
 
   // sorting by all criterias
   if (sortOption === 'hasProjectBudget') {

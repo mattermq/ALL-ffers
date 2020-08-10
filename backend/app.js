@@ -22,7 +22,6 @@ const scrapeRouter = require('./routes/scrape.js');
 const offersRouter = require('./routes/offers.js');
 const usersRouter = require('./routes/users.js');
 
-
 const app = express();
 
 app.use(logger('dev'));
