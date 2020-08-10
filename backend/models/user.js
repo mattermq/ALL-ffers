@@ -18,12 +18,18 @@ const userSchema = new mongoose.Schema({
     default: []
   },
   startedProjects: {
-    type: [Object],
-    default: []
+    type: {
+      type: [mongoose.Schema.Types.ObjectId],
+      ref: 'Project',
+      default: []
+    },
   },
   finishedProjects: {
-    type: [Object],
-    default: []
+    type: {
+      type: [mongoose.Schema.Types.ObjectId],
+      ref: 'Project',
+      default: []
+    },
   },
 })
 

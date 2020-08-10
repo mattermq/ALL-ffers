@@ -3,9 +3,11 @@ import CardShort from './CardShort';
 import CardNormal from './CardNormal';
 import CardExtended from './CardExtended';
 import Pagination from './Pagination'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setNumberOfOffersAC } from '../store/slice'
 
 function Feed() {
+  const dispatch = useDispatch()
   const {
     componentsSize,
     filterSearch,
@@ -56,6 +58,8 @@ function Feed() {
   const indexOfLastOffer = currentPage * postsPerPage
   const indexOfFirstOffer = indexOfLastOffer - postsPerPage
   const paginatedOffers = offers.slice(indexOfFirstOffer, indexOfLastOffer)
+
+  dispatch(setNumberOfOffersAC(offers.length))
 
   if (paginatedOffers)
     return (
