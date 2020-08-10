@@ -10,7 +10,6 @@ export default function CardShort(props) {
   const isAuth = useSelector(state => state.slice.user.isAuth)
   const userId = useSelector(state => state.slice.user._id)
 
-
   const toggleFavourite = () => {
     dispatch(toggleFavouriteAC(_id))
     dispatch(updateUserOnServerThunk({ userId, offerId: _id }))
@@ -33,3 +32,5 @@ export default function CardShort(props) {
     </article>
   )
 }
+
+
