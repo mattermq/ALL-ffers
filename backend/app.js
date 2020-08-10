@@ -98,5 +98,4 @@ app.use('/scrape', scrapeRouter);
 app.use('/offers', offersRouter);
 app.use('/users', usersRouter);
 
-
 app.listen(process.env.PORT || 3003);
