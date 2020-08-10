@@ -1,14 +1,14 @@
 import React from 'react';
 
+function Footer() {
 
-function Footer(){
-
-  return(
+  return (
     <>
-    <div>Контакты</div>
-    <div>Текст</div>
-    <div>Текст</div>
+      <div>Контакты</div>
+      <div>Текст</div>
+      <div>Текст</div>
     </>
-  )}
+  )
+}
 
 export default Footer;

@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleFavouriteAC, expandCardAC, updateUserOnServerThunk } from '../store/slice';
 import heartWhite from '../img/heart_white.png';
 import heartBlack from '../img/heart_black.png';
 import Tag from './Tag'
+import FormStartProject from './pages/profile/FormStartProject'
 
 export default function CardNormal(props) {
   const dispatch = useDispatch()
   let { _id, title, description, budget, publishedAt, tags, isFavourite } = props.offer
   const isAuth = useSelector(state => state.slice.user.isAuth)
   const userId = useSelector(state => state.slice.user._id)
+  const [isModal, setIsModal] = useState(false)
+
+  const toggleModal = () => {
+    setIsModal(!isModal)
+  }
 
   const shortDescription = description
     .split('')
@@ -38,8 +44,8 @@ export default function CardNormal(props) {
       <div className="wrapHeartAndTags">
         <div className="wrapTags">
           {tags.map((tag, index) => <Tag key={index} className="tag" tag={tag}></Tag>)}
-
         </div>
+        <button onClick={() => setIsModal(!isModal)}>Не нажимай</button>
         <div className="wrap_openAndHeart">
           <button onClick={expandCard} className="btnOpenCard">развернуть</button>
           {
@@ -49,6 +55,7 @@ export default function CardNormal(props) {
           }
         </div>
       </div>
+      {<FormStartProject isModal={isModal} onCancel={toggleModal} offer={props.offer} />}
     </article>
   )
 }

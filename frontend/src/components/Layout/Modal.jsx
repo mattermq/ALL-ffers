@@ -1,7 +1,9 @@
 import React, { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 
-export default function Modal({ children }) {
+export default function Modal(props) {
+  const { isOpen, onCloseHandler, onSubmitHandler, children } = props
+
   const elRef = useRef(null)
   if (!elRef.current) {
     const div = document.createElement('div')
@@ -15,8 +17,12 @@ export default function Modal({ children }) {
   }, [])
 
   return createPortal(
-    <div className="modal-outer">
-      <div className="modal-inner">{children}</div>
+    <div className="modal-overlay" >
+      <div className="modal-window">
+        <button onClick={onCloseHandler}>X</button>
+        {children}
+      </div>
     </div>
-    , elRef.current)
+    , elRef.current
+  )
 }

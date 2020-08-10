@@ -2,14 +2,19 @@ import React, { useState } from 'react';
 import { NavLink, Route, Switch } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Modal from './Modal';
-import Login from '../Pages/Login';
+import Login from '../pages/Login';
+import LoginModal from '../pages/LoginModal';
+import SignupModal from '../pages/SignupModal';
 
 function Header() {
   const isAuth = useSelector(state => state.slice.user.isAuth)
   const firstName = useSelector(state => state.slice.user.firstName)
 
-  const [showModal, setShowModal] = useState(false)
-  const toggleModal = () => setShowModal(!showModal)
+  const [loginModal, setLoginModal] = useState(false)
+  const [signupModal, setSignupModal] = useState(false)
+
+  const toggleLoginModal = () => setLoginModal(!loginModal)
+  const toggleSignupModal = () => setSignupModal(!signupModal)
 
   return (
     <div className="headerBlock">
@@ -19,17 +24,18 @@ function Header() {
           <>
             <NavLink className="login" to="/profile">{firstName}</NavLink>
             <NavLink className="login" to="/logout">Logout</NavLink>
+            <button onClick={toggleLoginModal} className="registration">Модальный логин</button>
+            <button onClick={toggleSignupModal} className="registration">Модальный signup</button>
           </>
           : <>
             <NavLink className="login" to="/login">Войти</NavLink>
             <NavLink className="registration" to="/signup">Зарегистрироваться</NavLink>
-            <button onClick={toggleModal} className="registration">Модальный логин</button>
+            <button onClick={toggleLoginModal} className="registration">Модальный логин</button>
+            <button onClick={toggleSignupModal} className="registration">Модальный signup</button>
           </>
         }
-        {showModal ?
-          <Modal><Login /></Modal>
-          : null
-        }
+        {loginModal && <LoginModal isModal={loginModal} toggleModal={toggleLoginModal} />}
+        {signupModal && <SignupModal isModal={signupModal} toggleModal={toggleSignupModal} />}
       </div>
     </div>
 
