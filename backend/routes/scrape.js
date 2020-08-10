@@ -1,17 +1,29 @@
 const express = require('express');
 const scrapeHabr = require('../lib/scrapers/habr-scraper.js');
+const scrapeWeblancer = require('../lib/scrapers/weblancer-scraper.js');
 
 const router = express.Router();
 
 router.get('/:website', async (req, res) => {
   const { website } = req.params;
 
-  if (website === 'habr') {
-    try {
-      scrapeHabr();
-    } catch (err) {
-      console.log('Error Parsing!!!', err);
-    }
+  switch (website) {
+    case 'habr':
+      try {
+        scrapeHabr();
+      } catch (err) {
+        console.log('Error Parsing!!!', err);
+      }
+      break;
+    case 'weblancer':
+      try {
+        scrapeWeblancer();
+      } catch (err) {
+        console.log('Error Parsing!', err);
+      }
+      break;
+    default:
+      return;
   }
 });
 
