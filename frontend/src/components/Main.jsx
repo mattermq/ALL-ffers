@@ -4,6 +4,7 @@ import ViewOptionsBar from './ViewOptionsBar';
 import SortBlock from './SortBlock';
 import SearchBlock from './SearchBlock';
 import FilterBlock from './FilterBlock';
+import TagsBlock from './TagsBlock';
 
 function Main() {
 
@@ -21,7 +22,8 @@ function Main() {
         </div>
         <div className="main_filterBlock_Tags">
           <div className="blockIN_main_filterBlock_Tags">
-            <div className="filterTags"> Поле с тегами</div>
+            {/* <div className="filterTags"> Поле с тегами</div> */}
+            <TagsBlock className="filterTags" />
           </div>
         </div>
         <div className="main_filterBlock">

@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux'
 import { BrowserRouter as Router, Switch, Link, Route } from 'react-router-dom';
 import './App.css';
+import './components/Tag.css';
+
 
 import Header from './components/Header';
 import Main from './components/Main';
@@ -28,9 +30,9 @@ function App() {
         <Route exact path="/">
           <div className="app_wrapper">
             <div className="header"> <Header /> </div>
-              <div className="wrap_main">
-                <div className="main"> <Main /> </div>
-              </div>
+            <div className="wrap_main">
+              <div className="main"> <Main /> </div>
+            </div>
             <div className="footer"> <Footer /> </div>
           </div>
         </Route>
@@ -38,9 +40,9 @@ function App() {
         <Route exact path="/main">
           <div className="app_wrapper">
             <div className="header"> <Header /> </div>
-              <div className="wrap_main">
-                <div className="main"> <Main /> </div>
-              </div>
+            <div className="wrap_main">
+              <div className="main"> <Main /> </div>
+            </div>
             <div className="footer"> <Footer /> </div>
           </div>
         </Route>
@@ -49,9 +51,9 @@ function App() {
         <Route exact path="/signup">
           <div className="app_wrapper">
             <div className="header"> <Header /> </div>
-              <div className="wrap_main">
-                <div className="main"> <Signup /> </div>
-              </div>
+            <div className="wrap_main">
+              <div className="main"> <Signup /> </div>
+            </div>
             <div className="footer"> <Footer /> </div>
           </div>
         </Route>
@@ -59,9 +61,9 @@ function App() {
         <Route exact path="/login">
           <div className="app_wrapper">
             <div className="header"> <Header /> </div>
-              
-                <div className="main_login"> <Login /> </div>
-             
+
+            <div className="main_login"> <Login /> </div>
+
             <div className="footer"> <Footer /> </div>
           </div>
         </Route>

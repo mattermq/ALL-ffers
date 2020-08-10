@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toggleFavouriteAC, expandCardAC, updateUserOnServerThunk } from '../store/slice';
 import heartWhite from '../img/heart_white.png';
 import heartBlack from '../img/heart_black.png';
+import Tag from './Tag'
 
 export default function CardNormal(props) {
   const dispatch = useDispatch()
@@ -36,7 +37,7 @@ export default function CardNormal(props) {
       <div className="dateTime">{publishedAt}</div>
       <div className="wrapHeartAndTags">
         <div className="wrapTags">
-          {tags.map((tag, index) => <button key={index} className="tag">{tag}</button>)}
+          {tags.map((tag, index) => <Tag key={index} className="tag" tag={tag}></Tag>)}
 
         </div>
         <div className="wrap_openAndHeart">
