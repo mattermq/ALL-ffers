@@ -103,7 +103,11 @@ export const slice = createSlice({
         state.user.favourites = state.user.favourites.filter(el => el !== action.payload)
       else
         state.user.favourites.push(action.payload)
-    }
+    },
+
+    modalStartProjectAC: (state) => {
+      state.view.modalStartProject = !state.view.modalStartProject
+    },
   },
 });
 
@@ -123,7 +127,7 @@ export const {
   setCurrentPageAC,
   setNumberOfOffersAC,
   toggleFavouriteAC,
-
+  modalStartProjectAC
 } = slice.actions;
 
 // The function below is called a thunk and allows us to perform async logic. It

@@ -1,9 +1,9 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import CardShort from '../../CardShort';
 import CardNormalP from '../../CardNormalP';
 import CardExtended from '../../CardExtended';
 import Pagination from '../../Pagination'
-import { useSelector, useDispatch } from 'react-redux';
 import { setNumberOfOffersAC } from '../../../store/slice'
 
 export default function ProfileFeed() {

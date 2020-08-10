@@ -3,16 +3,17 @@ import { useDispatch } from 'react-redux'
 import { BrowserRouter as Router, Switch, Link, Route } from 'react-router-dom';
 import './App.css';
 import './components/Tag.css';
+import './components/Modal.css'
 
-import Header from './components/Layout/Header';
-import Main from './components/Pages/Main';
-import Footer from './components/Layout/Footer';
-import FirstPage from './components/Pages/FirstPage';
-import Signup from './components/Pages/Signup.jsx';
-import Login from './components/Pages/Login.jsx';
+import Header from './components/layout/Header';
+import Main from './components/pages/Main';
+import Footer from './components/layout/Footer';
+import FirstPage from './components/pages/FirstPage';
+import Signup from './components/pages/Signup.jsx';
+import Login from './components/pages/Login.jsx';
 import CardShort from './components/CardShort';
 import { fetchOffersThunk } from './store/slice'
-import Profile from './components/Pages/Profile/Profile';
+import Profile from './components/pages/profile/Profile';
 
 function App() {
 
