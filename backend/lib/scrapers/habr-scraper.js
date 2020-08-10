@@ -1,12 +1,12 @@
 const fetch = require('node-fetch');
 const cheerio = require('cheerio');
 const tress = require('tress');
-const mongoose = require('mongoose');
+const parseDate = require('../parse-date.js');
 
 const Offer = require('../../models/offer.js');
 
 function scrapeHabr() {
-  const habrUrl = 'https://freelance.habr.com/tasks?_=1596613017168&categories=development_all_inclusive%2Cdevelopment_backend%2Cdevelopment_frontend%2Cdevelopment_prototyping%2Cdevelopment_ios%2Cdevelopment_android%2Cdevelopment_desktop%2Cdevelopment_bots%2Cdevelopment_games%2Cdevelopment_1c_dev%2Cdevelopment_scripts%2Cdevelopment_voice_interfaces%2Cdevelopment_other';
+  const habrUrl = 'https://freelance.habr.com/tasks?_=1596613017168&categories=development_all_inclusive%2Cdevelopment_backend%2Cdevelopment_frontend%2Cdevelopment_prototyping%2Cdevelopment_ios%2Cdevelopment_android%2Cdevelopment_desktop%2Cdevelopment_bots%2Cdevelopment_games%2Cdevelopment_1c_dev%2Cdevelopment_scripts%2Cdevelopment_voice_interfaces%2Cdevelopment_other&page=31';
   const results = [];
 
   const queue = tress((url, callback) => {
@@ -46,6 +46,7 @@ function scrapeHabr() {
           description: description.replace(/(\r|\n)/gm, ' ').split(' ').filter((el) => el !== '').join(' '),
           budget: budget.replace(/(\r|\n)/gm, ''),
           publishedAt: publishedAt.replace(/(\r|\n)/gm, ''),
+          publishedAtTS: parseDate(publishedAt.replace(/(\r|\n)/gm, '')),
           tags,
           url,
           isArchived,
@@ -77,12 +78,14 @@ function scrapeHabr() {
         const newOffer = new Offer({
           title: el.title,
           description: el.description,
-          haveProjectBudget: el.budget.match(/\d/gi) !== null && el.budget.includes('проект'),
-          haveHourlyRate: el.budget.match(/\d/gi) !== null && el.budget.includes('час'),
+          hasProjectBudget: el.budget.match(/\d/gi) !== null && el.budget.includes('проект'),
+          hasHourlyRate: el.budget.match(/\d/gi) !== null && el.budget.includes('час'),
           budget: el.budget.match(/\d/gi) !== null ? el.budget.match(/\d/gi).join('') : 'Цена договорная',
           publishedAt: el.publishedAt.slice(0, el.publishedAt.indexOf('•') - 1),
+          publishedAtTS: el.publishedAtTS,
           tags: el.tags,
           url: el.url,
+          from: 'habr freelance',
         });
 
         try {

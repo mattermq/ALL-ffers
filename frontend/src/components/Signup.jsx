@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { loginAC } from '../store/slice';
 import axios from 'axios';
 
-const axiosQ = axios.create({ withCredentials: true });
-
-
 export default function Signup() {
-
+  const history = useHistory()
   const dispatch = useDispatch()
   const initialState = {
     firstName: '',
@@ -16,6 +15,7 @@ export default function Signup() {
     password2: ''
   };
   const [state, setState] = useState(initialState)
+  const axiosQ = axios.create({ withCredentials: true });
 
   const changeHandler = (e) => {
     const { name, value } = e.target
@@ -25,12 +25,11 @@ export default function Signup() {
   const submitHandler = async (e) => {
     e.preventDefault()
     const response = await axiosQ.post('http://localhost:3003/signup', state)
-    console.log(response)
-    setState(initialState)
-
-    // if (response.status === 200)
-    //   dispatch(userLoginAC(response.data))
-    // history.push('/')
+    if (response.status === 200) {
+      setState(initialState)
+      dispatch(loginAC(response.data))
+      history.push('/')
+    }
   }
 
   return (

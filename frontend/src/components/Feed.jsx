@@ -1,16 +1,63 @@
 import React from 'react';
-import CardFull from './CardFull';
 import CardShort from './CardShort';
+import CardNormal from './CardNormal';
+import CardExtended from './CardExtended';
+import Pagination from './Pagination'
 import { useSelector } from 'react-redux';
 
 function Feed() {
+  const { componentsSize, filterSearch, filterFavourites, filterBudget, sortOption, currentPage, postsPerPage } = useSelector(state => state.slice.view)
+  const isAuth = useSelector((state) => state.slice.user.isAuth)
   const offersAll = useSelector((state) => state.slice.offers)
-  const offers = offersAll.slice(0, 30)
-  if (offers)
+  let offers = offersAll.slice()
+
+  // filtering by favourites only
+  if (isAuth && filterFavourites)
+    offers = offers.filter(offer => offer.isFavourite === true)
+
+  // filtering by search
+  offers = offers.filter(offer =>
+    offer.title.toLowerCase().includes(filterSearch.toLowerCase()) || offer.description.toLowerCase().includes(filterSearch.toLowerCase()))
+
+  // filtering by budget
+  if (filterBudget)
+    offers = offers.filter(offer => (offer.hasProjectBudget) || (offer.hasHourlyRate))
+
+  // sorting by all criterias
+  if (sortOption === 'hasProjectBudget') {
+    offers = offers
+      .filter(offer => offer.hasProjectBudget === true)
+      .sort((a, b) => Number(b.budget) - Number(a.budget))
+  }
+  else if (sortOption === 'hasHourlyRate') {
+    offers = offers
+      .filter(offer => offer.hasHourlyRate === true)
+      .sort((a, b) => Number(b.budget) - Number(a.budget))
+  }
+  else if (sortOption === 'publishedAtTS') {
+    offers = offers.sort((a, b) => b.publishedAtTS - a.publishedAtTS)
+  }
+
+  // slice by pagination 
+  const indexOfLastOffer = currentPage * postsPerPage
+  const indexOfFirstOffer = indexOfLastOffer - postsPerPage
+  const paginatedOffers = offers.slice(indexOfFirstOffer, indexOfLastOffer)
+
+  if (paginatedOffers)
     return (
       <>
-        {offers.length > 0 && offers.map(offer => <CardFull key={offer._id} offer={offer} />)}
-       {/*  {offers.length > 0 && offers.map(offer => <CardShort key={offer._id} offer={offer} />)} */}
+        {
+          paginatedOffers.length > 0 && paginatedOffers.map(offer => {
+            if (offer.hasExpandedSize === true)
+              return <CardExtended key={offer._id} offer={offer} />
+            else if (componentsSize === 1)
+              return <CardShort key={offer._id} offer={offer} />
+            else
+              return <CardNormal key={offer._id} offer={offer} />
+          })
+        }
+
+        <Pagination totalPosts={offers.length} />
       </>
     )
   else return null
