@@ -12,26 +12,27 @@ export default function ViewOptionsBar() {
 
   return (
     <>
-      <form>
-        <div className="radio">
+    {/* --- свернуть все и развернуть все ПЕРЕНЕС в фильтры FiltreDlock ----*/}
+    {/*   <form>
+        <div className="radio_sver">
           <input
             type="radio"
             id="short"
             value="1"
             checked={componentsSize === 1}
             onChange={changeComponentSize}
-          />
+          /> Свернуть все 
         </div>
-        <div className="radio">
+        <div className="radio_razv">
           <input
             type="radio"
             id="normal"
             value="2"
             checked={componentsSize === 2}
             onChange={changeComponentSize}
-          />
+          /> Развернуть все
         </div>
-      </form>
+      </form> */}
       <span>Найдено {numberOfOffers} заказов:</span>
     </>
   );

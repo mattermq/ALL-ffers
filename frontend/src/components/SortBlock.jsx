@@ -14,7 +14,7 @@ export default function SortBlock() {
   return (
     <form>
       <label>
-        Отсортировать по:
+        Отсортировать по: 
         <select value={sortOption} onChange={handleChange}>
           <option value="">-</option>
           <option value="hasProjectBudget">бюджету проекта</option>

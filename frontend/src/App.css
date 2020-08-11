@@ -204,6 +204,19 @@ a:link {
   letter-spacing: 0.2rem;
 }
 
+.wrap_numAndSort {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 2%;
+}
+
+.sort {
+  text-align: center;
+  height: 25px;
+  margin-right: 25%;
+}
+
 .wrap_cardBlock_and_filterBlock {
   display: flex;
   flex-direction: row;
@@ -223,7 +236,14 @@ a:link {
 }
 
 .card_extended {
-  height: 300px;
+  margin: 1.5% 0;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  background-color: #ecebf0;
+  border-radius: 4px;
+}
+
+.cardExtended_LinkSite {
+  margin: 0 2%;
 }
 
 .card:hover {
@@ -275,8 +295,15 @@ a:link {
 .wrap_openAndHeart {
   display: flex;
   justify-content: space-between;
-  width: 14%;
+  align-items: center;
+  min-width: 14%;
   margin-right: 2%;
+}
+
+.wrap_openAndHeart_cardShort {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .btnOpenCard {
@@ -317,15 +344,14 @@ a:link {
 
 .search {
   margin: 3% 0;
-  border: 1px solid grey;
-  padding: 2% 30%;
+  
 }
 
 .main_filterBlock_Tags {
   border-radius: 4px;
   height: 13%;
   width: 15.5%;
-  margin: 8% 0;
+  margin: 8.5% 0;
   background-color: #ecebf0;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   display: inline-block;
@@ -344,14 +370,22 @@ a:link {
 
 .main_filterBlock {
   border-radius: 4px;
-  height: 36%;
+  height: 15%;
   width: 15.5%;
-  margin: 16.5% 0;
+  margin: 18.5% 0;
   background-color: #ecebf0;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   display: inline-block;
   position: fixed;
   margin-left: 65%;
+}
+
+.filterItem {
+  margin-bottom: 8%;
+}
+
+.radio_razv {
+  margin-top: 8%;
 }
 
 .blockIN_main_filterBlock {
@@ -438,7 +472,7 @@ a:link {
   padding: 3%;
 }
 
-.card_extended {
+.startProject_card_extended {
   width: 100%;
   height: 100%;
 }

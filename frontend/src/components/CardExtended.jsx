@@ -35,7 +35,7 @@ export default function CardExtended(props) {
 
         <div className="wrap_openAndHeart">
           <button onClick={closeExpanded} className="btnOpenCard">свернуть</button>
-          <a href={url} target="_blank"><button>Перейти к обьявлению</button></a>
+          <a className="cardExtended_LinkSite" href={url} target="_blank"><button className="cardExtended_btnLinkSite">Перейти к обьявлению</button></a>
           {
             isAuth && <button onClick={toggleFauvourite} className="btnHeartCard">
               <img className="imgHeartCard" src={isFavourite ? heartBlack : heartWhite} alt="favourite" />

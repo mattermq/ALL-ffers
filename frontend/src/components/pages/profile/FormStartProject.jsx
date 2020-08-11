@@ -50,7 +50,7 @@ export default function FormStartProject(props) {
     return createPortal(
       <div className="modal-overlay" >
         <div className="modal-window">
-          <article className="card_extended">
+          <article className="startProject_card_extended">
             <form className="form_startProject" action="">
               
               <div className="startProject_MainText">{title}</div>
