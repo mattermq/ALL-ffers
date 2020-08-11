@@ -27,6 +27,30 @@ export const slice = createSlice({
       });
     },
 
+    addOffers: (state, action) => {
+      const tags = []
+      state.offers = action.payload.map(offer => {
+        offer.tags.forEach(tag => tags.push(tag))
+        return { ...offer, isFavourite: false, hasExpandedSize: false }
+      })
+      state.tags = [...new Set(tags)]
+    },
+
+    logoutAC: (state) => {
+      state.user = {
+        isAuth: false,
+        _id: undefined,
+        firstName: undefined,
+        lastName: undefined,
+        favourites: [],
+        startedProjects: [],
+        finishedProjects: []
+      }
+    },
+
+
+    // Card sizes
+
     changeComponentSizeAC: (state, action) => {
       state.view.componentsSize = Number(action.payload)
     },
@@ -45,6 +69,9 @@ export const slice = createSlice({
         return { ...offer, hasExpandedSize: false }
       })
     },
+
+
+    /// Filters 
 
     toggleFilterBudgetAC: state => {
       state.view.filterBudget = !state.view.filterBudget;
@@ -75,6 +102,9 @@ export const slice = createSlice({
       state.view.sortOption = action.payload;
     },
 
+
+    // Pagination
+
     setCurrentPageAC: (state, action) => {
       state.view.currentPage = action.payload
     },
@@ -83,14 +113,8 @@ export const slice = createSlice({
       state.view.numberOfOffers = action.payload
     },
 
-    addOffers: (state, action) => {
-      const tags = []
-      state.offers = action.payload.map(offer => {
-        offer.tags.forEach(tag => tags.push(tag))
-        return { ...offer, isFavourite: false, hasExpandedSize: false }
-      })
-      state.tags = [...new Set(tags)]
-    },
+
+    // Favourites
 
     toggleFavouriteAC: (state, action) => {
       state.offers = state.offers.map(offer => {
@@ -105,14 +129,18 @@ export const slice = createSlice({
         state.user.favourites.push(action.payload)
     },
 
-    modalStartProjectAC: (state) => {
-      state.view.modalStartProject = !state.view.modalStartProject
-    },
+    addToStartedProjectsAC: (state, action) => {
+      const offerIndex = state.offers.findIndex(offer => offer._id === action.payload)
+      const project = state.offers.splice(offerIndex, 1)
+      state.user.startedProjects = state.user.startedProjects.concat(project)
+    }
+
   },
 });
 
 export const {
   loginAC,
+  logoutAC,
   addOffers,
   changeComponentSizeAC,
   expandCardAC,
@@ -127,7 +155,6 @@ export const {
   setCurrentPageAC,
   setNumberOfOffersAC,
   toggleFavouriteAC,
-  modalStartProjectAC
 } = slice.actions;
 
 // The function below is called a thunk and allows us to perform async logic. It
@@ -142,6 +169,16 @@ export const fetchOffersThunk = () => async dispatch => {
 export const updateUserOnServerThunk = (payload) => async dispatch => {
   const response = await axiosQ.patch('http://localhost:3003/users/', payload)
   console.log(response.data)
+}
+
+// export const updateUserOnServerThunk = (payload) => async dispatch => {
+//   const response = await axiosQ.patch('http://localhost:3003/users/', payload)
+//   console.log(response.data)
+// }
+
+export const logoutThunk = () => async dispatch => {
+  const response = await axiosQ.post('http://localhost:3003/logout')
+  dispatch(logoutAC())
 }
 
 // The function below is called a selector and allows us to select a value from
