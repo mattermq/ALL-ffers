@@ -47,3 +47,5 @@ export default function CardNormalP(props) {
     </article>
   )
 }
+
+/* ----------------------- */
