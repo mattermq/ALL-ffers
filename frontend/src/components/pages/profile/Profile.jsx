@@ -14,8 +14,18 @@ export default function Profile() {
     history.push("/")
 
   return (
-    <>
-      <ProfileFeed />
-    </>
+    <div className="wrap_profile">
+      <div className="prof_blockCards">
+        <div className="blockCards_tabs">
+          {/* <div className="tab">В избранном</div>
+            <div className="tab">В работе</div>
+            <div className="tab">Сделано</div> */}
+        </div>
+        <ProfileFeed />
+        <div className="prof_blockStat">
+          <div className="blockStat_graf">Статистика</div>
+        </div>
+      </div>
+    </div>
   )
 }
