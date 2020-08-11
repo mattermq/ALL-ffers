@@ -35,8 +35,6 @@ const initialState = {
     postsPerPage: 10,
     profileCurrentPage: 1,
     profilePostsPerPage: 10,
-    modalStartProject: false,
-    modalFinishProject: false
   },
   offers: [],
   tags: []

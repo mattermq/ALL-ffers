@@ -18,7 +18,6 @@ import { fetchOffersThunk } from './store/slice'
 import Profile from './components/pages/profile/Profile';
 
 function App() {
-
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchOffersThunk())

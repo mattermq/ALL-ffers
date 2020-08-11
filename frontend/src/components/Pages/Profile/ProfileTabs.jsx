@@ -7,11 +7,35 @@ export default function ProfileTabBar() {
   const [buttonTwoActive, setButtonTwoActive] = useState(false)
   const [buttonThreeActive, setButtonThreeActive] = useState(false)
 
+  const setActiveOne = () => {
+    if (buttonOneActive !== true) {
+      setButtonOneActive(true)
+      setButtonTwoActive(false)
+      setButtonThreeActive(false)
+    }
+  }
+  const setActiveTwo = () => {
+    if (buttonTwoActive !== true) {
+      setButtonOneActive(false)
+      setButtonTwoActive(true)
+      setButtonThreeActive(false)
+    }
+  }
+
+  const setActiveThree = () => {
+    if (buttonThreeActive !== true) {
+      setButtonOneActive(false)
+      setButtonTwoActive(false)
+      setButtonThreeActive(true)
+    }
+  }
+
+
   return (
     <nav>
-      <ProfileTab tabActive={buttonOneActive} textContent="Избранное" />
-      <ProfileTab tabActive={buttonTwoActive} textContent="Начатое" />
-      <ProfileTab tabActive={buttonThreeActive} textContent="Законченное" />
+      <ProfileTab tabActive={buttonOneActive} setActive={setActiveOne} textContent="Избранное" />
+      <ProfileTab tabActive={buttonTwoActive} setActive={setActiveTwo} textContent="Начатое" />
+      <ProfileTab tabActive={buttonThreeActive} setActive={setActiveThree} textContent="Законченное" />
     </nav>
   )
 }
