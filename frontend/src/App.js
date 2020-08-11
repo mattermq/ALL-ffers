@@ -27,7 +27,6 @@ function App() {
   return (
     <Router>
       <Switch>
-
         <Route exact path="/">
           <div className="app_wrapper">
             <div className="header"> <Header /> </div>
@@ -58,9 +57,7 @@ function App() {
         <Route exact path="/login">
           <div className="app_wrapper">
             <div className="header"> <Header /> </div>
-
             <div className="main_login"> <Login /> </div>
-
             <div className="footer"> <Footer /> </div>
           </div>
         </Route>
