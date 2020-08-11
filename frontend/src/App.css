@@ -431,3 +431,85 @@ a:link {
   background-color: deeppink;
 }
 
+
+.modal-window {
+  width: 40%;
+  min-height: 30%;
+  padding: 3%;
+}
+
+.card_extended {
+  width: 100%;
+  height: 100%;
+}
+
+.form_startProject {
+  display: flex;
+  flex-direction: column;
+}
+
+.startProject_wrapTags {
+  display: flex;
+}
+
+.wrap_btn_startProject {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 4%
+}
+
+.startProject_MainText {
+  font-weight: bold;
+}
+
+.startProject_Text {
+  margin: 3% 0;
+  text-align: justify;
+}
+
+.startProject_dateTime {
+  margin-bottom: 3%;
+}
+
+.wrap_comments {
+  margin: 3% 0;
+  display: flex;
+  
+}
+
+.startProject_comments {
+  width: 78%;
+}
+
+.startProject_lableComments {
+  margin-right: 1.5%;
+  font-weight: bold;
+}
+
+.wrap_redactBudget {
+  display: flex;
+}
+
+.startProject_lableRedactBudget {
+  margin-right: 1.5%;
+  font-weight: bold;
+}
+
+.startProject_btnStart {
+  width: 17%;
+}
+
+.startProject_LinkSite {
+  margin: 0 3%;
+  width: 17%;
+}
+
+.startProject_btnLinkSite {
+  
+}
+
+.startProject_btnClose {
+  width: 17%;
+
+}

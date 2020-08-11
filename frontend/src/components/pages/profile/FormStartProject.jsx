@@ -51,21 +51,28 @@ export default function FormStartProject(props) {
       <div className="modal-overlay" >
         <div className="modal-window">
           <article className="card_extended">
-            <form action="">
-              <button onClick={props.onCancel}>X</button>
-              <p className="cardMainText">{title}</p>
-              <p className="cardText">{description}</p>
-              <p className="dateTime">{publishedAt}</p>
-
-              <input onChange={budgetHandler} type="text" name="budget" value={realBudget} />
-              <textarea onChange={commentsHandler} name="comments" id="" cols="30" rows="10" value={comments}></textarea>
-
-              <div className="wrapTags">
+            <form className="form_startProject" action="">
+              
+              <div className="startProject_MainText">{title}</div>
+              <div className="startProject_Text">{description}</div>
+              <div className="startProject_wrapTags">
                 {tags.map((tag, index) => <Tag key={index} className="tag" tag={tag}></Tag>)}
               </div>
-
-              <button onClick={submitHandler} className="btnOpenCard">Добавить в начатое</button>
-              <a href={url} target="_blank"><button>Перейти к обьявлению</button></a>
+              <div className="startProject_dateTime">{publishedAt}</div>
+              <div className="wrap_redactBudget">
+                <div className="startProject_lableRedactBudget">Изменить бюджет</div>
+                <input className="startProject_inpBudget" onChange={budgetHandler} type="text" name="budget" value={realBudget} />
+              </div>
+              <div className="wrap_comments">
+                <div className="startProject_lableComments">Добавить заметку</div>
+                <textarea className="startProject_comments" onChange={commentsHandler} name="comments" id="" cols="50" rows="5" value={comments}></textarea>
+              </div>
+              <div className="wrap_btn_startProject">
+                <button onClick={submitHandler} className="startProject_btnStart">Добавить в начатое</button>
+                <a className="startProject_LinkSite" href={url} target="_blank"><button className="startProject_btnLinkSite">Перейти к обьявлению</button></a>
+                <button className="startProject_btnClose"onClick={props.onCancel}>Закрыть</button>
+              </div>
+              
             </form>
           </article>
         </div>
