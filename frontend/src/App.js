@@ -7,12 +7,12 @@ import './components/Modal.css'
 import './components/Active.css'
 
 
-import Header from './components/Layout/Header';
+import Header from './components/layout/Header';
 import Main from './components/pages/Main';
-import Footer from './components/Layout/Footer';
+import Footer from './components/layout/Footer';
 import FirstPage from './components/pages/FirstPage';
-import Signup from './components/pages/Signup.jsx';
-import Login from './components/pages/Login.jsx';
+import Signup from './components/pages/Signup';
+import Login from './components/pages/Login';
 import CardShort from './components/CardShort';
 import { fetchOffersThunk } from './store/slice'
 import Profile from './components/pages/profile/Profile';
