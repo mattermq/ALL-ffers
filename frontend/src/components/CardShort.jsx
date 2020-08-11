@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleFavouriteAC, updateUserOnServerThunk, expandCardAC } from '../store/slice';
+import { toggleFavouriteAC, toggleFavouriteThunk, expandCardAC } from '../store/slice';
 import heartWhite from '../img/heart_white.png';
 import heartBlack from '../img/heart_black.png';
 
@@ -12,7 +12,7 @@ export default function CardShort(props) {
 
   const toggleFavourite = () => {
     dispatch(toggleFavouriteAC(_id))
-    dispatch(updateUserOnServerThunk({ userId, offerId: _id }))
+    dispatch(toggleFavouriteThunk({ userId, offerId: _id }))
   }
 
   const expandCard = () => {

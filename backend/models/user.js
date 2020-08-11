@@ -18,19 +18,13 @@ const userSchema = new mongoose.Schema({
     default: []
   },
   startedProjects: {
-    type: {
-      type: [mongoose.Schema.Types.ObjectId],
-      ref: 'Project',
-      default: []
-    },
+    type: [Object],
+    default: []
   },
   finishedProjects: {
-    type: {
-      type: [mongoose.Schema.Types.ObjectId],
-      ref: 'Project',
-      default: []
-    },
-  },
+    type: [Object],
+    default: []
+  }
 })
 
 module.exports = mongoose.model('User', userSchema);

@@ -46,6 +46,9 @@ export const slice = createSlice({
         startedProjects: [],
         finishedProjects: []
       }
+      state.offers = state.offers.map(offer => {
+        return { ...offer, isFavourite: false }
+      });
     },
 
 
@@ -130,9 +133,11 @@ export const slice = createSlice({
     },
 
     addToStartedProjectsAC: (state, action) => {
-      const offerIndex = state.offers.findIndex(offer => offer._id === action.payload)
-      const project = state.offers.splice(offerIndex, 1)
-      state.user.startedProjects = state.user.startedProjects.concat(project)
+      // const offerIndex = state.offers.findIndex(offer => offer._id === action.payload._id)
+      // console.log(offerIndex)
+      // const project = state.user.splice(offerIndex, 1)
+      state.user.startedProjects.push(action.payload)
+      console.log(state.user.startedProjects)
     }
 
   },
@@ -155,6 +160,7 @@ export const {
   setCurrentPageAC,
   setNumberOfOffersAC,
   toggleFavouriteAC,
+  addToStartedProjectsAC
 } = slice.actions;
 
 // The function below is called a thunk and allows us to perform async logic. It
@@ -166,20 +172,23 @@ export const fetchOffersThunk = () => async dispatch => {
   dispatch(addOffers(response.data.offers));
 };
 
-export const updateUserOnServerThunk = (payload) => async dispatch => {
-  const response = await axiosQ.patch('http://localhost:3003/users/', payload)
-  console.log(response.data)
-}
-
-// export const updateUserOnServerThunk = (payload) => async dispatch => {
-//   const response = await axiosQ.patch('http://localhost:3003/users/', payload)
-//   console.log(response.data)
-// }
-
 export const logoutThunk = () => async dispatch => {
   const response = await axiosQ.post('http://localhost:3003/logout')
   dispatch(logoutAC())
 }
+
+export const toggleFavouriteThunk = (payload) => async dispatch => {
+  const response = await axiosQ.patch('http://localhost:3003/users/favourite', payload)
+  console.log(response.data)
+}
+
+export const addToStartedProjectsThunk = (payload) => async dispatch => {
+  const response = await axiosQ.post('http://localhost:3003/users/start', payload)
+  console.log(response.data)
+  dispatch(addToStartedProjectsAC(response.data))
+  dispatch(toggleFavouriteAC(payload._id))
+}
+
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
