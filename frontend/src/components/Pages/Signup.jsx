@@ -28,7 +28,7 @@ export default function Signup() {
     if (response.status === 200) {
       setState(initialState)
       dispatch(loginAC(response.data))
-      history.push('/')
+      history.push('/main')
     }
   }
 

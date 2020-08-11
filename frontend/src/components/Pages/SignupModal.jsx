@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 import { loginAC } from '../../store/slice.js'
-// import Portal from '../layout/Portal'
+import Portal2 from '../layout/Portal'
 
 export default function Login({ isModal, toggleModal }) {
 
@@ -17,19 +17,19 @@ export default function Login({ isModal, toggleModal }) {
     elRef.current = div
   }
 
-  const escFunction = useCallback((event) => {
-    if (event.keyCode === 27) {
-      toggleModal()
-    }
-  }, [])
+  // const escFunction = useCallback((event) => {
+  //   if (event.keyCode === 27) {
+  //     toggleModal()
+  //   }
+  // }, [])
 
   useEffect(() => {
     const modalRoot = document.getElementById('modal')
     modalRoot.appendChild(elRef.current)
-    document.addEventListener("keydown", escFunction, false);
+    // document.addEventListener("keydown", escFunction, false);
     return () => {
       modalRoot.removeChild(elRef.current)
-      document.removeEventListener("keydown", escFunction, false);
+      // document.removeEventListener("keydown", escFunction, false);
     }
   }, [])
 
@@ -61,7 +61,6 @@ export default function Login({ isModal, toggleModal }) {
     }
   }
 
-
   if (isModal)
     return createPortal(
       <div className="modal-overlay" >
@@ -85,8 +84,7 @@ export default function Login({ isModal, toggleModal }) {
             <button className="formBtn" type="submit">Зарегистрироваться</button>
           </form>
         </div>
-      </div>
-      , elRef.current
+      </div>, elRef.current
     )
   else return null
 }

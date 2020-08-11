@@ -2,12 +2,13 @@ import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { createPortal } from 'react-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { updateUserOnServerThunk } from '../../../store/slice';
+import { addToStartedProjectsThunk } from '../../../store/slice';
 import Tag from '../../Tag';
 import Portal from '../../layout/Portal'
 
 export default function FormStartProject(props) {
   const dispatch = useDispatch()
+  let userId = useSelector(state => state.slice.user._id)
   let { _id, title, description, budget, publishedAt, tags, url } = props.offer
 
   const [realBudget, setRealBudget] = useState(budget)
@@ -43,8 +44,22 @@ export default function FormStartProject(props) {
     setComments(e.target.value)
   }
 
-  const submitHandler = () => {
+
+
+  const submitHandler = (e) => {
+    e.preventDefault()
+    const newProject = {
+      ...props.offer,
+      user: userId,
+      budget: realBudget,
+      startedAt: new Date(),
+      comments,
+    }
+    dispatch(addToStartedProjectsThunk(newProject))
+    props.onCancel()
   }
+
+
 
   if (props.isModal)
     return createPortal(
@@ -64,6 +79,7 @@ export default function FormStartProject(props) {
                 {tags.map((tag, index) => <Tag key={index} className="tag" tag={tag}></Tag>)}
               </div>
 
+              <button onClick={props.onCancel} className="btnOpenCard">Отменить</button>
               <button onClick={submitHandler} className="btnOpenCard">Добавить в начатое</button>
               <a href={url} target="_blank"><button>Перейти к обьявлению</button></a>
             </form>

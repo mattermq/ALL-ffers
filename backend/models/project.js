@@ -3,6 +3,10 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const projectSchema = new Schema({
+  offerId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Offer'
+  },
   title: {
     type: String,
   },
@@ -37,7 +41,7 @@ const projectSchema = new Schema({
     type: Boolean,
     default: true,
   },
-  freelancer: {
+  user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
@@ -55,4 +59,4 @@ const projectSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model('Project', offerSchema);
+module.exports = mongoose.model('Project', projectSchema);
