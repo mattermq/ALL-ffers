@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Switch, Link, Route } from 'react-router-dom';
 import './App.css';
 import './components/Tag.css';
 import './components/Modal.css'
+import './components/Active.css'
+
 
 import Header from './components/layout/Header';
 import Main from './components/pages/Main';
