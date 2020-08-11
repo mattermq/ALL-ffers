@@ -30,7 +30,7 @@ export default function ProfileFeed() {
 
   if (paginatedOffers)
     return (
-      <div className="blockCards_cards">
+      <>
         {
           paginatedOffers.length > 0 && paginatedOffers.map(offer => {
             if (offer.hasExpandedSize === true)
@@ -42,7 +42,7 @@ export default function ProfileFeed() {
           })
         }
         <Pagination totalPosts={offers.length} />
-      </div>
+      </>
     )
   else return null
 }
