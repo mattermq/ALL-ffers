@@ -55,7 +55,7 @@ export default function CardNormal(props) {
           }
         </div>
       </div>
-      {<FormStartProject isModal={isModal} onCancel={toggleModal} offer={props.offer} />}
+      {isModal && <FormStartProject isModal={isModal} onCancel={toggleModal} offer={props.offer} />}
     </article>
   )
 }

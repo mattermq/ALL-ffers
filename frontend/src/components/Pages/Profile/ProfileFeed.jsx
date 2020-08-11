@@ -5,7 +5,7 @@ import CardNormalP from '../../CardNormalP';
 import CardExtended from '../../CardExtended';
 import Pagination from '../../Pagination'
 import { setNumberOfOffersAC } from '../../../store/slice'
-import ProfileTabs from './ProfileTabs'
+import ProfileTabBar from './ProfileTabBar'
 
 export default function ProfileFeed() {
   const dispatch = useDispatch()
@@ -35,7 +35,7 @@ export default function ProfileFeed() {
         <div className="wrap_profile">
           <div className="prof_blockCards">
             <div className="blockCards_tabs">
-              <ProfileTabs />
+              <ProfileTabBar />
               {/* <div className="tab">В избранном</div>
             <div className="tab">В работе</div>
             <div className="tab">Сделано</div> */}
