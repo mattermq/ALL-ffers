@@ -62,7 +62,7 @@ app.post('/signup', async (req, res, next) => {
   console.log('User Registration successful');
   req.login(newUser, function (err) {
     if (err) { return next(err) }
-    return res.json({ firstName, lastName, _id: newUser._id, favourites: [] })
+    return res.json({ firstName, lastName, _id: newUser._id, favourites: [], startedProjects: [], finishedProjects: [] })
   })
 })
 
@@ -86,9 +86,14 @@ app.post('/login', async (req, res, next) => {
     req.login(user, function (err) {
       if (err) { return next(err) }
       const { firstName, lastName, _id, favourites, startedProjects, finishedProjects } = user
-      return res.json({ firstName, lastName, _id, favourites })
+      return res.json({ firstName, lastName, _id, favourites, startedProjects, finishedProjects })
     })
   }
+})
+
+app.post('/logout', function (req, res) {
+  req.logout()
+  res.json({ message: 'logout succesful' })
 })
 
 passport.serializeUser((user, done) => done(null, user));
