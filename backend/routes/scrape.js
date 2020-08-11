@@ -1,6 +1,7 @@
 const express = require('express');
 const scrapeHabr = require('../lib/scrapers/habr-scraper.js');
 const scrapeWeblancer = require('../lib/scrapers/weblancer-scraper.js');
+const scrapePchel = require('../lib/scrapers/pchel-scraper.js');
 
 const router = express.Router();
 
@@ -12,7 +13,7 @@ router.get('/:website', async (req, res) => {
       try {
         scrapeHabr();
       } catch (err) {
-        console.log('Error Parsing!!!', err);
+        console.log('Error Parsing!', err);
       }
       break;
     case 'weblancer':
@@ -22,6 +23,12 @@ router.get('/:website', async (req, res) => {
         console.log('Error Parsing!', err);
       }
       break;
+    case 'pchel':
+      try {
+        scrapePchel();
+      } catch (err) {
+        console.log('Error Parsing!', err);
+      }
     default:
       return;
   }
