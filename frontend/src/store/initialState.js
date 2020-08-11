@@ -18,6 +18,8 @@ const initialState = {
     firstName: undefined,
     lastName: undefined,
     favourites: [],
+    startedProjects: [],
+    finishedProjects: []
   },
   view: {
     isLoading: false,

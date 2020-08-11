@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
+import { createPortal } from 'react-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { updateUserOnServerThunk } from '../../../store/slice';
@@ -8,34 +9,68 @@ import Portal from '../../layout/Portal'
 export default function FormStartProject(props) {
   const dispatch = useDispatch()
   let { _id, title, description, budget, publishedAt, tags, url } = props.offer
-  const userId = useSelector(state => state.slice.user._id)
 
-  const addToStarted = () => {
+  const [realBudget, setRealBudget] = useState(budget)
+  const [comments, setComments] = useState('')
+
+  const elRef = useRef(null)
+  if (!elRef.current) {
+    const div = document.createElement('div')
+    elRef.current = div
+  }
+
+  const escFunction = useCallback((event) => {
+    if (event.keyCode === 27) {
+      props.onCancel()
+    }
+  }, [])
+
+  useEffect(() => {
+    const modalRoot = document.getElementById('modal')
+    modalRoot.appendChild(elRef.current)
+    document.addEventListener("keydown", escFunction, false);
+    return () => {
+      modalRoot.removeChild(elRef.current)
+      document.removeEventListener("keydown", escFunction, false);
+    }
+  }, [])
+
+  const budgetHandler = (e) => {
+    setRealBudget(e.target.value)
+  }
+
+  const commentsHandler = (e) => {
+    setComments(e.target.value)
+  }
+
+  const submitHandler = () => {
   }
 
   if (props.isModal)
-    return (
-      <Portal>
-        <div className="modal-overlay" >
-          <div className="modal-window">
-            <article className="card_extended">
-              <form action="">
-                <button onClick={props.onCancel}>X</button>
-                <p className="cardMainText">{title}</p>
-                <p className="priceCard">{budget}</p>
-                <p className="cardText">{description}</p>
-                <p className="dateTime">{publishedAt}</p>
-                <div className="wrapTags">
-                  {tags.map((tag, index) => <Tag key={index} className="tag" tag={tag}></Tag>)}
-                </div>
+    return createPortal(
+      <div className="modal-overlay" >
+        <div className="modal-window">
+          <article className="card_extended">
+            <form action="">
+              <button onClick={props.onCancel}>X</button>
+              <p className="cardMainText">{title}</p>
+              <p className="cardText">{description}</p>
+              <p className="dateTime">{publishedAt}</p>
 
-                <button onClick={addToStarted} className="btnOpenCard">Добавить в начатое</button>
-                <a href={url} target="_blank"><button>Перейти к обьявлению</button></a>
-              </form>
-            </article>
-          </div>
+              <input onChange={budgetHandler} type="text" name="budget" value={realBudget} />
+              <textarea onChange={commentsHandler} name="comments" id="" cols="30" rows="10" value={comments}></textarea>
+
+              <div className="wrapTags">
+                {tags.map((tag, index) => <Tag key={index} className="tag" tag={tag}></Tag>)}
+              </div>
+
+              <button onClick={submitHandler} className="btnOpenCard">Добавить в начатое</button>
+              <a href={url} target="_blank"><button>Перейти к обьявлению</button></a>
+            </form>
+          </article>
         </div>
-      </Portal>
+      </div>,
+      elRef.current
     )
   else return null
 }

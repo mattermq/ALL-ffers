@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { NavLink, Route, Switch } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import Modal from './Modal';
-import Login from '../pages/Login';
+import { NavLink } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { logoutThunk } from '../../store/slice'
 import LoginModal from '../pages/LoginModal';
 import SignupModal from '../pages/SignupModal';
 
 function Header() {
+  const dispatch = useDispatch()
   const isAuth = useSelector(state => state.slice.user.isAuth)
   const firstName = useSelector(state => state.slice.user.firstName)
 
@@ -23,7 +23,7 @@ function Header() {
         {isAuth ?
           <>
             <NavLink className="login" to="/profile">{firstName}</NavLink>
-            <NavLink className="login" to="/logout">Logout</NavLink>
+            <button onClick={() => dispatch(logoutThunk())} className="login">Logout</button>
             <button onClick={toggleLoginModal} className="registration">Модальный логин</button>
             <button onClick={toggleSignupModal} className="registration">Модальный signup</button>
           </>
