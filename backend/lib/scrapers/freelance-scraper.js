@@ -5,7 +5,7 @@ const tress = require('tress');
 const Offer = require('../../models/offer.js');
 
 function scrapeFreelance() {
-  const freelanceUrl = 'https://www.weblancer.net/jobs/veb-programmirovanie-31/';
+  const freelanceUrl = 'https://freelance.ru/projects/?spec=4';
   const results = [];
 
   const queue = tress((url, callback) => {
@@ -16,41 +16,44 @@ function scrapeFreelance() {
 
         const $ = cheerio.load(html);
 
-        if ($('#tab_pane-main > div.page_content.landing > div.cols_table.no_hover.header > div > div > b').text() === '') {
-          $('div.cols_table div.click_container-link').each((i, el) => {
-            const $element = $(el);
+        $('div.projects div.public').each((i, el) => {
+          const $element = $(el);
 
-            const relPath = $element.find('div.col-sm-10 div.title a').attr('href');
+          const relPath = $element.find('a.descr').attr('href');
 
-            if (relPath) {
-              const linkToOffer = `https://www.weblancer.net${relPath}`;
+          if (relPath) {
+            const linkToOffer = `https://freelance.ru${relPath}`;
 
-              queue.push(linkToOffer);
-            }
-          });
-        }
+            queue.push(linkToOffer);
+          }
+        });
 
-        const title = $('body > div.main-wrapper > main > div.page_header > div.wrapper.cols_table.no_hover > div > div > h1').text();
-        const description = $('#tab_pane-main > div.page_content.landing > div:nth-child(3) > div > div.col-12.text_field > p').text();
-        const budget = $('body > div.main-wrapper > main > div.page_header > div.wrapper.cols_table.no_hover > div > div > div > span.title.amount > span').text();
-        const publishedAtTS = $('#tab_pane-main > div.page_content.landing > div:nth-child(3) > div > div:nth-child(1) > div.float-right.text-muted.hidden-xs-down > span').attr('data-timestamp') * 1000;
+
+        const title = $('#col_center > div > div.container.pshow > div > div.project_div.col-lg-pull-4.col-lg-8.col-md-pull-5.col-md-7.proj-right-column > div > div > h1')
+          .text();
+        const description = $('#proj_table > tbody > tr:nth-child(2) > td > p')
+          .text();
+        const budget = $('#col_center > div > div.container.pshow > div > div.col-lg-push-8.col-lg-4.col-md-push-7.col-md-5.proj-left-column > div > div:nth-child(1) > div > table > tbody > tr:nth-child(1) > td:nth-child(2)')
+          .text();
+        const publishedAt = $('#col_center > div > div.container.pshow > div > div.col-lg-push-8.col-lg-4.col-md-push-7.col-md-5.proj-left-column > div > div:nth-child(1) > div > table > tbody > tr:nth-child(5) > td:nth-child(2)').
+          text();
 
         const offer = {
-          title: title.slice(0, title.indexOf('–') - 1),
-          description: description.replace(/(\r|\n)/gm, ' ').split(' ').filter((el) => el !== '').join(' '),
+          title,
+          description: description.replace(/(\t|\r|\n)/gm, ' ').split(' ').filter((el) => el !== '').join(' '),
           budget,
-          publishedAt: new Date(publishedAtTS),
-          publishedAtTS,
+          publishedAt: new Date(publishedAt),
+          publishedAtTS: Date.parse(publishedAt),
           url,
         };
 
         results.push(offer);
 
-        const nextPagePath = $('#tab_pane-main > div.page_content.d-flex.flex-column > div.pagination_box > div > div.col.text-center > a.active')
-          .next().attr('href');
+        const nextPagePath = $('#col_center > div > div:nth-child(2) > div > div > ul').find('a[title="на следующую страницу"]')
+          .attr('href');
 
         if (nextPagePath) {
-          const nextPageUrl = `https://www.weblancer.net${nextPagePath}`;
+          const nextPageUrl = `https://freelance.ru${nextPagePath}`;
 
           queue.push(nextPageUrl);
         }
@@ -62,7 +65,7 @@ function scrapeFreelance() {
 
   // эта функция выполнится, когда в очереди закончатся ссылки
   queue.drain = () => {
-    const offers = results.filter((el) => el.title !== 'Фриланс: веб-программирован' && el.description !== '');
+    const offers = results.filter((el) => el.title !== '' && el.description !== '');
 
     offers.forEach(async (el) => {
       const offerInDb = await Offer.findOne({ url: el.url });
@@ -71,13 +74,13 @@ function scrapeFreelance() {
         const newOffer = new Offer({
           title: el.title,
           description: el.description,
-          hasProjectBudget: el.budget.match(/\d/gi) !== null,
+          hasProjectBudget: el.budget.match(/\d/gmi) !== null,
           hasHourlyRate: false,
-          budget: el.budget.match(/\d/gi) !== null ? el.budget : 'Цена договорная',
+          budget: el.budget.match(/\d/gmi) !== null ? el.budget.match(/\d/gmi).join('') : 'Цена договорная',
           publishedAt: el.publishedAt,
           publishedAtTS: el.publishedAtTS,
           url: el.url,
-          from: 'weblancer',
+          from: 'freelance',
         });
 
         try {
