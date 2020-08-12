@@ -12,7 +12,7 @@ export default function FormStartProject(props) {
   let { _id, title, description, budget, publishedAt, tags, url } = props.offer
 
   const [realBudget, setRealBudget] = useState(budget)
-  const [comments, setComments] = useState('')
+  const [comment, setComment] = useState('')
 
   const elRef = useRef(null)
   if (!elRef.current) {
@@ -40,8 +40,8 @@ export default function FormStartProject(props) {
     setRealBudget(e.target.value)
   }
 
-  const commentsHandler = (e) => {
-    setComments(e.target.value)
+  const commentHandler = (e) => {
+    setComment(e.target.value)
   }
 
 
@@ -53,7 +53,7 @@ export default function FormStartProject(props) {
       user: userId,
       budget: realBudget,
       startedAt: new Date(),
-      comments,
+      comment,
     }
     dispatch(addToStartedProjectsThunk(newProject))
     props.onCancel()
@@ -74,7 +74,7 @@ export default function FormStartProject(props) {
               <p className="dateTime">{publishedAt}</p>
 
               <input onChange={budgetHandler} type="text" name="budget" value={realBudget} />
-              <textarea onChange={commentsHandler} name="comments" id="" cols="30" rows="10" value={comments}></textarea>
+              <textarea onChange={commentHandler} name="comment" id="" cols="30" rows="10" value={comment}></textarea>
 
               <div className="wrapTags">
                 {tags.map((tag, index) => <Tag key={index} className="tag" tag={tag}></Tag>)}
