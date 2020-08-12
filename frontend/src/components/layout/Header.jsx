@@ -24,8 +24,6 @@ function Header() {
           <>
             <NavLink className="login" to="/profile">{firstName}</NavLink>
             <a onClick={() => dispatch(logoutThunk())} className="login">Выйти</a>
-            <button onClick={toggleLoginModal} className="registration">Модальный логин</button>
-            <button onClick={toggleSignupModal} className="registration">Модальный signup</button>
           </>
           : <>
             <NavLink className="login" to="/login">Войти</NavLink>
