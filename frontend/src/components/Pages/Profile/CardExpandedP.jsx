@@ -1,11 +1,11 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleFavouriteAC, toggleFavouriteThunk, closeExpandedAC } from '../store/slice';
-import heartWhite from '../img/heart_white.png';
-import heartBlack from '../img/heart_black.png';
-import Tag from './Tag';
+import { toggleFavouriteAC, toggleFavouriteThunk, closeExpandedAC } from '../../../store/slice';
+import heartWhite from '../../../img/heart_white.png';
+import heartBlack from '../../../img/heart_black.png';
+import Tag from '../../Tag';
 
-export default function CardExtended(props) {
+export default function CardExpanded(props) {
   const dispatch = useDispatch()
   let { _id, title, description, budget, publishedAt, tags, isFavourite, url } = props.offer
   const isAuth = useSelector(state => state.slice.user.isAuth)
