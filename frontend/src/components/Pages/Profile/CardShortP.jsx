@@ -23,10 +23,7 @@ export default function CardShort(props) {
   }
 
   const expandCard = () => {
-    if (activeTab === 1)
-      dispatch(expandCardAC(_id))
-    else
-      dispatch(expandProjectCardAC(_id))
+    dispatch(expandCardAC(_id))
   }
 
   const toggleModalStart = () => {

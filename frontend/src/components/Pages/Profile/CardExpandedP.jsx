@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleFavouriteAC, toggleFavouriteThunk, closeExpandedAC, closeExpandedProjectCardAC } from '../../../store/slice';
+import { toggleFavouriteAC, toggleFavouriteThunk, closeExpandedAC } from '../../../store/slice';
 import heartWhite from '../../../img/heart_white.png';
 import heartBlack from '../../../img/heart_black.png';
 import Tag from '../../Tag';
@@ -18,11 +18,9 @@ export default function CardExpanded(props) {
   }
 
   const closeExpanded = () => {
-    if (activeTab === 1)
-      dispatch(closeExpandedAC())
-    else
-      dispatch(closeExpandedProjectCardAC())
+    dispatch(closeExpandedAC())
   }
+
 
   return (
     <article className="card_extended">
