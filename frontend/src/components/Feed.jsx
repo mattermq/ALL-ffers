@@ -1,4 +1,6 @@
 import React from 'react';
+import Loader from 'react-loader-spinner';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import CardShort from './CardShort';
 import CardNormal from './CardNormal';
 import CardExpanded from './CardExpanded';
@@ -66,17 +68,30 @@ function Feed() {
     return (
       <>
         {
-          paginatedOffers.length > 0 && paginatedOffers.map(offer => {
-            if (offer.hasExpandedSize === true)
-              return <CardExpanded key={offer._id} offer={offer} />
-            else if (componentsSize === 1)
-              return <CardShort key={offer._id} offer={offer} />
-            else
-              return <CardNormal key={offer._id} offer={offer} />
-          })
-        }
+          paginatedOffers.length > 0 ?
+          <div>
+            {
+              paginatedOffers.map(offer => {
+                if (offer.hasExpandedSize === true)
+                  return <CardExpanded key={offer._id} offer={offer} />
+                else if (componentsSize === 1)
+                  return <CardShort key={offer._id} offer={offer} />
+                else
+                  return <CardNormal key={offer._id} offer={offer} />
+              })
+            }
+            <Pagination totalPosts={offers.length} />
+          </div>
 
-        <Pagination totalPosts={offers.length} />
+            : <div className="spinner">
+                <Loader
+                  type="ThreeDots"
+                  color="#88afdd"
+                  height={70}
+                  width={70}
+                />
+              </div>
+        }
       </>
     )
   else return null

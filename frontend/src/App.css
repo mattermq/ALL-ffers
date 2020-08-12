@@ -211,6 +211,10 @@ a:link {
 }
 
 .main_cardBlock {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
   width: 75%;
   height: 100%;
 }
