@@ -16,8 +16,8 @@ router.patch('/favourite', async (req, res) => {
 })
 
 router.post('/start', async (req, res) => {
-  const { _id, title, description, tags, hasProjectBudget, hasHourlyRate, budget, publishedAt, publishedAtTS, url, from, user, startedAt, comments } = req.body
-  const newProject = new Project({ offerId: _id, title, description, tags, hasProjectBudget, hasHourlyRate, budget, publishedAt, publishedAtTS, url, from, user, startedAt, comments })
+  const { _id, title, description, tags, hasProjectBudget, hasHourlyRate, budget, publishedAt, publishedAtTS, url, from, user, startedAt, comment } = req.body
+  const newProject = new Project({ offerId: _id, title, description, tags, hasProjectBudget, hasHourlyRate, budget, publishedAt, publishedAtTS, url, from, user, startedAt, comment })
   newProject.save()
   const currentUser = await User.findOne({ _id: user })
   currentUser.startedProjects.push(newProject)
@@ -28,17 +28,18 @@ router.post('/start', async (req, res) => {
 })
 
 
-// router.post('/finish', async (req, res) => {
-//   const { _id, title, description, tags, hasProjectBudget, hasHourlyRate, budget, publishedAt, publishedAtTS, url, from, user, startedAt, comments } = req.body
-//   const newProject = new Project({ offerId: _id, title, description, tags, hasProjectBudget, hasHourlyRate, budget, publishedAt, publishedAtTS, url, from, user, startedAt, comments })
-//   newProject.save()
-//   const currentUser = await User.findOne({ _id: user })
-//   currentUser.startedProjects.push(newProject)
-//   currentUser.favourites = currentUser.favourites.filter(offer => offer != _id)
-//   currentUser.save()
-//   // console.log(currentUser)
-//   res.json(newProject)
-// })
+router.post('/finish', async (req, res) => {
+  const { _id, title, description, tags, hasProjectBudget, hasHourlyRate, budget, publishedAt, publishedAtTS, url, from, user, startedAt, comment } = req.body
+  const finishedProject = Project.findOne({ _id })
+  // const newProject = new Project({ offerId: _id, title, description, tags, hasProjectBudget, hasHourlyRate, budget, publishedAt, publishedAtTS, url, from, user, startedAt, comment })
+  finishedProject.save()
+  const currentUser = await User.findOne({ _id: user })
+  currentUser.startedProjects.push(newProject)
+  currentUser.favourites = currentUser.favourites.filter(offer => offer != _id)
+  currentUser.save()
+  // console.log(currentUser)
+  res.json(newProject)
+})
 
 
 

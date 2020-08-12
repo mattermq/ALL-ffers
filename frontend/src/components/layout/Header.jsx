@@ -18,7 +18,7 @@ function Header() {
 
   return (
     <div className="headerBlock">
-      <NavLink className="logo" to="/">Главная</NavLink>
+      <NavLink className="logo" to="/main">Главная</NavLink>
       <div className="wrap_login">
         {isAuth ?
           <>

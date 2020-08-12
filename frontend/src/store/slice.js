@@ -166,6 +166,16 @@ export const slice = createSlice({
       console.log(state.user.startedProjects)
     },
 
+    addToFinishedProjectsAC: (state, action) => {
+      // const offerIndex = state.offers.findIndex(offer => offer._id === action.payload._id)
+      // console.log(offerIndex)
+      // const project = state.user.splice(offerIndex, 1)
+      state.user.finishedProjects.push({ ...action.payload, hasExpandedSize: false })
+      state.user.startedProjects = state.user.startedProjects.filter(project => project._id !== action.payload._id)
+      console.log('STARTED', state.user.startedProjects)
+      console.log('FINISHED', state.user.startedProjects)
+    },
+
     // Profle
     setActiveTabAC: (state, action) => {
       state.view.profileActiveTab = action.payload
@@ -193,6 +203,7 @@ export const {
   setNumberOfOffersAC,
   toggleFavouriteAC,
   addToStartedProjectsAC,
+  addToFinishedProjectsAC,
   setActiveTabAC
 } = slice.actions;
 
@@ -222,6 +233,11 @@ export const addToStartedProjectsThunk = (payload) => async dispatch => {
   dispatch(toggleFavouriteAC(payload._id))
 }
 
+export const addToFinishedProjectsThunk = (payload) => async dispatch => {
+  const response = await axiosQ.post('http://localhost:3003/users/finish', payload)
+  console.log(response.data)
+  dispatch(addToFinishedProjectsAC(response.data))
+}
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
