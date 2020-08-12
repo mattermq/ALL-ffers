@@ -29,7 +29,7 @@ export default function ProfileFeed({ projects }) {
               return <CardNormalP key={offer._id} offer={offer} /> */}
           })
         }
-        <Pagination totalPosts={projects.length} />
+        {projects.length > profilePostsPerPage && <Pagination totalPosts={projects.length} />}
       </>
     )
   else return null

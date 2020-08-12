@@ -14,12 +14,14 @@ export const slice = createSlice({
     // immutable state based off those changes
 
     loginAC: (state, action) => {
-      const { firstName, lastName, _id, favourites } = action.payload
+      const { firstName, lastName, _id, favourites, startedProjects, finishedProjects } = action.payload
       state.user.isAuth = true
       state.user.firstName = firstName
       state.user.lastName = lastName
       state.user._id = _id
       state.user.favourites = favourites
+      state.user.startedProjects = startedProjects
+      state.user.finishedProjects = finishedProjects
       state.offers = state.offers.map(offer => {
         if (favourites.includes(offer._id))
           return { ...offer, isFavourite: true }

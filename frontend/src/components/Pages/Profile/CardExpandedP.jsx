@@ -10,6 +10,7 @@ export default function CardExpanded(props) {
   let { _id, title, description, budget, publishedAt, tags, isFavourite, url } = props.offer
   const isAuth = useSelector(state => state.slice.user.isAuth)
   const userId = useSelector(state => state.slice.user._id)
+  const activeTab = useSelector(state => state.slice.view.profileActiveTab)
 
   const toggleFauvourite = () => {
     dispatch(toggleFavouriteAC(_id))

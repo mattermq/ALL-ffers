@@ -50,7 +50,6 @@ export default function CardNormalP(props) {
           <button onClick={expandCard} className="btnOpenCard">развернуть</button>
         </div>
       </div>
-      {isModal && <FormStartProject isModal={isModal} onCancel={toggleModal} offer={props.offer} />}
     </article>
   )
 }

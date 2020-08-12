@@ -6,7 +6,7 @@ import { addToStartedProjectsThunk } from '../../../store/slice';
 import Tag from '../../Tag';
 import Portal from '../../layout/Portal'
 
-export default function FormStartProject(props) {
+export default function FormFinishProject(props) {
   const dispatch = useDispatch()
   let userId = useSelector(state => state.slice.user._id)
   let { _id, title, description, budget, publishedAt, tags, url } = props.offer
