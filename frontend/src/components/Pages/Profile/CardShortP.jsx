@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleFavouriteAC, toggleFavouriteThunk, expandCardAC, expandProjectCardAC } from '../../../store/slice';
+import { toggleFavouriteAC, toggleFavouriteThunk, expandCardAC } from '../../../store/slice';
 import heartWhite from '../../../img/heart_white.png';
 import heartBlack from '../../../img/heart_black.png';
 import FormStartProject from './FormStartProject'
