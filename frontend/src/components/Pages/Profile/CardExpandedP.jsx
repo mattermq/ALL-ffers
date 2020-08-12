@@ -21,7 +21,6 @@ export default function CardExpanded(props) {
     dispatch(closeExpandedAC())
   }
 
-
   return (
     <article className="card_extended">
       <div className="wrap_cardMainText">
