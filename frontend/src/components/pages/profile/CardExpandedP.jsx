@@ -18,7 +18,10 @@ export default function CardExpanded(props) {
   }
 
   const closeExpanded = () => {
-    dispatch(closeExpandedAC())
+    if (activeTab === 1)
+      dispatch(closeExpandedAC())
+    else
+      dispatch(closeExpandedProjectCardAC())
   }
 
   return (
