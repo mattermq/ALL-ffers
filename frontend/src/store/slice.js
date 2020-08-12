@@ -136,7 +136,7 @@ export const slice = createSlice({
       // const offerIndex = state.offers.findIndex(offer => offer._id === action.payload._id)
       // console.log(offerIndex)
       // const project = state.user.splice(offerIndex, 1)
-      state.user.startedProjects.push(action.payload)
+      state.user.startedProjects.push({ ...action.payload, hasExpandedSize: false })
       console.log(state.user.startedProjects)
     },
 

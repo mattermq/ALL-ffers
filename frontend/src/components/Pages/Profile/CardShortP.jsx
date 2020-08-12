@@ -25,7 +25,7 @@ export default function CardShort(props) {
         <div className="cardMainText">{title}</div>
         <div className="priceCard">{budget}</div>
 
-        <button onClick={expandCard} className="btnOpenCard">развернуть</button>
+        {/* <button onClick={expandCard} className="btnOpenCard">развернуть</button> */}
 
         <button onClick={expandCard} className="btnOpenCard">развернуть</button>
 
