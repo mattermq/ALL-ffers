@@ -14,13 +14,33 @@ export default function Profile() {
   if (!isAuth)
     history.push("/")
 
+  const { profileActiveTab } = useSelector(state => state.slice.view)
+  const { startedProjects, finishedProjects, favourites, firstName } = useSelector(state => state.slice.user)
+  const offers = useSelector(state => state.slice.offers)
+  const favouritesAsObjects = []
+
+  favourites.forEach(fav => {
+    const favOffer = offers.find(offer => offer._id == fav)
+    favouritesAsObjects.push(favOffer)
+  })
+
+  console.log(favouritesAsObjects)
+
+  let projectsToShow = []
+  if (profileActiveTab === 1)
+    projectsToShow = favouritesAsObjects
+  else if ((profileActiveTab === 2))
+    projectsToShow = startedProjects
+  else
+    projectsToShow = finishedProjects
+
   return (
     <div className="wrap_profile">
       <div className="prof_blockCards">
         <div className="blockCards_tabs">
           <ProfileTabBar />
         </div>
-        <ProfileFeed />
+        <ProfileFeed projects={projectsToShow} />
       </div>
 
       <div className="prof_blockStat">

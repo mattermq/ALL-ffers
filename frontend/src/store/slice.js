@@ -136,10 +136,14 @@ export const slice = createSlice({
       // const offerIndex = state.offers.findIndex(offer => offer._id === action.payload._id)
       // console.log(offerIndex)
       // const project = state.user.splice(offerIndex, 1)
-      state.user.startedProjects.push(action.payload)
+      state.user.startedProjects.push({ ...action.payload, hasExpandedSize: false })
       console.log(state.user.startedProjects)
-    }
+    },
 
+    // Profle
+    setActiveTabAC: (state, action) => {
+      state.view.profileActiveTab = action.payload
+    }
   },
 });
 
@@ -160,7 +164,8 @@ export const {
   setCurrentPageAC,
   setNumberOfOffersAC,
   toggleFavouriteAC,
-  addToStartedProjectsAC
+  addToStartedProjectsAC,
+  setActiveTabAC
 } = slice.actions;
 
 // The function below is called a thunk and allows us to perform async logic. It

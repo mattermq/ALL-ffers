@@ -1,7 +1,7 @@
 import React from 'react';
 import CardShort from './CardShort';
 import CardNormal from './CardNormal';
-import CardExtended from './CardExtended';
+import CardExpanded from './CardExpanded';
 import Pagination from './Pagination'
 import { useSelector, useDispatch } from 'react-redux';
 import { setNumberOfOffersAC } from '../store/slice'
@@ -68,7 +68,7 @@ function Feed() {
         {
           paginatedOffers.length > 0 && paginatedOffers.map(offer => {
             if (offer.hasExpandedSize === true)
-              return <CardExtended key={offer._id} offer={offer} />
+              return <CardExpanded key={offer._id} offer={offer} />
             else if (componentsSize === 1)
               return <CardShort key={offer._id} offer={offer} />
             else

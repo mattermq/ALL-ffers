@@ -18,6 +18,7 @@ const initialState = {
     firstName: undefined,
     lastName: undefined,
     favourites: [],
+    favouritesAsObjects: [],
     startedProjects: [],
     finishedProjects: []
   },
@@ -35,6 +36,7 @@ const initialState = {
     postsPerPage: 10,
     profileCurrentPage: 1,
     profilePostsPerPage: 10,
+    profileActiveTab: 1
   },
   offers: [],
   tags: []
