@@ -60,6 +60,7 @@ export const slice = createSlice({
       state.view.componentsSize = Number(action.payload)
     },
 
+
     expandCardAC: (state, action) => {
       state.offers = state.offers.map(offer => {
         if (offer._id === action.payload)
@@ -75,6 +76,29 @@ export const slice = createSlice({
       })
     },
 
+    expandProjectCardAC: (state, action) => {
+      state.user.startedProjects = state.user.startedProjects.map(offer => {
+        if (offer._id === action.payload)
+          return { ...offer, hasExpandedSize: true }
+        else
+          return { ...offer, hasExpandedSize: false }
+      })
+      state.user.finishedProjects = state.user.finishedProjects.map(offer => {
+        if (offer._id === action.payload)
+          return { ...offer, hasExpandedSize: true }
+        else
+          return { ...offer, hasExpandedSize: false }
+      })
+    },
+
+    closeExpandedProjectCardAC: (state) => {
+      state.user.startedProjects = state.user.startedProjects.map(project => {
+        return { ...project, hasExpandedSize: false }
+      })
+      state.user.finishedProjects = state.user.finishedProjects.map(project => {
+        return { ...project, hasExpandedSize: false }
+      })
+    },
 
     /// Filters 
 
@@ -156,6 +180,8 @@ export const {
   changeComponentSizeAC,
   expandCardAC,
   closeExpandedAC,
+  expandProjectCardAC,
+  closeExpandedProjectCardAC,
   toggleFilterBudgetAC,
   toggleFilterFavouritesAC,
   filterSearchHandlerAC,
