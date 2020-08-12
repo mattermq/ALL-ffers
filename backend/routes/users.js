@@ -27,4 +27,19 @@ router.post('/start', async (req, res) => {
   res.json(newProject)
 })
 
+
+// router.post('/finish', async (req, res) => {
+//   const { _id, title, description, tags, hasProjectBudget, hasHourlyRate, budget, publishedAt, publishedAtTS, url, from, user, startedAt, comments } = req.body
+//   const newProject = new Project({ offerId: _id, title, description, tags, hasProjectBudget, hasHourlyRate, budget, publishedAt, publishedAtTS, url, from, user, startedAt, comments })
+//   newProject.save()
+//   const currentUser = await User.findOne({ _id: user })
+//   currentUser.startedProjects.push(newProject)
+//   currentUser.favourites = currentUser.favourites.filter(offer => offer != _id)
+//   currentUser.save()
+//   // console.log(currentUser)
+//   res.json(newProject)
+// })
+
+
+
 module.exports = router
