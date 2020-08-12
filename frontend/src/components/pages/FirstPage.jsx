@@ -2,9 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 
 function FirstPage() {
-
   return (
-
     <div className="mainFirstPage">
       <div className="firstPage_mainText"> Делай то, что хочешь </div>
 

@@ -1,6 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { changeComponentSizeAC } from '../store/slice'
+import { changeComponentSizeAC } from '../store/slice';
+import Loader from 'react-loader-spinner';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
 export default function ViewOptionsBar() {
   const dispatch = useDispatch()
@@ -32,7 +34,16 @@ export default function ViewOptionsBar() {
           />
         </div>
       </form>
-      <span>Найдено {numberOfOffers} заказов:</span>
+      {
+        numberOfOffers === 0 ?
+            <Loader
+              type="ThreeDots"
+              color="#88afdd"
+              height={20}
+              width={20}
+            />
+          : <span>Найдено {numberOfOffers} заказов:</span>
+      }
     </>
   );
 }
