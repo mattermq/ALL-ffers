@@ -18,12 +18,12 @@ function Header() {
 
   return (
     <div className="headerBlock">
-      <NavLink className="logo" to="/main">Главная</NavLink>
+      <NavLink className="logo" to="/">Главная</NavLink>
       <div className="wrap_login">
         {isAuth ?
           <>
             <NavLink className="login" to="/profile">{firstName}</NavLink>
-            <button onClick={() => dispatch(logoutThunk())} className="login">Logout</button>
+            <a onClick={() => dispatch(logoutThunk())} className="login">Выйти</a>
             <button onClick={toggleLoginModal} className="registration">Модальный логин</button>
             <button onClick={toggleSignupModal} className="registration">Модальный signup</button>
           </>
