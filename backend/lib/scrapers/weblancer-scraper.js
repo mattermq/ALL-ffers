@@ -39,8 +39,8 @@ function scrapeWeblancer() {
           title: title.slice(0, title.indexOf('–') - 1),
           description: description.replace(/(\r|\n)/gm, ' ').split(' ').filter((el) => el !== '').join(' '),
           budget,
-          publishedAt: new Date(publishedAtTS),
           publishedAtTS,
+          publishedAt: new Date(publishedAtTS),
           url,
         };
 
@@ -74,7 +74,7 @@ function scrapeWeblancer() {
           hasProjectBudget: el.budget.match(/\d/gi) !== null,
           hasHourlyRate: false,
           budget: el.budget.match(/\d/gi) !== null ? el.budget : 'Цена договорная',
-          publishedAt: el.publishedAt,
+          publishedAt: `${el.publishedAt.getDate()}.${el.publishedAt.getMonth() + 1}.${el.publishedAt.getFullYear()}`,
           publishedAtTS: el.publishedAtTS,
           url: el.url,
           from: 'weblancer',

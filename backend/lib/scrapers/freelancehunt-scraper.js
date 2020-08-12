@@ -38,6 +38,7 @@ function scrapeFreelancehunt() {
           description: description.replace(/(\r|\n)/gm, ' ').split(' ').filter((el) => el !== '').join(' '),
           budget: budget.trim(),
           publishedAtTS: publishedAtTS * 1000,
+          publishedAt: new Date(publishedAtTS * 1000),
           url,
         };
 
@@ -72,7 +73,7 @@ function scrapeFreelancehunt() {
           hasHourlyRate: false,
           budget: el.budget !== '' ? el.budget : 'Цена договорная',
           publishedAtTS: el.publishedAtTS,
-          publishedAt: new Date(el.publishedAtTS),
+          publishedAt: `${el.publishedAt.getDate()}.${el.publishedAt.getMonth() + 1}.${el.publishedAt.getFullYear()}`,
           url: el.url,
           from: 'freelancehunt',
         });

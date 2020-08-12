@@ -77,7 +77,7 @@ function scrapeFreelance() {
           hasProjectBudget: el.budget.match(/\d/gmi) !== null,
           hasHourlyRate: false,
           budget: el.budget.match(/\d/gmi) !== null ? el.budget.match(/\d/gmi).join('') : 'Цена договорная',
-          publishedAt: el.publishedAt,
+          publishedAt: `${el.publishedAt.getDate()}.${el.publishedAt.getMonth() + 1}.${el.publishedAt.getFullYear()}`,
           publishedAtTS: el.publishedAtTS,
           url: el.url,
           from: 'freelance',
