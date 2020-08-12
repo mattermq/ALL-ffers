@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleFavouriteAC, toggleFavouriteThunk, expandCardAC } from '../../../store/slice';
+import { toggleFavouriteAC, toggleFavouriteThunk, expandCardAC, expandProjectCardAC } from '../../../store/slice';
 import heartWhite from '../../../img/heart_white.png';
 import heartBlack from '../../../img/heart_black.png';
 import FormStartProject from './FormStartProject'
@@ -23,7 +23,10 @@ export default function CardShort(props) {
   }
 
   const expandCard = () => {
-    dispatch(expandCardAC(_id))
+    if (activeTab === 1)
+      dispatch(expandCardAC(_id))
+    else
+      dispatch(expandProjectCardAC(_id))
   }
 
   const toggleModalStart = () => {
