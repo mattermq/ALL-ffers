@@ -60,6 +60,7 @@ export const slice = createSlice({
       state.view.componentsSize = Number(action.payload)
     },
 
+
     expandCardAC: (state, action) => {
       state.offers = state.offers.map(offer => {
         if (offer._id === action.payload)
@@ -75,6 +76,29 @@ export const slice = createSlice({
       })
     },
 
+    expandProjectCardAC: (state, action) => {
+      state.user.startedProjects = state.user.startedProjects.map(offer => {
+        if (offer._id === action.payload)
+          return { ...offer, hasExpandedSize: true }
+        else
+          return { ...offer, hasExpandedSize: false }
+      })
+      state.user.finishedProjects = state.user.finishedProjects.map(offer => {
+        if (offer._id === action.payload)
+          return { ...offer, hasExpandedSize: true }
+        else
+          return { ...offer, hasExpandedSize: false }
+      })
+    },
+
+    closeExpandedProjectCardAC: (state) => {
+      state.user.startedProjects = state.user.startedProjects.map(project => {
+        return { ...project, hasExpandedSize: false }
+      })
+      state.user.finishedProjects = state.user.finishedProjects.map(project => {
+        return { ...project, hasExpandedSize: false }
+      })
+    },
 
     /// Filters 
 
@@ -142,6 +166,16 @@ export const slice = createSlice({
       console.log(state.user.startedProjects)
     },
 
+    addToFinishedProjectsAC: (state, action) => {
+      // const offerIndex = state.offers.findIndex(offer => offer._id === action.payload._id)
+      // console.log(offerIndex)
+      // const project = state.user.splice(offerIndex, 1)
+      state.user.finishedProjects.push({ ...action.payload, hasExpandedSize: false })
+      state.user.startedProjects = state.user.startedProjects.filter(project => project._id !== action.payload._id)
+      console.log('STARTED', state.user.startedProjects)
+      console.log('FINISHED', state.user.startedProjects)
+    },
+
     // Profle
     setActiveTabAC: (state, action) => {
       state.view.profileActiveTab = action.payload
@@ -156,6 +190,8 @@ export const {
   changeComponentSizeAC,
   expandCardAC,
   closeExpandedAC,
+  expandProjectCardAC,
+  closeExpandedProjectCardAC,
   toggleFilterBudgetAC,
   toggleFilterFavouritesAC,
   filterSearchHandlerAC,
@@ -167,6 +203,7 @@ export const {
   setNumberOfOffersAC,
   toggleFavouriteAC,
   addToStartedProjectsAC,
+  addToFinishedProjectsAC,
   setActiveTabAC
 } = slice.actions;
 
@@ -196,6 +233,11 @@ export const addToStartedProjectsThunk = (payload) => async dispatch => {
   dispatch(toggleFavouriteAC(payload._id))
 }
 
+export const addToFinishedProjectsThunk = (payload) => async dispatch => {
+  const response = await axiosQ.post('http://localhost:3003/users/finish', payload)
+  console.log(response.data)
+  dispatch(addToFinishedProjectsAC(response.data))
+}
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of

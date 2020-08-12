@@ -2,17 +2,17 @@ import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { createPortal } from 'react-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { addToStartedProjectsThunk } from '../../../store/slice';
+import { addToStartedProjectsThunk, addToFinishedProjectsThunk } from '../../../store/slice';
 import Tag from '../../Tag';
 import Portal from '../../layout/Portal'
 
 export default function FormFinishProject(props) {
   const dispatch = useDispatch()
   let userId = useSelector(state => state.slice.user._id)
-  let { _id, title, description, budget, publishedAt, tags, url } = props.offer
+  let { _id, title, description, budget, publishedAt, startedAt, comment, tags, url } = props.offer
 
   const [realBudget, setRealBudget] = useState(budget)
-  const [comments, setComments] = useState('')
+  const [finalComment, setFinalComment] = useState(comment)
 
   const elRef = useRef(null)
   if (!elRef.current) {
@@ -40,22 +40,21 @@ export default function FormFinishProject(props) {
     setRealBudget(e.target.value)
   }
 
-  const commentsHandler = (e) => {
-    setComments(e.target.value)
+  const commentHandler = (e) => {
+    setFinalComment(e.target.value)
   }
 
 
 
   const submitHandler = (e) => {
     e.preventDefault()
-    const newProject = {
+    const finishedProject = {
       ...props.offer,
-      user: userId,
       budget: realBudget,
-      startedAt: new Date(),
-      comments,
+      finishedAt: new Date(),
+      comment,
     }
-    dispatch(addToStartedProjectsThunk(newProject))
+    dispatch(addToFinishedProjectsThunk(finishedProject))
     props.onCancel()
   }
 
@@ -73,14 +72,14 @@ export default function FormFinishProject(props) {
               <p className="dateTime">{publishedAt}</p>
 
               <input onChange={budgetHandler} type="text" name="budget" value={realBudget} />
-              <textarea onChange={commentsHandler} name="comments" id="" cols="30" rows="10" value={comments}></textarea>
+              <textarea onChange={commentHandler} name="comment" id="" cols="30" rows="10" value={finalComment}></textarea>
 
               <div className="wrapTags">
                 {tags.map((tag, index) => <Tag key={index} className="tag" tag={tag}></Tag>)}
               </div>
 
               <button onClick={props.onCancel} className="btnOpenCard">Отменить</button>
-              <button onClick={submitHandler} className="btnOpenCard">Добавить в начатое</button>
+              <button onClick={submitHandler} className="btnOpenCard">Добавить в завершенное</button>
               {/* <a href={url} target="_blank"><button>Перейти к обьявлению</button></a> */}
             </form>
           </article>
