@@ -68,6 +68,7 @@ export default function FormStartProject(props) {
           <article className="card_extended">
             <form action="">
               <button onClick={props.onCancel}>X</button>
+              <p>Завершить проект</p>
               <p className="cardMainText">{title}</p>
               <p className="cardText">{description}</p>
               <p className="dateTime">{publishedAt}</p>
