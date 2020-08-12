@@ -9,10 +9,10 @@ import Portal from '../../layout/Portal'
 export default function FormFinishProject(props) {
   const dispatch = useDispatch()
   let userId = useSelector(state => state.slice.user._id)
-  let { _id, title, description, budget, publishedAt, tags, url } = props.offer
+  let { _id, title, description, budget, publishedAt, startedAt, comments, tags, url } = props.offer
 
   const [realBudget, setRealBudget] = useState(budget)
-  const [comments, setComments] = useState('')
+  const [finalComments, setFinalComments] = useState(comments)
 
   const elRef = useRef(null)
   if (!elRef.current) {
@@ -41,7 +41,7 @@ export default function FormFinishProject(props) {
   }
 
   const commentsHandler = (e) => {
-    setComments(e.target.value)
+    setFinalComments(e.target.value)
   }
 
 
@@ -73,14 +73,14 @@ export default function FormFinishProject(props) {
               <p className="dateTime">{publishedAt}</p>
 
               <input onChange={budgetHandler} type="text" name="budget" value={realBudget} />
-              <textarea onChange={commentsHandler} name="comments" id="" cols="30" rows="10" value={comments}></textarea>
+              <textarea onChange={commentsHandler} name="comments" id="" cols="30" rows="10" value={finalComments}></textarea>
 
               <div className="wrapTags">
                 {tags.map((tag, index) => <Tag key={index} className="tag" tag={tag}></Tag>)}
               </div>
 
               <button onClick={props.onCancel} className="btnOpenCard">Отменить</button>
-              <button onClick={submitHandler} className="btnOpenCard">Добавить в начатое</button>
+              <button onClick={submitHandler} className="btnOpenCard">Добавить в завершенное</button>
               {/* <a href={url} target="_blank"><button>Перейти к обьявлению</button></a> */}
             </form>
           </article>
