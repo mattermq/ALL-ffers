@@ -1,1 +1,1 @@
-# Freelance Offers Aggregator
+# Freelance Offers Aggregator - ALL-fers!
