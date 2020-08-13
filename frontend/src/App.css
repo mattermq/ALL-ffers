@@ -452,17 +452,15 @@ a:link {
 .blockCards_tabs {
   display: flex;
   flex-direction: row;
-  
   align-items: center;
 }
 
 .tab {
   border: 1px solid grey;
-  padding: 25px;
-}
-
-.tab:active {
-  background-color: deeppink;
+ padding: 10px;
+ border-radius: 10px 10px 0 0;
+ letter-spacing: 2px;
+ 
 }
 
 
