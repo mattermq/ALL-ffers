@@ -11,7 +11,7 @@ export default function FilterBlock() {
   return (
     <>
       {isAuth &&
-        <form>
+        <form className="filterItem">
           <input
             name="filterFavourites"
             type="checkbox"
@@ -23,7 +23,7 @@ export default function FilterBlock() {
           <br />
         </form>}
 
-      <form>
+      <form className="filterItem">
         <input
           name="filterBudget"
           type="checkbox"
