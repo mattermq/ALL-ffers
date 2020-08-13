@@ -24,13 +24,13 @@ export default function FilterBlock() {
         </form>}
 
       <form className="filterItem">
-        <input
+        <input className="InputBudget"
           name="filterBudget"
           type="checkbox"
           checked={filterBudget}
           onChange={() => dispatch(toggleFilterBudgetAC())} />
         <label>
-          С бюджетом:
+          С бюджетом
         </label>
 
         <br />
