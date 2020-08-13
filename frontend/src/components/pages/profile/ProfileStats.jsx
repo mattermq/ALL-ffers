@@ -88,7 +88,7 @@ export default function ProfileStats() {
     }
   })
 
-  console.log(statsThisMonth, statsMonthM1, statsMonthM2)
+  // console.log(statsThisMonth, statsMonthM1, statsMonthM2)
 
   // console.log(yearNow, monthNow, dayNow)
   // const dt = new Date();

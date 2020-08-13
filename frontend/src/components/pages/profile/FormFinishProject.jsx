@@ -51,7 +51,7 @@ export default function FormFinishProject(props) {
     const finishedProject = {
       ...props.offer,
       budget: realBudget,
-      finishedAt: new Date,
+      finishedAt: new Date(),
       comment,
     }
     dispatch(addToFinishedProjectsThunk(finishedProject))
