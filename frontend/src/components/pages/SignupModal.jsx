@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 import { loginAC } from '../../store/slice.js'
 import Portal2 from '../layout/Portal'
+import crossImg from '../../img/cross.svg';
 
 export default function Login({ isModal, toggleModal }) {
 
@@ -65,6 +66,9 @@ export default function Login({ isModal, toggleModal }) {
     return createPortal(
       <div className="modal-overlay" >
         <div className="modal-signup">
+          <button onClick={toggleModal} className="close-modal">
+            <img width={20} height={20} src={crossImg}></img>
+          </button>
           <form className="modal-form" onSubmit={submitHandler}>
 
             <label className="formLable" htmlFor="firstName">Имя</label>
