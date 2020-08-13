@@ -9,7 +9,7 @@ import FormFinishProject from './FormFinishProject'
 
 export default function CardExpanded(props) {
   const dispatch = useDispatch()
-  let { _id, title, description, budget, publishedAt, tags, isFavourite, url } = props.offer
+  let { _id, title, description, budget, currency, publishedAt, tags, isFavourite, url } = props.offer
   const isAuth = useSelector(state => state.slice.user.isAuth)
   const userId = useSelector(state => state.slice.user._id)
   const activeTab = useSelector(state => state.slice.view.profileActiveTab)
@@ -41,7 +41,7 @@ export default function CardExpanded(props) {
     <article className="card_extended">
       <div className="wrap_cardMainText">
         <div className="cardMainText">{title}</div>
-        <div className="priceCard">{budget}</div>
+        <div className="priceCard">{budget} {currency}</div>
       </div>
       <div className="cardText">{description}</div>
       <div className="dateTime">{publishedAt}</div>
