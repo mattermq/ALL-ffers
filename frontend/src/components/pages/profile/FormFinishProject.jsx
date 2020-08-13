@@ -48,6 +48,7 @@ export default function FormFinishProject(props) {
 
   const submitHandler = (e) => {
     e.preventDefault()
+    console.log(_id)
     const finishedProject = {
       ...props.offer,
       budget: realBudget,

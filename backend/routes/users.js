@@ -29,16 +29,19 @@ router.post('/start', async (req, res) => {
 
 
 router.post('/finish', async (req, res) => {
-  const { _id, title, description, tags, hasProjectBudget, hasHourlyRate, budget, publishedAt, publishedAtTS, url, from, user, startedAt, comment } = req.body
-  const finishedProject = Project.findOne({ _id })
+  const { _id, user, comment, finishedAt } = req.body
+  const finishedProject = await Project.findOne({ _id })
   // const newProject = new Project({ offerId: _id, title, description, tags, hasProjectBudget, hasHourlyRate, budget, publishedAt, publishedAtTS, url, from, user, startedAt, comment })
+  finishedProject.comment = comment
+  finishedProject.finishedAt = finishedAt
+
   finishedProject.save()
+  console.log(finishedProject)
   const currentUser = await User.findOne({ _id: user })
-  currentUser.startedProjects.push(newProject)
-  currentUser.favourites = currentUser.favourites.filter(offer => offer != _id)
+  currentUser.finishedProjects.push(finishedProject)
+  currentUser.startedProjects = currentUser.startedProjects.filter(offer => offer != _id)
   currentUser.save()
-  // console.log(currentUser)
-  res.json(newProject)
+  res.json(finishedProject)
 })
 
 

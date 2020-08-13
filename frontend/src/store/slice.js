@@ -50,7 +50,8 @@ export const slice = createSlice({
       }
       state.offers = state.offers.map(offer => {
         return { ...offer, isFavourite: false }
-      });
+      })
+      state.view.profileActiveTab = 1
     },
 
 
@@ -163,6 +164,7 @@ export const slice = createSlice({
       // console.log(offerIndex)
       // const project = state.user.splice(offerIndex, 1)
       state.user.startedProjects.push({ ...action.payload, hasExpandedSize: false })
+      state.view.profileActiveTab = 2
       console.log(state.user.startedProjects)
     },
 
@@ -172,8 +174,10 @@ export const slice = createSlice({
       // const project = state.user.splice(offerIndex, 1)
       state.user.finishedProjects.push({ ...action.payload, hasExpandedSize: false })
       state.user.startedProjects = state.user.startedProjects.filter(project => project._id !== action.payload._id)
-      console.log('STARTED', state.user.startedProjects)
-      console.log('FINISHED', state.user.startedProjects)
+      state.view.profileActiveTab = 3
+
+      // console.log('STARTED', state.user.startedProjects)
+      // console.log('FINISHED', state.user.finishedProjects)
     },
 
     // Profle
