@@ -1,6 +1,8 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import BarsChart from '../../BarsChart';
+import LineChart from '../../LineChart';
 
 export default function ProfileStats() {
 
@@ -101,14 +103,14 @@ export default function ProfileStats() {
 
   return (
     <>
-      <p>{firstName}, твои последние результаты:</p>
+      <p>{firstName}, ваши последние результаты:</p>
       {/* {{ thisYear }, { thisMonth }, { thisDay }, { startThisMonth.toString() }} */}
 
       {/* <p>{startMonthM1.toString()}</p>
       <p>{startMonthM2.toString()}</p>
       <p>{startMonthM3.toString()}</p> */}
 
-      <table>
+{/*       <table>
         <tbody>
           <tr>
             <td>Начато</td>
@@ -135,7 +137,9 @@ export default function ProfileStats() {
             <td>{months[thisMonth]}</td>
           </tr>
         </tbody>
-      </table>
+      </table> */}
+      <BarsChart />
+      <LineChart />
     </>
   )
 }
