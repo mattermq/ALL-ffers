@@ -25,11 +25,22 @@ export default function Pagination({ totalPosts }) {
     if (currentPage < n)
       dispatch(setCurrentPageAC(currentPage + 1))
   }
+
   return (
     <>
       <p>
         <button onClick={decreaseCurrentPage}>(-</button>
-        {pagesNumbers.map(page => <button key={page} href="#!" onClick={setСurrentPage}>{page}</button>)}
+        {
+          pagesNumbers.map(page => {
+            if (n < 10)
+              return <button key={page} href="#!" onClick={setСurrentPage}>{page}</button>
+            else if (n > 10 && (page === 0 || page === n))
+              return <button key={page} href="#!" onClick={setСurrentPage}>{page}</button>
+            else if (n > 10 && ((currentPage - page > -3) && (currentPage - page < 3)))
+              return <button key={page} href="#!" onClick={setСurrentPage}>{page}</button>
+            {/* else return <span>...</span> */ }
+          })
+        }
         <button onClick={increaseCurrentPage}>-)</button>
       </p>
     </>
