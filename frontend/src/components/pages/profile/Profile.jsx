@@ -25,8 +25,6 @@ export default function Profile() {
     favouritesAsObjects.push(favOffer)
   })
 
-  console.log(favouritesAsObjects)
-
   let projectsToShow = []
   if (profileActiveTab === 1)
     projectsToShow = favouritesAsObjects

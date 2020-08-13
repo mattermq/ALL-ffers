@@ -53,12 +53,16 @@ const projectSchema = new Schema({
     type: Date,
     default: new Date()
   },
+  startedAtTS: {
+    type: String,
+    default: undefined
+  },
   finishedAt: {
     type: Date,
     default: undefined
   },
   finishedAtTS: {
-    type: Date,
+    type: String,
     default: undefined
   }
 });
