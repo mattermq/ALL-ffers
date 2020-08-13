@@ -4,6 +4,11 @@ import axios from 'axios';
 
 const axiosQ = axios.create({ withCredentials: true });
 
+const currencyRate = {
+  '$': 72.94,
+  '₴': 2.66
+}
+
 export const slice = createSlice({
   name: 'slice',
   initialState: initialState,
@@ -31,9 +36,33 @@ export const slice = createSlice({
 
     addOffers: (state, action) => {
       const tags = []
+
       state.offers = action.payload.map(offer => {
         offer.tags.forEach(tag => tags.push(tag))
-        return { ...offer, isFavourite: false, hasExpandedSize: false }
+
+        if (offer.hasProjectBudget === false && offer.hasHourlyRate === false)
+          return { ...offer, isFavourite: false, hasExpandedSize: false }
+
+        let currency = '₽'
+        if (offer.budget === 'Цена договорная')
+          currency = ''
+        else if (offer.budget.includes('$'))
+          currency = '$'
+        else if (offer.budget.includes('₴'))
+          currency = '₴'
+
+        if (offer.budget !== 'Цена договорная')
+          var budgetNumber = Number(offer.budget.replace(/[^0-9]/g, ''))
+
+        let budgetAbsolute
+        if (currency === '₽')
+          budgetAbsolute = budgetNumber
+        else if (currency === '₴')
+          budgetAbsolute = budgetNumber * currencyRate['₴']
+        else if (currency === '$')
+          budgetAbsolute = budgetNumber * currencyRate['$']
+
+        return { ...offer, budget: budgetNumber, budgetAbsolute, currency, isFavourite: false, hasExpandedSize: false }
       })
       state.tags = [...new Set(tags)]
     },

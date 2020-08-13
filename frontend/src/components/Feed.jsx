@@ -46,12 +46,13 @@ function Feed() {
   if (sortOption === 'hasProjectBudget') {
     offers = offers
       .filter(offer => offer.hasProjectBudget === true)
-      .sort((a, b) => Number(b.budget) - Number(a.budget))
+      .sort((a, b) => Number(b.budgetAbsolute) - Number(a.budgetAbsolute))
+      .concat(offers.filter(offer => offer.hasProjectBudget === false))
   }
   else if (sortOption === 'hasHourlyRate') {
     offers = offers
       .filter(offer => offer.hasHourlyRate === true)
-      .sort((a, b) => Number(b.budget) - Number(a.budget))
+      .sort((a, b) => Number(b.budgetAbsolute) - Number(a.budgetAbsolute))
   }
   else if (sortOption === 'publishedAtTS') {
     offers = offers.sort((a, b) => Number(b.publishedAtTS) - Number(a.publishedAtTS))
