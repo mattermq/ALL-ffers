@@ -37,7 +37,7 @@ function Main() {
           <div className="blockIN_main_filterBlock_Search_Text">Поиск</div>
             <div className="search"> <SearchBlock /> </div>
           </div>
-          <div className="blockIN_main_filterBlock_Search_Text">Фильтры</div>
+          <div className="blockIN_main_filterBlock_filter_Text">Фильтры</div>
             <div className="filter"><FilterBlock /></div>
             
           </div>

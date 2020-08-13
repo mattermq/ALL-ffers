@@ -83,7 +83,7 @@ export default function FormFinishProject(props) {
               </div>
               <div className="wrap_btn_startProject">
               <button onClick={props.onCancel} className="btnCancel">Отменить</button>
-              <button onClick={submitHandler} className="startProject_btnStart">Добавить в завершенное</button>
+              <button onClick={submitHandler} className="btn_formStartProj_DOB">Добавить в завершенное</button>
               {/* <a href={url} target="_blank"><button>Перейти к обьявлению</button></a> */}
               </div>
             </form>

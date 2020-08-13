@@ -32,7 +32,7 @@ export default class BarsChart extends React.Component {
           title: {
             display: true,
             text: 'Ваши Доходы',
-            fontSize: 19,
+            fontSize: 15,
           },
           legend: {
             position: 'bottom',
@@ -43,7 +43,7 @@ export default class BarsChart extends React.Component {
   }
   render() {
     return (
-      <div class="chart-container" style={{'position': 'relative', 'height':'300px', 'width':'500px'}}>
+      <div class="chart-container" /* style={{'position': 'relative', 'height':'300px', 'width':'300px'}} */>
         <canvas ref="canvas" id="chart"></canvas>
       </div>
     );
