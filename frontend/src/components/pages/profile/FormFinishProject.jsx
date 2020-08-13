@@ -48,12 +48,10 @@ export default function FormFinishProject(props) {
 
   const submitHandler = (e) => {
     e.preventDefault()
-    console.log(_id)
     const finishedProject = {
       ...props.offer,
       budget: realBudget,
-      finishedAt: new Date(),
-      finishedAtTS: Date.parse(new Date()),
+      finishedAt: new Date,
       comment,
     }
     dispatch(addToFinishedProjectsThunk(finishedProject))

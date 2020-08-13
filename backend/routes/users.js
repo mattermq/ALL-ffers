@@ -17,7 +17,7 @@ router.patch('/favourite', async (req, res) => {
 
 router.post('/start', async (req, res) => {
   const { _id, title, description, tags, hasProjectBudget, hasHourlyRate, budget, publishedAt, publishedAtTS, url, from, user, startedAt, comment } = req.body
-  const newProject = new Project({ offerId: _id, title, description, tags, hasProjectBudget, hasHourlyRate, budget, publishedAt, publishedAtTS, url, from, user, startedAt, comment })
+  const newProject = new Project({ offerId: _id, title, description, tags, hasProjectBudget, hasHourlyRate, budget, publishedAt, publishedAtTS, url, from, user, startedAt, startedAtTS: Date.parse(startedAt), comment })
   newProject.save()
   const currentUser = await User.findOne({ _id: user })
   currentUser.startedProjects.push(newProject)
@@ -34,7 +34,7 @@ router.post('/finish', async (req, res) => {
   // const newProject = new Project({ offerId: _id, title, description, tags, hasProjectBudget, hasHourlyRate, budget, publishedAt, publishedAtTS, url, from, user, startedAt, comment })
   finishedProject.comment = comment
   finishedProject.finishedAt = finishedAt
-  finishedProject.finishedAtTS = finishedAtTS
+  finishedProject.finishedAtTS = Date.parse(finishedAt)
 
   finishedProject.save()
   console.log(finishedProject)

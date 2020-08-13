@@ -30,7 +30,7 @@ export default function ProfileStats() {
 
   const statsThisMonth = {
     name: months[thisMonth],
-    start: new Date(thisYear, thisMonth, 1),
+    start: Date.parse(new Date(thisYear, thisMonth, 1)),
     year: thisYear,
     startedProjects: [],
     finishedProjects: [],
@@ -39,7 +39,7 @@ export default function ProfileStats() {
 
   const statsMonthM1 = {
     name: months[thisMonth - 1],
-    start: new Date(thisYear, thisMonth - 1, 1),
+    start: Date.parse(new Date(thisYear, thisMonth - 1, 1)),
     year: thisYear,
     startedProjects: [],
     finishedProjects: [],
@@ -48,7 +48,7 @@ export default function ProfileStats() {
 
   const statsMonthM2 = {
     name: months[thisMonth - 2],
-    start: new Date(thisYear, thisMonth - 2, 1),
+    start: Date.parse(new Date(thisYear, thisMonth - 2, 1)),
     year: thisYear,
     startedProjects: [],
     finishedProjects: [],
@@ -57,15 +57,17 @@ export default function ProfileStats() {
 
   finishedProjects.forEach(project => {
     if (project.finishedAt) {
-      console.log(project)
-      if (project.finishedAt >= statsThisMonth.start) {
-        statsThisMonth.finished.push(project)
+      console.log(project.finishedAtTS)
+      console.log(statsThisMonth.start)
+
+      if (project.finishedAtTS >= statsThisMonth.start) {
+        statsThisMonth.finishedProjects.push(project)
         return
-      } else if (project.finishedAt >= statsMonthM1.start && project.finishedAt < statsThisMonth.start) {
-        statsMonthM1.finished.push(project)
+      } else if (project.finishedAtTS >= statsMonthM1.start && project.finishedAtTS < statsThisMonth.start) {
+        statsMonthM1.finishedProjects.push(project)
         return
-      } else if (project.finishedAt >= statsMonthM2.start && project.finishedAt < statsMonthM1.start) {
-        statsMonthM1.finished.push(project)
+      } else if (project.finishedAtTS >= statsMonthM2.start && project.finishedAtTS < statsMonthM1.start) {
+        statsMonthM1.finishedProjects.push(project)
         return
       }
     }

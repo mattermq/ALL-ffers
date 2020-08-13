@@ -8,7 +8,6 @@ export default function ProfileTabBar() {
   const [buttonOneActive, setButtonOneActive] = useState(profileActiveTab === 1)
   const [buttonTwoActive, setButtonTwoActive] = useState(profileActiveTab === 2)
   const [buttonThreeActive, setButtonThreeActive] = useState(profileActiveTab === 3)
-  console.log('TABS', buttonOneActive, buttonTwoActive, buttonThreeActive)
   const dispatch = useDispatch()
 
   const setActiveOne = () => {
