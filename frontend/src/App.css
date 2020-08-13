@@ -588,7 +588,14 @@ a:link {
   
 }
 
-.startProject_btnClose {
-  width: 17%;
+.startProject_closeBtn {
+  width: 4%;
+  margin-left:96%;
+}
 
+.btnCancel {
+  font-size: 0.8rem;
+  border: none;
+  cursor: pointer;
+  margin-right: 4%;
 }
