@@ -50,13 +50,13 @@ export default function CardExpanded(props) {
           {tags.map((tag, index) => <Tag key={index} className="tag" tag={tag}></Tag>)}
         </div>
 
-        <div className="wrap_openAndHeart">
+        <div className="wrap_openAndHeart_cardExpanded">
           <button onClick={closeExpanded} className="btnOpenCard">свернуть</button>
 
-          {(activeTab === 1) && <button onClick={toggleModalStart} className="btnOpenCard">добавить в начатое</button>}
-          {(activeTab === 2) && <button onClick={toggleModalFinish} className="btnOpenCard">добавить в завершенное</button>}
+          {(activeTab === 1) && <button onClick={toggleModalStart} className="btnOpenCard_cardExpanded_DOB">добавить в начатое</button>}
+          {(activeTab === 2) && <button onClick={toggleModalFinish} className="btnOpenCard_cardExpanded_DOB">добавить в завершенное</button>}
 
-          <a href={url} target="_blank"><button>Перейти к обьявлению</button></a>
+          <a href={url} target="_blank"><button className="btnOpenCard_cardExpanded_DOB">Перейти к обьявлению</button></a>
 
 
           {/* {
