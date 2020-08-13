@@ -68,7 +68,7 @@ export default function FormStartProject(props) {
           <article className="startProject_card_extended">
             <form className="form_startProject" action="">
               <button className="startProject_closeBtn" onClick={props.onCancel}>X</button>
-              <p>Завершить проект</p>
+              
               <p className="startProject_MainText">{title}</p>
               <p className="startProject_Text">{description}</p>
               <p className="startProject_dateTime">{publishedAt}</p>
@@ -84,7 +84,7 @@ export default function FormStartProject(props) {
                 {tags.map((tag, index) => <Tag key={index} className="tag" tag={tag}></Tag>)}
               </div>
               <div className="wrap_btn_startProject">
-              <button onClick={props.onCancel} className="btnOpenCard">Отменить</button>
+              <button onClick={props.onCancel} className="btnCancel">Отменить</button>
               <button className="startProject_btnStart" onClick={submitHandler} className="btnOpenCard">Добавить в начатое</button>
               {/* <a href={url} target="_blank"><button>Перейти к обьявлению</button></a> */}
               </div>
