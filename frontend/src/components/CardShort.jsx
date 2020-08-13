@@ -6,7 +6,7 @@ import heartBlack from '../img/heart_black.png';
 
 export default function CardShort(props) {
   const dispatch = useDispatch()
-  let { _id, title, budget, isFavourite } = props.offer
+  let { _id, title, budget, currency, isFavourite } = props.offer
   const isAuth = useSelector(state => state.slice.user.isAuth)
   const userId = useSelector(state => state.slice.user._id)
 
@@ -23,7 +23,7 @@ export default function CardShort(props) {
     <article className="card">
       <div className="wrap_cardMainText">
         <div className="cardMainText">{title}</div>
-        <div className="priceCard">{budget}</div>
+        <div className="priceCard">{budget} {currency}</div>
       </div>
       <div className="wrap_openAndHeart_cardShort">
         <button onClick={expandCard} className="btnOpenCard">развернуть</button>

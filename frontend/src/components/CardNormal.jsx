@@ -8,7 +8,7 @@ import expandCardImg from '../img/expand-button.png';
 
 export default function CardNormal(props) {
   const dispatch = useDispatch()
-  let { _id, title, description, budget, publishedAt, tags, isFavourite } = props.offer
+  let { _id, title, description, budget, currency, publishedAt, tags, isFavourite } = props.offer
   const isAuth = useSelector(state => state.slice.user.isAuth)
   const userId = useSelector(state => state.slice.user._id)
 
@@ -32,25 +32,25 @@ export default function CardNormal(props) {
     <article className="card">
       <div className="wrap_cardMainText">
         <div className="cardMainText">{title}</div>
-        <div className="priceCard">{budget}</div>
+        <div className="priceCard">{budget} {currency}</div>
       </div>
       <div className="cardText">{shortDescription}</div>
       <div className="wrap_normalCardDateAndHeart">
-      <div className="dateTime">{publishedAt}</div>
-      <div className="wrapHeartAndTags">
-        <div className="wrapTags">
-          {tags.map((tag, index) => <Tag key={index} className="tag" tag={tag}></Tag>)}
-        </div>
-        <div className="wrap_openAndHeart">
-          <button onClick={expandCard} className="btnOpenCard">
-            <img className="open-card-img" src={expandCardImg}></img>
-          </button>
-          {
-            isAuth && <button onClick={toggleFavourite} className="btnHeartCard">
-              <img className="imgHeartCard" src={isFavourite ? heartBlack : heartWhite} alt="favourite" />
+        <div className="dateTime">{publishedAt}</div>
+        <div className="wrapHeartAndTags">
+          <div className="wrapTags">
+            {tags.map((tag, index) => <Tag key={index} className="tag" tag={tag}></Tag>)}
+          </div>
+          <div className="wrap_openAndHeart">
+            <button onClick={expandCard} className="btnOpenCard">
+              <img className="open-card-img" src={expandCardImg}></img>
             </button>
-          }
-        </div>
+            {
+              isAuth && <button onClick={toggleFavourite} className="btnHeartCard">
+                <img className="imgHeartCard" src={isFavourite ? heartBlack : heartWhite} alt="favourite" />
+              </button>
+            }
+          </div>
         </div>
       </div>
     </article>
