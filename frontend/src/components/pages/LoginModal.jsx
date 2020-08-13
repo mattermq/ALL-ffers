@@ -63,12 +63,13 @@ export default function Login({ isModal, toggleModal }) {
           <button onClick={toggleModal} className="close-modal">
             <img width={20} height={20} src={crossImg}></img>
           </button>
+          <h3 className="modal-header">Войти</h3>
           <form className="modal-form" onSubmit={submitHandler}>
             <label className="formLable" htmlFor="email">Емайл</label>
-            <input className="modal-input" type="email" name="email" required onChange={changeHandler} value={state.email} />
+            <input className="login-input" type="email" name="email" required onChange={changeHandler} value={state.email} />
             <label className="formLable" htmlFor="password">Пароль</label>
-            <input className="modal-input" type="password" name="password" required onChange={changeHandler} value={state.password} />
-            <button className="formBtn" type="submit">Войти</button>
+            <input className="login-input" type="password" name="password" required onChange={changeHandler} value={state.password} />
+            <button className="login-btn" type="submit">Войти</button>
           </form>
         </div>
       </div>

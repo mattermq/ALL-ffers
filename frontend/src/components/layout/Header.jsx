@@ -23,13 +23,11 @@ function Header() {
         {isAuth ?
           <>
             <NavLink className="login" to="/profile">{firstName}</NavLink>
-            <a onClick={() => dispatch(logoutThunk())} className="login">Выйти</a>
+            <span onClick={() => dispatch(logoutThunk())} className="login">Выйти</span>
           </>
           : <>
-            <NavLink className="login" to="/login">Войти</NavLink>
-            <NavLink className="registration" to="/signup">Зарегистрироваться</NavLink>
-            <button onClick={toggleLoginModal} className="registration">Модальный логин</button>
-            <button onClick={toggleSignupModal} className="registration">Модальный signup</button>
+            <span className="login" onClick={toggleLoginModal} className="login">Войти</span>
+            <span className="registration" onClick={toggleSignupModal} className="login">Зарегистрироваться</span>
           </>
         }
         {loginModal && <LoginModal isModal={loginModal} toggleModal={toggleLoginModal} />}
