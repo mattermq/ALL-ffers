@@ -32,7 +32,7 @@ export default function ProfileTabBar() {
 
 
   return (
-    <nav>
+    <nav className="navTabBar">
       <ProfileTab tabActive={buttonOneActive} setActive={setActiveOne} textContent="Избранное" />
       <ProfileTab tabActive={buttonTwoActive} setActive={setActiveTwo} textContent="Начатое" />
       <ProfileTab tabActive={buttonThreeActive} setActive={setActiveThree} textContent="Законченное" />
