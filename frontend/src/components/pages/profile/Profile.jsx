@@ -6,6 +6,7 @@ import ProfileTabs from './ProfileTabs'
 import ProfileFeed from './ProfileFeed'
 import FormStartProject from './FormStartProject'
 import ProfileTabBar from './ProfileTabBar'
+import ProfileStats from './ProfileStats'
 
 export default function Profile() {
   const isAuth = useSelector(state => state.slice.user.isAuth)
@@ -44,7 +45,9 @@ export default function Profile() {
       </div>
 
       <div className="prof_blockStat">
-        <div className="blockStat_graf">Статистика</div>
+        <div className="blockStat_graf">
+          <ProfileStats />
+        </div>
       </div>
     </div>
   )
