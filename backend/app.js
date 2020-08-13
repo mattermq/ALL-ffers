@@ -77,7 +77,9 @@ app.post('/signup', async (req, res, next) => {
 app.post('/login', async (req, res, next) => {
   const { email, password } = req.body
   const user = await User.findOne({ email })
-  const match = await bcrypt.compare(password, user.password);
+  let match
+  if (user)
+    match = await bcrypt.compare(password, user.password);
   if (!email || !password) {
     res.status(400)
     return res.json({ message: 'Fill out all fields!' })

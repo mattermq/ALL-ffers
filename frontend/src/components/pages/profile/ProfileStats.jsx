@@ -89,18 +89,10 @@ export default function ProfileStats() {
 
       <table>
         <tbody>
-          <tr>
-            <td>Начато</td><td></td><td></td><td></td>
-          </tr>
-          <tr>
-            <td>Завершено</td><td></td><td></td><td></td>
-          </tr>
-          <tr>
-            <td>Заработок</td><td></td><td></td><td></td>
-          </tr>
-          <tr>
-            <td></td><td>{}</td>{months[thisMonth - 2]}<td>{months[thisMonth - 1]}</td><td>{months[thisMonth]}</td>
-          </tr>
+          <tr><td>Начато</td><td></td><td></td><td></td></tr>
+          <tr><td>Завершено</td><td></td><td></td><td></td></tr>
+          <tr><td>Заработок</td><td></td><td></td><td></td></tr>
+          <tr><td></td><td>{}</td>{months[thisMonth - 2]}<td>{months[thisMonth - 1]}</td><td>{months[thisMonth]}</td></tr>
         </tbody>
       </table>
     </>

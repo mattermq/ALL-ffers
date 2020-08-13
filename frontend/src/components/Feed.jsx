@@ -54,7 +54,7 @@ function Feed() {
       .sort((a, b) => Number(b.budget) - Number(a.budget))
   }
   else if (sortOption === 'publishedAtTS') {
-    offers = offers.sort((a, b) => b.publishedAtTS - a.publishedAtTS)
+    offers = offers.sort((a, b) => Number(b.publishedAtTS) - Number(a.publishedAtTS))
   }
 
   // slice by pagination 
@@ -69,28 +69,28 @@ function Feed() {
       <>
         {
           paginatedOffers.length > 0 ?
-          <div>
-            {
-              paginatedOffers.map(offer => {
-                if (offer.hasExpandedSize === true)
-                  return <CardExpanded key={offer._id} offer={offer} />
-                else if (componentsSize === 1)
-                  return <CardShort key={offer._id} offer={offer} />
-                else
-                  return <CardNormal key={offer._id} offer={offer} />
-              })
-            }
-            <Pagination totalPosts={offers.length} />
-          </div>
+            <div>
+              {
+                paginatedOffers.map(offer => {
+                  if (offer.hasExpandedSize === true)
+                    return <CardExpanded key={offer._id} offer={offer} />
+                  else if (componentsSize === 1)
+                    return <CardShort key={offer._id} offer={offer} />
+                  else
+                    return <CardNormal key={offer._id} offer={offer} />
+                })
+              }
+              <Pagination totalPosts={offers.length} />
+            </div>
 
             : <div className="spinner">
-                <Loader
-                  type="ThreeDots"
-                  color="#88afdd"
-                  height={70}
-                  width={70}
-                />
-              </div>
+              <Loader
+                type="ThreeDots"
+                color="#88afdd"
+                height={70}
+                width={70}
+              />
+            </div>
         }
       </>
     )
