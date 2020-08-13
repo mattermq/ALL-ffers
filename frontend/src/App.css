@@ -275,9 +275,27 @@ a:link {
   padding: 1% 2%;
 }
 
+.wrap_cardMainText_shortCard {
+  display: flex;
+  justify-content: space-between;
+  background-color: #edf4fe;
+  color: #040615;
+  padding: 1% 2%;
+  font-size: 0.9rem;
+}
+
 .cardMainText,
 .priceCard {
   font-weight: bold;
+}
+
+.priceCard_shortCard {
+  font-weight: 500;
+}
+
+.cardMainText_shortCard {
+  font-weight: 500;
+  width: 40%;
 }
 
 .cardText {
@@ -334,7 +352,7 @@ a:link {
 
 .btnOpenCard_cardShort_RAZV {
   background: none;
-  color: #ecebf0
+  color: #144182
 }
 
 .btnOpenCard_cardShort_DOB {
