@@ -17,19 +17,19 @@ export default function Login({ isModal, toggleModal }) {
     elRef.current = div
   }
 
-  // const escFunction = useCallback((event) => {
-  //   if (event.keyCode === 27) {
-  //     toggleModal()
-  //   }
-  // }, [])
+  const escFunction = useCallback((event) => {
+    if (event.keyCode === 27) {
+      toggleModal()
+    }
+  }, [])
 
   useEffect(() => {
     const modalRoot = document.getElementById('modal')
     modalRoot.appendChild(elRef.current)
-    // document.addEventListener("keydown", escFunction, false);
+    document.addEventListener("keydown", escFunction, false);
     return () => {
       modalRoot.removeChild(elRef.current)
-      // document.removeEventListener("keydown", escFunction, false);
+      document.removeEventListener("keydown", escFunction, false);
     }
   }, [])
 
@@ -64,8 +64,8 @@ export default function Login({ isModal, toggleModal }) {
   if (isModal)
     return createPortal(
       <div className="modal-overlay" >
-        <div className="modal-window">
-          <form className="modal-signup" onSubmit={submitHandler}>
+        <div className="modal-signup">
+          <form className="modal-form" onSubmit={submitHandler}>
 
             <label className="formLable" htmlFor="firstName">Имя</label>
             <input className="modal-input" type="text" name="firstName" required onChange={changeHandler} value={state.firstName} />

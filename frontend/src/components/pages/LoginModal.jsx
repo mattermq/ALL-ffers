@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { loginAC } from '../../store/slice.js';
+import crossImg from '../../img/cross.svg';
 
 export default function Login({ isModal, toggleModal }) {
   const dispatch = useDispatch()
@@ -58,8 +59,11 @@ export default function Login({ isModal, toggleModal }) {
   if (isModal)
     return createPortal(
       <div className="modal-overlay" >
-        <div className="modal-window">
-          <form className="modal-login" onSubmit={submitHandler}>
+        <div className="modal-login">
+          <button onClick={toggleModal} className="close-modal">
+            <img width={20} height={20} src={crossImg}></img>
+          </button>
+          <form className="modal-form" onSubmit={submitHandler}>
             <label className="formLable" htmlFor="email">Емайл</label>
             <input className="modal-input" type="email" name="email" required onChange={changeHandler} value={state.email} />
             <label className="formLable" htmlFor="password">Пароль</label>
