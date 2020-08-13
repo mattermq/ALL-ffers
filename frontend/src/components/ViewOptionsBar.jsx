@@ -15,7 +15,7 @@ export default function ViewOptionsBar() {
   return (
     <>
       <form>
-        <div className="radio">
+        <div className="radio"> Свернуть все
           <input
             type="radio"
             id="short"
@@ -24,7 +24,7 @@ export default function ViewOptionsBar() {
             onChange={changeComponentSize}
           />
         </div>
-        <div className="radio">
+        <div className="radio"> Развернуть все
           <input
             type="radio"
             id="normal"
