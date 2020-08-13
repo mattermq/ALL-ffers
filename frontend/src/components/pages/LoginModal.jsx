@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { loginAC } from '../../store/slice.js';
-
+import crossImg from '../../img/cross.svg';
 
 export default function Login({ isModal, toggleModal }) {
   const dispatch = useDispatch()
