@@ -56,6 +56,10 @@ const projectSchema = new Schema({
   finishedAt: {
     type: Date,
     default: undefined
+  },
+  finishedAtTS: {
+    type: Date,
+    default: undefined
   }
 });
 

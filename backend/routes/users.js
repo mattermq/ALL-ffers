@@ -29,11 +29,12 @@ router.post('/start', async (req, res) => {
 
 
 router.post('/finish', async (req, res) => {
-  const { _id, user, comment, finishedAt } = req.body
+  const { _id, user, comment, finishedAt, finishedAtTS } = req.body
   const finishedProject = await Project.findOne({ _id })
   // const newProject = new Project({ offerId: _id, title, description, tags, hasProjectBudget, hasHourlyRate, budget, publishedAt, publishedAtTS, url, from, user, startedAt, comment })
   finishedProject.comment = comment
   finishedProject.finishedAt = finishedAt
+  finishedProject.finishedAtTS = finishedAtTS
 
   finishedProject.save()
   console.log(finishedProject)

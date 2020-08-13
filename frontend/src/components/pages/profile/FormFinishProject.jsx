@@ -53,6 +53,7 @@ export default function FormFinishProject(props) {
       ...props.offer,
       budget: realBudget,
       finishedAt: new Date(),
+      finishedAtTS: Date.parse(new Date()),
       comment,
     }
     dispatch(addToFinishedProjectsThunk(finishedProject))

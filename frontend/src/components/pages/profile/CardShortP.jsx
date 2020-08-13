@@ -42,12 +42,13 @@ export default function CardShort(props) {
     <article className="card">
       <div className="wrap_cardMainText">
         <div className="cardMainText">{title}</div>
-        <div className="priceCard">{budget}</div>
-
-        <button onClick={expandCard} className="btnOpenCard">развернуть</button>
-
-        {(activeTab === 1) && <button onClick={toggleModalStart} className="btnOpenCard">добавить в начатое</button>}
-        {(activeTab === 2) && <button onClick={toggleModalFinish} className="btnOpenCard">добавить в завершенное</button>}
+        <div className="priceCard">- {budget} -</div>
+        <div className="wrap_btn_cardShort">
+        <button onClick={expandCard} className="btnOpenCard_cardShort_RAZV">развернуть</button>
+        
+        {(activeTab === 1) && <button onClick={toggleModalStart} className="btnOpenCard_cardShort_DOB">добавить в начатое</button>}
+        {(activeTab === 2) && <button onClick={toggleModalFinish} className="btnOpenCard_cardShort_DOB">добавить в завершенное</button>}
+        </div>
       </div>
 
       {isModalStart && <FormStartProject isModal={isModalStart} onCancel={toggleModalStart} offer={props.offer} />}

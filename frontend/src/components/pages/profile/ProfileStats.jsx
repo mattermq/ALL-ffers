@@ -55,14 +55,22 @@ export default function ProfileStats() {
     earned: 0
   }
 
-  // startedProjects.forEach(project => {
-  //   if (project.finishedAt) {
-  //     if (project.finishedAt >= statsThisMonth.start) {
-  //       statsThisMonth.finished
-  //     }
-
-  //   }
-  // })
+  finishedProjects.forEach(project => {
+    if (project.finishedAt) {
+      console.log(project)
+      if (project.finishedAt >= statsThisMonth.start) {
+        statsThisMonth.finished.push(project)
+        return
+      } else if (project.finishedAt >= statsMonthM1.start && project.finishedAt < statsThisMonth.start) {
+        statsMonthM1.finished.push(project)
+        return
+      } else if (project.finishedAt >= statsMonthM2.start && project.finishedAt < statsMonthM1.start) {
+        statsMonthM1.finished.push(project)
+        return
+      }
+    }
+  })
+  console.log(statsThisMonth, statsMonthM1, statsMonthM2)
 
   // console.log(yearNow, monthNow, dayNow)
   // const dt = new Date();
@@ -88,7 +96,6 @@ export default function ProfileStats() {
           <tr>
             <td>Заработок</td><td></td><td></td><td></td>
           </tr>
-
           <tr>
             <td></td><td>{}</td>{months[thisMonth - 2]}<td>{months[thisMonth - 1]}</td><td>{months[thisMonth]}</td>
           </tr>
