@@ -65,24 +65,29 @@ export default function FormStartProject(props) {
     return createPortal(
       <div className="modal-overlay" >
         <div className="modal-window">
-          <article className="card_extended">
-            <form action="">
-              <button onClick={props.onCancel}>X</button>
+          <article className="startProject_card_extended">
+            <form className="form_startProject" action="">
+              <button className="startProject_closeBtn" onClick={props.onCancel}>X</button>
               <p>Завершить проект</p>
-              <p className="cardMainText">{title}</p>
-              <p className="cardText">{description}</p>
-              <p className="dateTime">{publishedAt}</p>
-
-              <input onChange={budgetHandler} type="text" name="budget" value={realBudget} />
-              <textarea onChange={commentHandler} name="comment" id="" cols="30" rows="10" value={comment}></textarea>
-
-              <div className="wrapTags">
+              <p className="startProject_MainText">{title}</p>
+              <p className="startProject_Text">{description}</p>
+              <p className="startProject_dateTime">{publishedAt}</p>
+              <div className="wrap_redactBudget">
+              <div className="startProject_lableRedactBudget">Изменить бюджет</div>
+              <input className="startProject_inpBudget" onChange={budgetHandler} type="text" name="budget" value={realBudget} />
+              </div>
+              <div className="wrap_comments">
+              <div className="startProject_lableComments">Добавить заметку</div>
+              <textarea className="startProject_comments" onChange={commentHandler} name="comment" id="" cols="30" rows="10" value={comment}></textarea>
+              </div>
+              <div className="startProject_wrapTags">
                 {tags.map((tag, index) => <Tag key={index} className="tag" tag={tag}></Tag>)}
               </div>
-
+              <div className="wrap_btn_startProject">
               <button onClick={props.onCancel} className="btnOpenCard">Отменить</button>
-              <button onClick={submitHandler} className="btnOpenCard">Добавить в начатое</button>
+              <button className="startProject_btnStart" onClick={submitHandler} className="btnOpenCard">Добавить в начатое</button>
               {/* <a href={url} target="_blank"><button>Перейти к обьявлению</button></a> */}
+              </div>
             </form>
           </article>
         </div>
