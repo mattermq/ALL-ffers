@@ -56,22 +56,38 @@ export default function ProfileStats() {
   }
 
   finishedProjects.forEach(project => {
-    if (project.finishedAt) {
-      console.log(project.finishedAtTS)
-      console.log(statsThisMonth.start)
+    // console.log(project.finishedAtTS)
+    // console.log(statsThisMonth.start)
 
-      if (project.finishedAtTS >= statsThisMonth.start) {
-        statsThisMonth.finishedProjects.push(project)
-        return
-      } else if (project.finishedAtTS >= statsMonthM1.start && project.finishedAtTS < statsThisMonth.start) {
-        statsMonthM1.finishedProjects.push(project)
-        return
-      } else if (project.finishedAtTS >= statsMonthM2.start && project.finishedAtTS < statsMonthM1.start) {
-        statsMonthM1.finishedProjects.push(project)
-        return
-      }
+    if (project.finishedAtTS >= statsThisMonth.start) {
+      statsThisMonth.finishedProjects.push(project)
+      return
+    } else if (project.finishedAtTS >= statsMonthM1.start && project.finishedAtTS < statsThisMonth.start) {
+      statsMonthM1.finishedProjects.push(project)
+      return
+    } else if (project.finishedAtTS >= statsMonthM2.start && project.finishedAtTS < statsMonthM1.start) {
+      statsMonthM1.finishedProjects.push(project)
+      return
     }
   })
+
+
+  startedProjects.forEach(project => {
+    // console.log(project.finishedAtTS)
+    // console.log(statsThisMonth.start)
+
+    if (project.startedAtTS >= statsThisMonth.start) {
+      statsThisMonth.startedProjects.push(project)
+      return
+    } else if (project.startedAtTS >= statsMonthM1.start && project.startedAtTS < statsThisMonth.start) {
+      statsMonthM1.startedProjects.push(project)
+      return
+    } else if (project.startedAtTS >= statsMonthM2.start && project.startedAtTS < statsMonthM1.start) {
+      statsMonthM1.startedProjects.push(project)
+      return
+    }
+  })
+
   console.log(statsThisMonth, statsMonthM1, statsMonthM2)
 
   // console.log(yearNow, monthNow, dayNow)
