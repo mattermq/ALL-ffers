@@ -465,14 +465,24 @@ a:link {
   background-color: deeppink;
 }
 
-/* 
+
 .modal-window {
   width: 40%;
   min-height: 30%;
   padding: 3%;
-} */
+}
 
-.modal-window {
+.close-modal {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.modal-login,
+.modal-signup {
   position: absolute;
   top: 40%;
   left: 50%;
@@ -489,8 +499,7 @@ a:link {
   padding: 3%;
 }
 
-.modal-login,
-.modal-signup {
+.modal-form {
   width: 100%;
   min-height: 100%;
   display: flex;
