@@ -5,7 +5,7 @@ function Footer() {
   return (
     <>
       <div>Контакты</div>
-      <div>Текст</div>
+      <div>All-fers</div>
       <div>Текст</div>
     </>
   )
