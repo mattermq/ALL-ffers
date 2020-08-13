@@ -1,7 +1,7 @@
 import React from 'react';
 import Chart from 'chart.js';
 
-export default class Charts extends React.Component {
+export default class BarsChart extends React.Component {
   componentDidMount() {
     this.drawBars(this.props);
   }
@@ -13,28 +13,31 @@ export default class Charts extends React.Component {
 
     const chart = new Chart(ctx, {
         // The type of chart we want to create
-        type: 'bar',
+        type: 'line',
     
         // The data for our dataset
         data: {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-            datasets: [{
-                label: 'Начато проектов',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: [0, 10, 5, 2, 20, 30, 45]
-            },
+            labels: ['Июнь', 'Июль', 'Август'],
+            datasets: [
             {
-              label: 'Завершено проектов',
-              backgroundColor: 'blue',
-              borderColor: 'rgb(255, 99, 132)',
-              data: [0, 10, 5, 2, 20, 30, 45]
-          },
+                label: 'Заработано за месяц',
+                borderColor: '#0E53A7',
+                data: [23000, 37000, 17000]
+            },
           ]
         },
     
         // Configuration options go here
-        // options: {}
+        options: {
+          title: {
+            display: true,
+            text: 'Ваши Доходы',
+            fontSize: 19,
+          },
+          legend: {
+            position: 'bottom',
+          },
+        },
     });
 
   }
@@ -46,4 +49,3 @@ export default class Charts extends React.Component {
     );
   }
 }
-

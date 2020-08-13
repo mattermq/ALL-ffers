@@ -16,7 +16,8 @@ import Login from './components/pages/Login';
 import CardShort from './components/CardShort';
 import { fetchOffersThunk } from './store/slice'
 import Profile from './components/pages/profile/Profile';
-import Chart from './components/Chart';
+import BarsChart from './components/BarsChart';
+import LineChart from './components/LineChart';
 
 function App() {
   const dispatch = useDispatch()
@@ -80,7 +81,8 @@ function App() {
       </Route>
 
       <Route exact path="/chart"> {/* CHART TEST */}
-        <Chart />
+        <BarsChart />
+        <LineChart />
       </Route>
 
     </Router>
