@@ -78,19 +78,21 @@ export default function ProfileStats() {
       <p>{startMonthM3.toString()}</p> */}
 
       <table>
-        <tr>
-          <td>Начато</td><td></td><td></td><td></td>
-        </tr>
-        <tr>
-          <td>Завершено</td><td></td><td></td><td></td>
-        </tr>
-        <tr>
-          <td>Заработок</td><td></td><td></td><td></td>
-        </tr>
+        <tbody>
+          <tr>
+            <td>Начато</td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td>Завершено</td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td>Заработок</td><td></td><td></td><td></td>
+          </tr>
 
-        <tr>
-          <td></td><td>{}</td>{months[thisMonth - 2]}<td>{months[thisMonth - 1]}</td><td>{months[thisMonth]}</td>
-        </tr>
+          <tr>
+            <td></td><td>{}</td>{months[thisMonth - 2]}<td>{months[thisMonth - 1]}</td><td>{months[thisMonth]}</td>
+          </tr>
+        </tbody>
       </table>
     </>
   )

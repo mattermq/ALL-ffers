@@ -22,6 +22,7 @@ export default function CardShort(props) {
   }
 
   const expandCard = () => {
+    console.log('КЛИК')
     if (activeTab === 1)
       dispatch(expandCardAC(_id))
     else

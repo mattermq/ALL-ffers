@@ -20,8 +20,8 @@ export const slice = createSlice({
       state.user.lastName = lastName
       state.user._id = _id
       state.user.favourites = favourites
-      state.user.startedProjects = startedProjects
-      state.user.finishedProjects = finishedProjects
+      state.user.startedProjects = startedProjects.map(project => { return { ...project, hasExpandedSize: false } })
+      state.user.finishedProjects = finishedProjects.map(project => { return { ...project, hasExpandedSize: false } })
       state.offers = state.offers.map(offer => {
         if (favourites.includes(offer._id))
           return { ...offer, isFavourite: true }
