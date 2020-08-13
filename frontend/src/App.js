@@ -28,7 +28,7 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/">
-          <div className="app_wrapper">
+          <div className="app_wrapper_firstPage">
             <div className="header"> <Header /> </div>
             <div className="firstPage"> <FirstPage /> </div>
             <div className="footer"> <Footer /> </div>
