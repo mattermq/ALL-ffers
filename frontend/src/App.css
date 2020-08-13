@@ -294,13 +294,13 @@ a:link {
   cursor: pointer;
 }
 
-.wrap_openAndHeart {
+/* .wrap_openAndHeart {
   display: flex;
   justify-content: space-between;
   align-items: center;
   min-width: 14%;
   margin-right: 2%;
-}
+} */
 
 .wrap_openAndHeart_cardShort {
   display: flex;
@@ -309,9 +309,16 @@ a:link {
 }
 
 .btnOpenCard {
-  font-size: 0.8rem;
+  background: none;
   border: none;
   cursor: pointer;
+  position: relative;
+  right: 0;
+}
+
+.open-card-img {
+  width: 20px;
+  height: 20px;
 }
 
 .btnHeartCard {

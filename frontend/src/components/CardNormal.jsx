@@ -4,6 +4,7 @@ import { toggleFavouriteAC, expandCardAC, toggleFavouriteThunk } from '../store/
 import heartWhite from '../img/heart_white.png';
 import heartBlack from '../img/heart_black.png';
 import Tag from './Tag'
+import expandCardImg from '../img/expand-button.png';
 
 export default function CardNormal(props) {
   const dispatch = useDispatch()
@@ -40,7 +41,9 @@ export default function CardNormal(props) {
           {tags.map((tag, index) => <Tag key={index} className="tag" tag={tag}></Tag>)}
         </div>
         <div className="wrap_openAndHeart">
-          <button onClick={expandCard} className="btnOpenCard">развернуть</button>
+          <button onClick={expandCard} className="btnOpenCard">
+            <img className="open-card-img" src={expandCardImg}></img>
+          </button>
           {
             isAuth && <button onClick={toggleFavourite} className="btnHeartCard">
               <img className="imgHeartCard" src={isFavourite ? heartBlack : heartWhite} alt="favourite" />
