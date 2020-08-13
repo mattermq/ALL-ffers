@@ -14,7 +14,7 @@ export default function ViewOptionsBar() {
 
   return (
     <>
-      <form>
+      <form className="formMainPage_SVER">
         <div className="radio"> Свернуть все
           <input
             type="radio"

@@ -222,6 +222,10 @@ a:link {
   margin-top: 2%;
 }
 
+.formMainPage_SVER {
+  margin-bottom: 8%;
+}
+
 .sort {
   text-align: center;
   height: 25px;
@@ -414,7 +418,7 @@ a:link {
 
 .main_filterBlock_Tags {
   border-radius: 4px;
-  height: 13%;
+  height: 8%;
   width: 15.5%;
   margin: 8.5% 0;
   background-color: #ecebf0;
@@ -435,19 +439,17 @@ a:link {
 
 .main_filterBlock {
   border-radius: 4px;
-  height: 15%;
+  min-height: 15%;
   width: 15.5%;
-  margin: 18.5% 0;
+  margin-top: 1%;
   background-color: #ecebf0;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   display: inline-block;
   position: fixed;
   margin-left: 65%;
+  padding: 2% 0;
 }
 
-.filterItem {
-  margin-bottom: 8%;
-}
 
 .radio_razv {
   margin-top: 8%;
@@ -460,13 +462,15 @@ a:link {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 100px;
+  /* margin-bottom: 100px; */
+  
 }
+
 
 .filter {
   margin: 3% 0;
   border: 1px solid grey;
-  padding: 2% 8%;
+  padding: 2% 0;
   background: linear-gradient(
     184deg,
     rgba(20, 65, 130, 1) 5%,
@@ -474,7 +478,22 @@ a:link {
   );
 
   color: white;
+  width: 70%;
 }
+
+.filterItem {
+ 
+}
+
+.filterItem label{
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+
+.InputBudget {
+  margin-top: 10px;
+}
+
 
 .footer {
   background: linear-gradient(
