@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleFavouriteAC, toggleFavouriteThunk, closeExpandedAC, closeExpandedProjectCardAC } from '../../../store/slice';
 import heartWhite from '../../../img/heart_white.png';
 import heartBlack from '../../../img/heart_black.png';
 import Tag from '../../Tag';
+import FormStartProject from './FormStartProject'
+import FormFinishProject from './FormFinishProject'
 
 export default function CardExpanded(props) {
   const dispatch = useDispatch()
@@ -11,6 +13,9 @@ export default function CardExpanded(props) {
   const isAuth = useSelector(state => state.slice.user.isAuth)
   const userId = useSelector(state => state.slice.user._id)
   const activeTab = useSelector(state => state.slice.view.profileActiveTab)
+  const [isModalStart, setIsModalStart] = useState(false)
+  const [isModalFinish, setIsModalFinish] = useState(false)
+
 
   const toggleFauvourite = () => {
     dispatch(toggleFavouriteAC(_id))
@@ -22,6 +27,14 @@ export default function CardExpanded(props) {
       dispatch(closeExpandedAC())
     else
       dispatch(closeExpandedProjectCardAC())
+  }
+
+  const toggleModalStart = () => {
+    setIsModalStart(!isModalStart)
+  }
+
+  const toggleModalFinish = () => {
+    setIsModalFinish(!isModalFinish)
   }
 
   return (
@@ -39,13 +52,23 @@ export default function CardExpanded(props) {
 
         <div className="wrap_openAndHeart">
           <button onClick={closeExpanded} className="btnOpenCard">свернуть</button>
+
+          {(activeTab === 1) && <button onClick={toggleModalStart} className="btnOpenCard">добавить в начатое</button>}
+          {(activeTab === 2) && <button onClick={toggleModalFinish} className="btnOpenCard">добавить в завершенное</button>}
+
           <a href={url} target="_blank"><button>Перейти к обьявлению</button></a>
-          {
+
+
+          {/* {
             isAuth && <button onClick={toggleFauvourite} className="btnHeartCard">
               <img className="imgHeartCard" src={isFavourite ? heartBlack : heartWhite} alt="favourite" />
             </button>
-          }
+          } */}
         </div>
+
+        {isModalStart && <FormStartProject isModal={isModalStart} onCancel={toggleModalStart} offer={props.offer} />}
+        {isModalFinish && <FormFinishProject isModal={isModalFinish} onCancel={toggleModalFinish} offer={props.offer} />}
+
 
       </div>
     </article>
