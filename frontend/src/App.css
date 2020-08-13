@@ -338,6 +338,15 @@ a:link {
   margin-right: 2%;
 } */
 
+.wrap_openAndHeart_cardExpanded {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 14%;
+  margin-right: 2%;
+}
+
+
 .wrap_openAndHeart_cardShort {
   display: flex;
   justify-content: flex-end;
@@ -364,6 +373,21 @@ a:link {
   color: #ecebf0
 }
 
+.btnOpenCard_cardExpanded_DOB {
+  background: none;
+  border: 1px solid #4776b9;
+  cursor: pointer;
+  padding: 3px 5px;
+  position: relative;
+  color: #040615;
+  margin-right: 5px;
+  border-radius: 4px;
+}
+
+.btnOpenCard_cardExpanded_DOB:hover {
+  background-color: #4776b9;
+  color: #ecebf0;
+}
 
 .btnOpenCard {
   background: none;
