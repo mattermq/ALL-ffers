@@ -40,9 +40,9 @@ export default function CardShort(props) {
 
   return (
     <article className="card">
-      <div className="wrap_cardMainText">
-        <div className="cardMainText">{title}</div>
-        <div className="priceCard">- {budget} -</div>
+      <div className="wrap_cardMainText_shortCard">
+        <div className="cardMainText_shortCard">{title}</div>
+        <div className="priceCard_shortCard">{budget}</div>
         <div className="wrap_btn_cardShort">
         <button onClick={expandCard} className="btnOpenCard_cardShort_RAZV">развернуть</button>
         
