@@ -299,7 +299,7 @@ a:link {
 
 .cardMainText_shortCard {
   font-weight: 500;
-  width: 40%;
+  width: 35%;
 }
 
 .cardText {
@@ -309,6 +309,11 @@ a:link {
 .dateTime {
   padding: 1% 2%;
 }
+
+.wrap_normalCardDateAndHeart {
+  display: flex;
+}
+
 
 .wrapHeartAndTags {
   display: flex;
@@ -370,7 +375,22 @@ a:link {
 
 .btnOpenCard_cardShort_DOB {
   background-color: #4776b9;
-  color: #ecebf0
+  color: #ecebf0;
+}
+
+.btn_formStartProj_DOB {
+  background-color: #4776b9;
+  color: #ecebf0;
+  border: 1px solid #4776b9;
+  cursor: pointer;
+  height: 25px;
+
+}
+
+.btn_formStartProj_DOB:hover {
+  background-color: #ecebf0;
+  color: #4776b9;
+  border: 1px solid #4776b9;
 }
 
 .btnOpenCard_cardExpanded_DOB {
@@ -435,9 +455,21 @@ a:link {
   align-items: center;
 }
 
+.blockIN_main_filterBlock_Search_Text, .blockIN_main_filterBlock_filter_Text {
+  font-weight: bold;
+}
+
+.blockIN_main_filterBlock_filter_Text {
+  margin-top: 8%;
+}
+
 .search {
-  margin: 3% 0;
-  
+  margin: 3% 0; 
+  text-align: center; 
+}
+
+.inpSearch {
+  width: 80%;
 }
 
 .main_filterBlock_Tags {
@@ -493,15 +525,15 @@ a:link {
 
 .filter {
   margin: 3% 0;
-  border: 1px solid grey;
+ /*  border: 1px solid grey; */
   padding: 2% 0;
-  background: linear-gradient(
+  /* background: linear-gradient(
     184deg,
     rgba(20, 65, 130, 1) 5%,
     rgba(136, 175, 221, 1) 83%
-  );
+  ); */
 
-  color: white;
+  
   width: 70%;
 }
 
@@ -551,9 +583,7 @@ a:link {
 .prof_blockStat {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  border: 1px solid grey;
   width: 30%;
 }
 
@@ -709,6 +739,9 @@ a:link {
 .startProject_Text {
   margin: 3% 0;
   text-align: justify;
+  max-height: 150px;
+  overflow: auto;
+  
 }
 
 .startProject_dateTime {
@@ -759,7 +792,24 @@ a:link {
 
 .btnCancel {
   font-size: 0.8rem;
-  border: none;
   cursor: pointer;
-  margin-right: 4%;
+  margin-right: 2%;
+  border: 1px solid #4776b9;
+  background-color: #ecebf0;
+  border-radius: 4px;
+}
+
+.btnCancel:hover {
+  background-color: #4776b9;
+  color: #ecebf0
+}
+
+
+.chart-container {
+  margin-top: 11%;
+}
+
+#chart {
+  width: 320px;
+  height: 250px;
 }

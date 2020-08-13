@@ -10,7 +10,7 @@ export default function SearchBlock() {
   const dispatch = useDispatch()
 
   return (
-    <input type="text" onChange={(e) => dispatch(filterSearchHandlerAC(e.target.value))} value={filterSearch} />
+    <input className="inpSearch" type="text" onChange={(e) => dispatch(filterSearchHandlerAC(e.target.value))} value={filterSearch} />
   )
 
 }

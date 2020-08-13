@@ -35,6 +35,7 @@ export default function CardNormal(props) {
         <div className="priceCard">{budget}</div>
       </div>
       <div className="cardText">{shortDescription}</div>
+      <div className="wrap_normalCardDateAndHeart">
       <div className="dateTime">{publishedAt}</div>
       <div className="wrapHeartAndTags">
         <div className="wrapTags">
@@ -49,6 +50,7 @@ export default function CardNormal(props) {
               <img className="imgHeartCard" src={isFavourite ? heartBlack : heartWhite} alt="favourite" />
             </button>
           }
+        </div>
         </div>
       </div>
     </article>

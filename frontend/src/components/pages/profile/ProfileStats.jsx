@@ -103,7 +103,7 @@ export default function ProfileStats() {
 
   return (
     <>
-      <p>{firstName}, ваши последние результаты:</p>
+      {/* <p>{firstName}, ваши последние результаты:</p> */}
       {/* {{ thisYear }, { thisMonth }, { thisDay }, { startThisMonth.toString() }} */}
 
       {/* <p>{startMonthM1.toString()}</p>

@@ -85,7 +85,7 @@ export default function FormStartProject(props) {
               </div>
               <div className="wrap_btn_startProject">
               <button onClick={props.onCancel} className="btnCancel">Отменить</button>
-              <button className="startProject_btnStart" onClick={submitHandler} className="btnOpenCard">Добавить в начатое</button>
+              <button className="startProject_btnStart" onClick={submitHandler} className="btn_formStartProj_DOB">Добавить в начатое</button>
               {/* <a href={url} target="_blank"><button>Перейти к обьявлению</button></a> */}
               </div>
             </form>
