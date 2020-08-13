@@ -68,19 +68,19 @@ export default function Login({ isModal, toggleModal }) {
           <form className="modal-signup" onSubmit={submitHandler}>
 
             <label className="formLable" htmlFor="firstName">Имя</label>
-            <input className="formInput" type="text" name="firstName" required onChange={changeHandler} value={state.firstName} />
+            <input className="modal-input" type="text" name="firstName" required onChange={changeHandler} value={state.firstName} />
 
             <label className="formLable" htmlFor="lastName">Фамилия</label>
-            <input className="formInput" type="text" name="lastName" required onChange={changeHandler} value={state.lastName} />
+            <input className="modal-input" type="text" name="lastName" required onChange={changeHandler} value={state.lastName} />
 
             <label className="formLable" htmlFor="email">Емайл</label>
-            <input className="formInput" type="email" name="email" required onChange={changeHandler} value={state.email} />
+            <input className="modal-input" type="email" name="email" required onChange={changeHandler} value={state.email} />
 
             <label className="formLable" htmlFor="password">Пароль</label>
-            <input className="formInput" type="password" name="password" required onChange={changeHandler} value={state.password} />
+            <input className="modal-input" type="password" name="password" required onChange={changeHandler} value={state.password} />
             <label className="formLable" htmlFor="password2">Повторите пароль</label>
 
-            <input className="formInput" type="password" name="password2" required onChange={changeHandler} value={state.password2} />
+            <input className="modal-input" type="password" name="password2" required onChange={changeHandler} value={state.password2} />
             <button className="formBtn" type="submit">Зарегистрироваться</button>
           </form>
         </div>

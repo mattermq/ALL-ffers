@@ -21,7 +21,7 @@ export default function ProfileFeed({ projects }) {
       <>
         {
           paginatedProjects.length > 0 && paginatedProjects.map(project => {
-            if (project.hasExpandedSize === true)
+            if (projects.hasExpandedSize === true)
               return <CardExpandedP key={project._id} offer={project} />
             else
               return <CardShortP key={project._id} offer={project} />
