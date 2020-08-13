@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import ProfileTab from './ProfileTab'
 import { setActiveTabAC } from '../../../store/slice'
@@ -8,6 +8,16 @@ export default function ProfileTabBar() {
   const [buttonOneActive, setButtonOneActive] = useState(profileActiveTab === 1)
   const [buttonTwoActive, setButtonTwoActive] = useState(profileActiveTab === 2)
   const [buttonThreeActive, setButtonThreeActive] = useState(profileActiveTab === 3)
+
+  console.log(profileActiveTab)
+  console.log(buttonOneActive, buttonTwoActive, buttonThreeActive)
+
+  useEffect(() => {
+    setButtonOneActive(profileActiveTab === 1)
+    setButtonTwoActive(profileActiveTab === 2)
+    setButtonThreeActive(profileActiveTab === 3)
+  }, [profileActiveTab])
+
   const dispatch = useDispatch()
 
   const setActiveOne = () => {
