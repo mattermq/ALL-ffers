@@ -56,8 +56,8 @@ export default function ProfileStats() {
   }
 
   finishedProjects.forEach(project => {
-    // console.log(project.finishedAtTS)
-    // console.log(statsThisMonth.start)
+    console.log('finished at', project.finishedAtTS)
+    console.log('month begin', statsThisMonth.start)
 
     if (project.finishedAtTS >= statsThisMonth.start) {
       statsThisMonth.finishedProjects.push(project)
@@ -73,8 +73,7 @@ export default function ProfileStats() {
 
 
   startedProjects.forEach(project => {
-    // console.log(project.finishedAtTS)
-    // console.log(statsThisMonth.start)
+    console.log('startedAt', project.finishedAtTS)
 
     if (project.startedAtTS >= statsThisMonth.start) {
       statsThisMonth.startedProjects.push(project)
@@ -88,7 +87,13 @@ export default function ProfileStats() {
     }
   })
 
-  // console.log(statsThisMonth, statsMonthM1, statsMonthM2)
+  statsThisMonth.earned = statsThisMonth.finishedProjects.reduce((sum, item) => sum + Number(item), 0)
+  statsMonthM1.earned = statsMonthM1.finishedProjects.reduce((sum, item) => sum + Number(item), 0)
+  statsMonthM2.earned = statsMonthM2.finishedProjects.reduce((sum, item) => sum + Number(item), 0)
+
+
+
+  console.log(statsThisMonth, statsMonthM1, statsMonthM2)
 
   // console.log(yearNow, monthNow, dayNow)
   // const dt = new Date();
@@ -105,10 +110,30 @@ export default function ProfileStats() {
 
       <table>
         <tbody>
-          <tr><td>Начато</td><td></td><td></td><td></td></tr>
-          <tr><td>Завершено</td><td></td><td></td><td></td></tr>
-          <tr><td>Заработок</td><td></td><td></td><td></td></tr>
-          <tr><td></td><td>{}</td>{months[thisMonth - 2]}<td>{months[thisMonth - 1]}</td><td>{months[thisMonth]}</td></tr>
+          <tr>
+            <td>Начато</td>
+            <td>{statsMonthM2.startedProjects.length}</td>
+            <td>{statsMonthM1.startedProjects.length}</td>
+            <td>{statsThisMonth.startedProjects.length}</td>
+          </tr>
+          <tr>
+            <td>Завершено</td>
+            <td>{statsMonthM2.finishedProjects.length}</td>
+            <td>{statsMonthM1.finishedProjects.length}</td>
+            <td>{statsThisMonth.finishedProjects.length}</td>
+          </tr>
+          <tr>
+            <td>Заработок</td>
+            <td>{statsMonthM2.earned}</td>
+            <td>{statsMonthM1.earned}</td>
+            <td>{statsThisMonth.earned}</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>{months[thisMonth - 2]}</td>
+            <td>{months[thisMonth - 1]}</td>
+            <td>{months[thisMonth]}</td>
+          </tr>
         </tbody>
       </table>
     </>

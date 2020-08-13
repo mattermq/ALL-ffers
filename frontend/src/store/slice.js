@@ -227,19 +227,19 @@ export const logoutThunk = () => async dispatch => {
 
 export const toggleFavouriteThunk = (payload) => async dispatch => {
   const response = await axiosQ.patch('http://localhost:3003/users/favourite', payload)
-  console.log(response.data)
+  // console.log(response.data)
 }
 
 export const addToStartedProjectsThunk = (payload) => async dispatch => {
   const response = await axiosQ.post('http://localhost:3003/users/start', payload)
-  console.log(response.data)
+  // console.log(response.data)
   dispatch(addToStartedProjectsAC(response.data))
   dispatch(toggleFavouriteAC(payload._id))
 }
 
 export const addToFinishedProjectsThunk = (payload) => async dispatch => {
   const response = await axiosQ.post('http://localhost:3003/users/finish', payload)
-  console.log(response.data)
+  // console.log(response.data)
   dispatch(addToFinishedProjectsAC(response.data))
 }
 
