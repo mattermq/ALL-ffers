@@ -522,10 +522,10 @@ a:link {
 
 .tab {
   border: 1px solid grey;
- padding: 10px;
- border-radius: 10px 10px 0 0;
- letter-spacing: 2px;
- 
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  letter-spacing: 2px;
+  outline: none;
 }
 
 
