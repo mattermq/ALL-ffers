@@ -32,7 +32,10 @@ export default function CardNormal(props) {
     <article className="card">
       <div className="wrap_cardMainText">
         <div className="cardMainText">{title}</div>
-        <div className="priceCard">{budget} {currency}</div>
+        <div className="wrap_cardPrice"> {/* wrap для бюджета в рублях */}
+          <div className="budgetRu">  </div> {/* div для бюджета в рублях */}
+          <div className="priceCard">{budget} {currency}</div>
+        </div>
       </div>
       <div className="cardText">{shortDescription}</div>
       <div className="wrap_normalCardDateAndHeart">

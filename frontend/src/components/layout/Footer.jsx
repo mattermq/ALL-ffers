@@ -6,8 +6,8 @@ function Footer() {
     <>
     <div className="wrap_footer">
       <div className="wrap_foot_block">
-        <div>Разработано выпускниками ELBRUS</div>
-        <div>группа BEES-online</div>
+        <div>All-ffers</div>
+        <div></div>
       </div>
       <div>2020 год</div>
     </div>
