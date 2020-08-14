@@ -64,7 +64,8 @@ const projectSchema = new Schema({
   finishedAtTS: {
     type: String,
     default: undefined
-  }
+  },
+  currency: String,
 });
 
 module.exports = mongoose.model('Project', projectSchema);

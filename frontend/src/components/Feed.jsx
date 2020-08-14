@@ -13,7 +13,6 @@ function Feed() {
   const {
     componentsSize,
     filterSearch,
-    filterTags,
     filterFavourites,
     filterBudget,
     sortOption,
@@ -39,8 +38,8 @@ function Feed() {
     offers = offers.filter(offer => (offer.hasProjectBudget) || (offer.hasHourlyRate))
 
   // filtering by tags
-  if (filterTags.length > 0)
-    offers = offers.filter(offer => offer.tags.some(tag => filterTags.includes(tag)))
+  // if (filterTags.length > 0)
+  //   offers = offers.filter(offer => offer.tags.some(tag => filterTags.includes(tag)))
 
   // sorting by all criterias
   if (sortOption === 'hasProjectBudget') {
