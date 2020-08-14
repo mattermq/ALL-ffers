@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const axiosQ = axios.create({ withCredentials: true });
 
-const currencyRate = {
+const currencyRates = {
   '$': 72.94,
   '₴': 2.66
 }
@@ -58,9 +58,9 @@ export const slice = createSlice({
         if (currency === '₽')
           budgetAbsolute = budgetNumber
         else if (currency === '₴')
-          budgetAbsolute = budgetNumber * currencyRate['₴']
+          budgetAbsolute = budgetNumber * currencyRates['₴']
         else if (currency === '$')
-          budgetAbsolute = budgetNumber * currencyRate['$']
+          budgetAbsolute = budgetNumber * currencyRates['$']
 
         return { ...offer, budget: budgetNumber, budgetAbsolute, currency, isFavourite: false, hasExpandedSize: false }
       })
@@ -245,7 +245,12 @@ export const {
 // will call the thunk with the `dispatch` function as the first argument. Async
 // code can then be executed and other actions can be dispatched
 export const fetchOffersThunk = () => async dispatch => {
-  const response = await axiosQ('http://localhost:3003/offers');
+  // const ratesAPI = await axios('http://data.fixer.io/api/latest?access_key=9a1d7f920cf0ea42a9e6bc7a5fe03d06&symbols=USD,RUB,UAH')
+  // const { USD, RUB, UAH } = ratesAPI.data.rates
+  // currencyRates['$'] = Number(RUB) / Number(USD)
+  // currencyRates['₴'] = (Number(RUB) / Number(UAH)) / Number(USD)
+
+  const response = await axiosQ('http://localhost:3003/offers')
   dispatch(addOffers(response.data.offers));
 };
 
