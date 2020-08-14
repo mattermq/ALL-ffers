@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toggleFavouriteAC, toggleFavouriteThunk, expandCardAC } from '../store/slice';
 import heartWhite from '../img/heart_white.png';
 import heartBlack from '../img/heart_black.png';
+import expandCardImg from '../img/expand-button.png';
 
 export default function CardShort(props) {
   const dispatch = useDispatch()
@@ -26,7 +27,9 @@ export default function CardShort(props) {
         <div className="priceCard">{budget} {currency}</div>
       </div>
       <div className="wrap_openAndHeart_cardShort">
-        <button onClick={expandCard} className="btnOpenCard">развернуть</button>
+        <button onClick={expandCard} className="btnOpenCard">
+          <img className="open-card-img" src={expandCardImg}></img>
+        </button>
         {isAuth && <button onClick={toggleFavourite} className="btnHeartCard"><img className="imgHeartCard" src={isFavourite ? heartBlack : heartWhite} alt="favourite" /></button>}
       </div>
     </article>
