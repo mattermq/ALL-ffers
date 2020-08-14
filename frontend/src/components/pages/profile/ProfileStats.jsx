@@ -138,8 +138,15 @@ export default function ProfileStats() {
           </tr>
         </tbody>
       </table> */}
-      <BarsChart />
-      <LineChart />
+      <BarsChart 
+        startedByMonths={[statsMonthM2.startedProjects.length, statsMonthM1.startedProjects.length, statsThisMonth.startedProjects.length]}
+        finishedByMonths={[statsMonthM2.finishedProjects.length, statsMonthM1.finishedProjects.length, statsThisMonth.finishedProjects.length]}
+        months={[months[thisMonth - 2], months[thisMonth - 1], months[thisMonth]]}
+      />
+      <LineChart
+        earnedByMonths={[statsMonthM2.earned, statsMonthM1.earned, statsThisMonth.earned]}
+        months={[months[thisMonth - 2], months[thisMonth - 1], months[thisMonth]]}
+      />
     </>
   )
 }

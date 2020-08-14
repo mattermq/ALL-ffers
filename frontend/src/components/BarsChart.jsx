@@ -4,6 +4,7 @@ import Chart from 'chart.js';
 export default class BarsChart extends React.Component {
   componentDidMount() {
     this.drawBars(this.props);
+    console.log('PROPS', this.props);
   }
 
   drawBars(props) {
@@ -17,19 +18,19 @@ export default class BarsChart extends React.Component {
 
       // The data for our dataset
       data: {
-        labels: ['Июнь', 'Июль', 'Август'],
+        labels: this.props.months,
         datasets: [
           {
             label: 'Начато проектов',
             backgroundColor: '#0E53A7',
             borderColor: '#0E53A7',
-            data: [7, 10, 9]
+            data: this.props.startedByMonths,
           },
           {
             label: 'Завершено проектов',
             backgroundColor: '#FF9C00',
             borderColor: '#FF9C00',
-            data: [6, 10, 8]
+            data: this.props.finishedByMonths,
           },
         ]
       },

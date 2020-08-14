@@ -17,12 +17,12 @@ export default class BarsChart extends React.Component {
     
         // The data for our dataset
         data: {
-            labels: ['Июнь', 'Июль', 'Август'],
+            labels: this.props.months,
             datasets: [
             {
                 label: 'Заработано за месяц',
                 borderColor: '#0E53A7',
-                data: [23000, 37000, 17000]
+                data: this.props.earnedByMonths,
             },
           ]
         },
