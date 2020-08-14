@@ -4,9 +4,13 @@ function Footer() {
 
   return (
     <>
-      <div>Контакты</div>
-      <div>All-fers</div>
-      <div>Текст</div>
+    <div className="wrap_footer">
+      <div className="wrap_foot_block">
+        <div>Разработано выпускниками ELBRUS</div>
+        <div>группа ПЧЕЛЫ-online</div>
+      </div>
+      <div>2020 год</div>
+    </div>
     </>
   )
 }
