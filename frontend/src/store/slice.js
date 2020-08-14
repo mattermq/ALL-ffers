@@ -38,6 +38,7 @@ export const slice = createSlice({
       const tags = []
 
       state.offers = action.payload.map(offer => {
+        console.log(offer)
         offer.tags.forEach(tag => tags.push(tag))
 
         if (offer.hasProjectBudget === false && offer.hasHourlyRate === false)
@@ -50,6 +51,11 @@ export const slice = createSlice({
           currency = '$'
         else if (offer.budget.includes('₴'))
           currency = '₴'
+        else if (offer.budget.includes('грн'))
+          currency = '₴'
+        else if (offer.budget.includes('руб'))
+          currency = '₽'
+
 
         if (offer.budget !== 'Цена договорная')
           var budgetNumber = Number(offer.budget.replace(/[^0-9]/g, ''))
@@ -251,6 +257,7 @@ export const fetchOffersThunk = () => async dispatch => {
   // currencyRates['₴'] = (Number(RUB) / Number(UAH)) / Number(USD)
 
   const response = await axiosQ('http://localhost:3003/offers')
+  console.log(response)
   dispatch(addOffers(response.data.offers));
 };
 
