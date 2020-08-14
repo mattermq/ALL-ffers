@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&family=Roboto+Condensed:ital,wght@1,300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 
 body,
 html {
@@ -74,6 +75,11 @@ a:link {
   margin-right: 6%;
   margin-left: 6%;
   cursor: pointer;
+}
+
+.logo {
+  font-size: 200%;
+  font-family: 'Abril Fatface', cursive;
 }
 
 .firstPage {
@@ -560,10 +566,18 @@ a:link {
   height: 70px;
   width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
+ 
+}
+
+.wrap_footer {
+  width: 82%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   color: white;
+
 }
 
 
