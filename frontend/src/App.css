@@ -442,6 +442,7 @@ a:link {
   cursor: pointer;
   margin: 6px 0;
   background: none;
+  outline: none;
 }
 
 .imgHeartCard {
