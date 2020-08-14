@@ -79,12 +79,6 @@ function App() {
           <div className="cardShort"> <CardShort /> </div>
         </div>
       </Route>
-
-      <Route exact path="/chart"> {/* CHART TEST */}
-        <BarsChart />
-        <LineChart />
-      </Route>
-
     </Router>
   );
 }

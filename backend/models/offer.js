@@ -17,6 +17,7 @@ const offerSchema = new Schema({
   },
   budget: {
     type: String,
+    default: 'Цена договорная',
   },
   publishedAt: {
     type: String,

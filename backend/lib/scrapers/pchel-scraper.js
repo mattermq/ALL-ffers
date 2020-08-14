@@ -31,16 +31,26 @@ function scrapePchel() {
         }
 
         const title = $('body > div.main-wrapper > main > section.page-top > div > h1').text();
-        const description = $('body > div.main-wrapper > main > section.section-offers > div > div > div.project-mid > dl:nth-child(1) > dd').text();
-        const budget = $('body > div.main-wrapper > main > section.section-offers > div > div > div.project-top > div.project-nums > div').text();
-        const publishedAt = $('body > div.main-wrapper > main > section.section-offers > div > div > div.project-top > div.project-data > div.date').text().trim();
+        const description = $('body > div.main-wrapper > main > section.section-offers > div > div > div.project-mid > dl:nth-child(1) > dd')
+          .text();
+        const budget = $('body > div.main-wrapper > main > section.section-offers > div > div > div.project-top > div.project-nums > div span')
+          .text().trim().slice(2);
+        // let currency = '';
+        // if (budget.includes('грн')) currency = '₴';
+        // else if (budget.includes('руб')) currency = '₽';
+        const publishedAt = $('body > div.main-wrapper > main > section.section-offers > div > div > div.project-top > div.project-data > div.date')
+          .text().trim();
+        const inWork = $('body > div.main-wrapper > main > section:nth-child(4) > div > div > div.project-top > div.project-data > div.stat.orange')
+          .text();
 
         const offer = {
           title,
           description,
-          budget: budget.match(/\d+/gmi),
+          budget,
+          // currency,
           publishedAt,
           url,
+          inWork,
         };
 
         results.push(offer);
@@ -61,7 +71,7 @@ function scrapePchel() {
 
   // эта функция выполнится, когда в очереди закончатся ссылки
   queue.drain = () => {
-    const offers = results.filter((el) => el.description !== '' && el.publishedAt !== '');
+    const offers = results.filter((el) => el.description !== '' && el.publishedAt !== '' && el.inWork === '');
 
     offers.forEach(async (el) => {
       const offerInDb = await Offer.findOne({ url: el.url });
@@ -70,9 +80,10 @@ function scrapePchel() {
         const newOffer = new Offer({
           title: el.title,
           description: el.description,
-          hasProjectBudget: el.budget !== null,
+          hasProjectBudget: el.budget !== '',
           hasHourlyRate: false,
-          budget: el.budget !== null ? el.budget[1] : 'Цена договорная',
+          budget: el.budget === '' ? 'Цена договорная' : el.budget,
+          // currency: el.currency,
           publishedAt: el.publishedAt,
           url: el.url,
           from: 'pchel',
