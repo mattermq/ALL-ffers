@@ -53,6 +53,7 @@ function Feed() {
     offers = offers
       .filter(offer => offer.hasHourlyRate === true)
       .sort((a, b) => Number(b.budgetAbsolute) - Number(a.budgetAbsolute))
+      .concat(offers.filter(offer => offer.hasHourlyRate === false))
   }
   else if (sortOption === 'publishedAtTS') {
     offers = offers.sort((a, b) => Number(b.publishedAtTS) - Number(a.publishedAtTS))

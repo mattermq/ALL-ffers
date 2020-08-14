@@ -8,7 +8,7 @@ import FormFinishProject from './FormFinishProject'
 
 export default function CardShort(props) {
   const dispatch = useDispatch()
-  let { _id, title, budget, isFavourite } = props.offer
+  let { _id, title, budget, currency, isFavourite } = props.offer
   const isAuth = useSelector(state => state.slice.user.isAuth)
   const userId = useSelector(state => state.slice.user._id)
   const [isModalStart, setIsModalStart] = useState(false)
@@ -42,12 +42,12 @@ export default function CardShort(props) {
     <article className="card">
       <div className="wrap_cardMainText_shortCard">
         <div className="cardMainText_shortCard">{title}</div>
-        <div className="priceCard_shortCard">{budget}</div>
+        <div className="priceCard_shortCard">{budget} {currency}</div>
         <div className="wrap_btn_cardShort">
-        <button onClick={expandCard} className="btnOpenCard_cardShort_RAZV">развернуть</button>
-        
-        {(activeTab === 1) && <button onClick={toggleModalStart} className="btnOpenCard_cardShort_DOB">добавить в начатое</button>}
-        {(activeTab === 2) && <button onClick={toggleModalFinish} className="btnOpenCard_cardShort_DOB">добавить в завершенное</button>}
+          <button onClick={expandCard} className="btnOpenCard_cardShort_RAZV">развернуть</button>
+
+          {(activeTab === 1) && <button onClick={toggleModalStart} className="btnOpenCard_cardShort_DOB">добавить в начатое</button>}
+          {(activeTab === 2) && <button onClick={toggleModalFinish} className="btnOpenCard_cardShort_DOB">добавить в завершенное</button>}
         </div>
       </div>
 
