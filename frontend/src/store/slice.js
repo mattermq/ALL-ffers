@@ -38,7 +38,6 @@ export const slice = createSlice({
       const tags = []
 
       state.offers = action.payload.map(offer => {
-        console.log(offer)
         offer.tags.forEach(tag => tags.push(tag))
 
         if (offer.hasProjectBudget === false && offer.hasHourlyRate === false)
@@ -63,11 +62,12 @@ export const slice = createSlice({
         let budgetAbsolute
         if (currency === '₽')
           budgetAbsolute = budgetNumber
-        else if (currency === '₴')
-          budgetAbsolute = budgetNumber * currencyRates['₴']
-        else if (currency === '$')
-          budgetAbsolute = budgetNumber * currencyRates['$']
-
+        else if (currency === '₴') {
+          budgetAbsolute = Math.round(budgetNumber * currencyRates['₴'] / 100) * 100
+        }
+        else if (currency === '$') {
+          budgetAbsolute = Math.round(budgetNumber * currencyRates['$'] / 100) * 100
+        }
         return { ...offer, budget: budgetNumber, budgetAbsolute, currency, isFavourite: false, hasExpandedSize: false }
       })
       state.tags = [...new Set(tags)]
