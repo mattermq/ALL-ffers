@@ -61,7 +61,7 @@ export default function Login({ isModal, toggleModal }) {
       <div className="modal-overlay" >
         <div className="modal-login">
           <button onClick={toggleModal} className="close-modal">
-            <img width={20} height={20} src={crossImg}></img>
+            <img width={20} height={20} src={crossImg} alt=""></img>
           </button>
           <h3 className="modal-header">Войти</h3>
           <form className="modal-form" onSubmit={submitHandler}>

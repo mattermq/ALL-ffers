@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux'
-import { BrowserRouter as Router, Switch, Link, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import './components/Tag.css';
 import './components/Modal.css'
@@ -16,8 +16,6 @@ import Login from './components/pages/Login';
 import CardShort from './components/CardShort';
 import { fetchOffersThunk } from './store/slice'
 import Profile from './components/pages/profile/Profile';
-import BarsChart from './components/BarsChart';
-import LineChart from './components/LineChart';
 
 function App() {
   const dispatch = useDispatch()
@@ -73,12 +71,6 @@ function App() {
         </Route>
 
       </Switch>
-
-      <Route exact path="/testCardShort"> {/* тестовое отображение - ПО ЗАВЕРШЕНИЮ УБРАТЬ */}
-        <div className="app_wrapper">
-          <div className="cardShort"> <CardShort /> </div>
-        </div>
-      </Route>
     </Router>
   );
 }
