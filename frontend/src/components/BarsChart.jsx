@@ -49,7 +49,7 @@ export default class BarsChart extends React.Component {
           yAxes: [{
             scaleStartValue: 0,
             ticks: {
-              max: 15,
+              max: 10,
               min: 0,
               stepSize: 5,
             },

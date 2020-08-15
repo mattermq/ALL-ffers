@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleFavouriteAC, expandCardAC, toggleFavouriteThunk } from '../store/slice';
 import heartWhite from '../img/heart_white.png';
@@ -46,11 +46,11 @@ export default function CardNormal(props) {
           </div>
           <div className="wrap_openAndHeart">
             <button onClick={expandCard} className="btnOpenCard">
-              <img className="open-card-img" src={expandCardImg}></img>
+              <img className="open-card-img" src={expandCardImg} alt=""></img>
             </button>
             {
               isAuth && <button onClick={toggleFavourite} className="btnHeartCard">
-                <img className="imgHeartCard" src={isFavourite ? heartBlack : heartWhite} alt="favourite" />
+                <img className="imgHeartCard" src={isFavourite ? heartBlack : heartWhite} alt="" />
               </button>
             }
           </div>
