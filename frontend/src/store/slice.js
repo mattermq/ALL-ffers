@@ -13,11 +13,6 @@ export const slice = createSlice({
   name: 'slice',
   initialState: initialState,
   reducers: {
-    // Redux Toolkit allows us to write "mutating" logic in reducers. It
-    // doesn't actually mutate the state because it uses the Immer library,
-    // which detects changes to a "draft state" and produces a brand new
-    // immutable state based off those changes
-
     loginAC: (state, action) => {
       const { firstName, lastName, _id, favourites, startedProjects, finishedProjects } = action.payload
       state.user.isAuth = true
@@ -55,7 +50,6 @@ export const slice = createSlice({
         else if (offer.budget.includes('руб'))
           currency = '₽'
 
-
         if (offer.budget !== 'Цена договорная')
           var budgetNumber = Number(offer.budget.replace(/[^0-9]/g, ''))
 
@@ -88,7 +82,6 @@ export const slice = createSlice({
       })
       state.view.profileActiveTab = 1
     },
-
 
     // Card sizes
 
@@ -195,24 +188,15 @@ export const slice = createSlice({
     },
 
     addToStartedProjectsAC: (state, action) => {
-      // const offerIndex = state.offers.findIndex(offer => offer._id === action.payload._id)
-      // console.log(offerIndex)
-      // const project = state.user.splice(offerIndex, 1)
       state.user.startedProjects.push({ ...action.payload, hasExpandedSize: false })
       state.view.profileActiveTab = 2
       console.log(state.user.startedProjects)
     },
 
     addToFinishedProjectsAC: (state, action) => {
-      // const offerIndex = state.offers.findIndex(offer => offer._id === action.payload._id)
-      // console.log(offerIndex)
-      // const project = state.user.splice(offerIndex, 1)
       state.user.finishedProjects.push({ ...action.payload, hasExpandedSize: false })
       state.user.startedProjects = state.user.startedProjects.filter(project => project._id !== action.payload._id)
       state.view.profileActiveTab = 3
-
-      // console.log('STARTED', state.user.startedProjects)
-      // console.log('FINISHED', state.user.finishedProjects)
     },
 
     // Profle
@@ -257,30 +241,26 @@ export const fetchOffersThunk = () => async dispatch => {
   // currencyRates['₴'] = (Number(RUB) / Number(UAH)) / Number(USD)
 
   const response = await axiosQ('http://localhost:3003/offers')
-  console.log(response)
   dispatch(addOffers(response.data.offers));
 };
 
 export const logoutThunk = () => async dispatch => {
-  const response = await axiosQ.post('http://localhost:3003/logout')
+  axiosQ.post('http://localhost:3003/logout')
   dispatch(logoutAC())
 }
 
-export const toggleFavouriteThunk = (payload) => async dispatch => {
-  const response = await axiosQ.patch('http://localhost:3003/users/favourite', payload)
-  // console.log(response.data)
+export const toggleFavouriteThunk = (payload) => () => {
+  axiosQ.patch('http://localhost:3003/users/favourite', payload)
 }
 
 export const addToStartedProjectsThunk = (payload) => async dispatch => {
   const response = await axiosQ.post('http://localhost:3003/users/start', payload)
-  // console.log(response.data)
   dispatch(addToStartedProjectsAC(response.data))
   dispatch(toggleFavouriteAC(payload._id))
 }
 
 export const addToFinishedProjectsThunk = (payload) => async dispatch => {
   const response = await axiosQ.post('http://localhost:3003/users/finish', payload)
-  // console.log(response.data)
   dispatch(addToFinishedProjectsAC(response.data))
 }
 

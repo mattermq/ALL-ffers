@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 import { loginAC } from '../../store/slice.js'
-import Portal2 from '../layout/Portal'
 import crossImg from '../../img/cross.svg';
 
 export default function Login({ isModal, toggleModal }) {
@@ -67,7 +66,7 @@ export default function Login({ isModal, toggleModal }) {
       <div className="modal-overlay" >
         <div className="modal-signup">
           <button onClick={toggleModal} className="close-modal">
-            <img width={20} height={20} src={crossImg}></img>
+            <img width={20} height={20} src={crossImg} alt=""></img>
           </button>
           <h3 className="modal-header">Зарегистрироваться</h3>
           <form className="modal-form" onSubmit={submitHandler}>
