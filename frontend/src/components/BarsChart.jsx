@@ -2,17 +2,37 @@ import React from 'react';
 import Chart from 'chart.js';
 
 export default class BarsChart extends React.Component {
+constructor(props) {
+  super(props)
+  this.canvasRef = React.createRef()
+  this.chart = undefined
+  this.calculateScales = this.calculateScales.bind(this)
+}
   componentDidMount() {
     this.drawBars(this.props);
-    console.log('PROPS', this.props);
   }
 
-  drawBars(props) {
-    const canvas = this.refs.canvas;
+  componentDidUpdate() {
+    this.chart.data.datasets[0].data = this.props.startedByMonths;
+    this.chart.data.datasets[1].data = this.props.finishedByMonths;
+    this.chart.options.scales.yAxes[0].ticks.max = this.calculateScales().chartMax
+    this.chart.options.scales.yAxes[0].ticks.stepSize = this.calculateScales().stepSize
+    this.chart.update({ duration: 2000 });
+  }
+
+  calculateScales() {
+    let chartMax = Math.max(...this.props.startedByMonths,...this.props.finishedByMonths)
+    chartMax = chartMax + (5 - chartMax%5)
+    let stepSize = (chartMax >= 20) ? 10 : 5
+    return { chartMax, stepSize }
+  }
+
+  drawBars() {
+    const canvas = this.canvasRef.current;
     const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    const chart = new Chart(ctx, {
+    this.chart = new Chart(ctx, {
       // The type of chart we want to create
       type: 'bar',
 
@@ -49,9 +69,9 @@ export default class BarsChart extends React.Component {
           yAxes: [{
             scaleStartValue: 0,
             ticks: {
-              max: 10,
+              max: this.calculateScales().chartMax,
               min: 0,
-              stepSize: 5,
+              stepSize: this.calculateScales().stepSize,
             },
           }],
         },
@@ -62,7 +82,7 @@ export default class BarsChart extends React.Component {
   render() {
     return (
       <div className="chart-container" /* style={{'position': 'relative', 'height':'300px', 'width':'300px'}} */>
-        <canvas ref="canvas" id="chart"></canvas>
+        <canvas ref={this.canvasRef} id="chart"></canvas>
       </div>
     );
   }

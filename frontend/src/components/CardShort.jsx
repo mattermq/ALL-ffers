@@ -28,7 +28,7 @@ export default function CardShort(props) {
       </div>
       <div className="wrap_openAndHeart_cardShort">
         <button onClick={expandCard} className="btnOpenCard">
-          <img className="open-card-img" src={expandCardImg}></img>
+          <img className="open-card-img" src={expandCardImg} alt=""></img>
         </button>
         {isAuth && <button onClick={toggleFavourite} className="btnHeartCard"><img className="imgHeartCard" src={isFavourite ? heartBlack : heartWhite} alt="favourite" /></button>}
       </div>

@@ -1,10 +1,7 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import ProfileChart from './ProfileChart'
-import ProfileTabs from './ProfileTabs'
 import ProfileFeed from './ProfileFeed'
-import FormStartProject from './FormStartProject'
 import ProfileTabBar from './ProfileTabBar'
 import ProfileStats from './ProfileStats'
 
@@ -16,7 +13,7 @@ export default function Profile() {
     history.push("/")
 
   const { profileActiveTab } = useSelector(state => state.slice.view)
-  const { startedProjects, finishedProjects, favourites, firstName } = useSelector(state => state.slice.user)
+  const { startedProjects, finishedProjects, favourites } = useSelector(state => state.slice.user)
   const offers = useSelector(state => state.slice.offers)
   const favouritesAsObjects = []
 

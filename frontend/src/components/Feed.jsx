@@ -21,7 +21,6 @@ function Feed() {
   } = useSelector(state => state.slice.view)
   const isAuth = useSelector((state) => state.slice.user.isAuth)
   const offersAll = useSelector((state) => state.slice.offers)
-  const allTags = useSelector((state) => state.slice.tags)
 
   let offers = offersAll.slice()
 

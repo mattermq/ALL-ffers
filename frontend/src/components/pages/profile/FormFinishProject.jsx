@@ -1,15 +1,12 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { createPortal } from 'react-dom'
-import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { addToStartedProjectsThunk, addToFinishedProjectsThunk } from '../../../store/slice';
+import { useDispatch } from 'react-redux';
+import { addToFinishedProjectsThunk } from '../../../store/slice';
 import Tag from '../../Tag';
-import Portal from '../../layout/Portal'
 
 export default function FormFinishProject(props) {
   const dispatch = useDispatch()
-  let userId = useSelector(state => state.slice.user._id)
-  let { _id, title, description, budget, publishedAt, startedAt, comment, tags, url } = props.offer
+  let { title, description, budget, publishedAt, comment, tags } = props.offer
 
   const [realBudget, setRealBudget] = useState(budget)
   const [finalComment, setFinalComment] = useState(comment)
@@ -43,7 +40,6 @@ export default function FormFinishProject(props) {
   const commentHandler = (e) => {
     setFinalComment(e.target.value)
   }
-
 
 
   const submitHandler = (e) => {

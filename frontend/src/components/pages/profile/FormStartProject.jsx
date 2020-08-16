@@ -1,15 +1,13 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { createPortal } from 'react-dom'
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import { addToStartedProjectsThunk } from '../../../store/slice';
 import Tag from '../../Tag';
-import Portal from '../../layout/Portal'
 
 export default function FormStartProject(props) {
   const dispatch = useDispatch()
   let userId = useSelector(state => state.slice.user._id)
-  let { _id, title, description, budget, publishedAt, tags, url } = props.offer
+  let { title, description, budget, publishedAt, tags } = props.offer
 
   const [realBudget, setRealBudget] = useState(budget)
   const [comment, setComment] = useState('')
@@ -44,8 +42,6 @@ export default function FormStartProject(props) {
     setComment(e.target.value)
   }
 
-
-
   const submitHandler = (e) => {
     e.preventDefault()
     const newProject = {
@@ -58,7 +54,6 @@ export default function FormStartProject(props) {
     dispatch(addToStartedProjectsThunk(newProject))
     props.onCancel()
   }
-
 
 
   if (props.isModal)

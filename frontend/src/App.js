@@ -13,7 +13,6 @@ import Footer from './components/layout/Footer';
 import FirstPage from './components/pages/FirstPage';
 import Signup from './components/pages/Signup';
 import Login from './components/pages/Login';
-import CardShort from './components/CardShort';
 import { fetchOffersThunk } from './store/slice'
 import Profile from './components/pages/profile/Profile';
 

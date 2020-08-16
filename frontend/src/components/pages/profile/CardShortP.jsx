@@ -1,28 +1,19 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleFavouriteAC, toggleFavouriteThunk, expandCardAC, expandProjectCardAC } from '../../../store/slice';
-import heartBlack from '../../../img/heart_black.png';
+import { expandCardAC, expandProjectCardAC } from '../../../store/slice';
 import FormStartProject from './FormStartProject'
 import FormFinishProject from './FormFinishProject'
 
 
 export default function CardShort(props) {
   const dispatch = useDispatch()
-  let { _id, title, budget, currency, isFavourite } = props.offer
-  const isAuth = useSelector(state => state.slice.user.isAuth)
-  const userId = useSelector(state => state.slice.user._id)
+  let { _id, title, budget, currency } = props.offer
   const [isModalStart, setIsModalStart] = useState(false)
   const [isModalFinish, setIsModalFinish] = useState(false)
 
   const activeTab = useSelector(state => state.slice.view.profileActiveTab)
 
-  const toggleFavourite = () => {
-    dispatch(toggleFavouriteAC(_id))
-    dispatch(toggleFavouriteThunk({ userId, offerId: _id }))
-  }
-
   const expandCard = () => {
-    console.log('КЛИК')
     if (activeTab === 1)
       dispatch(expandCardAC(_id))
     else

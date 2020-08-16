@@ -34,15 +34,6 @@ function Header() {
         {signupModal && <SignupModal isModal={signupModal} toggleModal={toggleSignupModal} />}
       </div>
     </div>
-
-    // <div className="headerBlock">
-    //   <div className="logo">Логотип</div>
-    //   <div className="wrap_login">
-    //     <div className="login"></div>
-    //     <div className="registration">Регистрация</div>
-    //   </div>
-    // </div>
-
   )
 }
 

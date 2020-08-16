@@ -20,23 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c7f2947-8cd3-46b1-b52e-2c42ea69ad1f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/backend.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/.idea/frontend.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../frontend/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/components/BarsChart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/BarsChart.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/CardNormal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/CardNormal.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/FilterBlock.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/FilterBlock.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/components/LineChart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/LineChart.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/pages/LoginModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/pages/LoginModal.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/pages/profile/ProfileStats.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/pages/profile/ProfileStats.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +57,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1597508031786</updated>
-      <workItem from="1597508032920" duration="635000" />
+      <workItem from="1597508032920" duration="1769000" />
     </task>
     <servers />
   </component>
