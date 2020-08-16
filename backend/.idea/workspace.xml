@@ -21,20 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="5c7f2947-8cd3-46b1-b52e-2c42ea69ad1f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/CardShort.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/CardShort.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/Feed.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/Feed.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/layout/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/layout/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/layout/Portal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/layout/Portal.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/pages/SignupModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/pages/SignupModal.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/pages/profile/CardExpandedP.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/pages/profile/CardExpandedP.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/pages/profile/CardNormalP.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/pages/profile/CardNormalP.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/pages/profile/CardShortP.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/pages/profile/CardShortP.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/pages/profile/FormFinishProject.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/pages/profile/FormFinishProject.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/pages/profile/FormStartProject.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/pages/profile/FormStartProject.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/pages/profile/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/pages/profile/Profile.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/pages/profile/ProfileFeed.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/pages/profile/ProfileFeed.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/store/slice.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/store/slice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/components/BarsChart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/BarsChart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/components/LineChart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/LineChart.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +57,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1597508031786</updated>
-      <workItem from="1597508032920" duration="635000" />
+      <workItem from="1597508032920" duration="1769000" />
     </task>
     <servers />
   </component>
