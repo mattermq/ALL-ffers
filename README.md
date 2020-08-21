@@ -4,3 +4,14 @@
 
 ## Обзор
 ![all-ffers](https://github.com/re-mark/freelance-offers-aggregator/blob/master/readme-assets/frellance.gif)
+
+## Запуск
+```js
+cd backend
+npm i
+npm start
+
+cd frontend
+npm i
+npm start
+```
