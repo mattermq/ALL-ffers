@@ -3,7 +3,7 @@
 **ALL-ffers** - агрегатор фриланс-заказов и предложений о удаленной работе с различных бирж фриланса, который позволяет увидеть все актуальные предложения, отследить выполнение заказа и предоставляет статистику по заказам.
 
 ## Обзор
-![all-ffers](https://github.com/re-mark/freelance-offers-aggregator/blob/master/readme-assets/frellance.gif)
+![all-ffers](https://user-images.githubusercontent.com/63851100/91732454-8a90cd00-eba8-11ea-824d-df68e9f8bbec.gif)
 
 ## Запуск
 ```js
