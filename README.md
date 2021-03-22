@@ -16,10 +16,8 @@
 * Используется внешний API для корректной конвертации курсов валют.
 
 **Технический стэк**
-* **React**
-* Redux
-* **node.js**
-* Express.js
+* **React** / Redux
+* **node.js** / Express.js
 * **MongoDB** & MongoDB Atlas
 
 ## Обзор
